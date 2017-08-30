@@ -51,6 +51,7 @@ typedef struct {
 	float i_abs;
 	float i_abs_filter;
 	float i_bus;
+	float i_bus_filter;
 	float v_bus;
 	float v_alpha;
 	float v_beta;
@@ -91,6 +92,7 @@ static volatile bool m_dccal_done;
 static volatile bool m_output_on;
 static volatile float m_pos_pid_set;
 static volatile float m_speed_pid_set_rpm;
+static volatile ppm_cruise m_speed_pid_cruise_control_type;
 static volatile float m_phase_now_observer;
 static volatile float m_phase_now_observer_override;
 static volatile bool m_phase_observer_override;
@@ -101,13 +103,13 @@ static volatile float m_observer_x2;
 static volatile float m_pll_phase;
 static volatile float m_pll_speed;
 static volatile mc_sample_t m_samples;
-static volatile int m_tachometer;
-static volatile int m_tachometer_abs;
+static volatile float m_tachometer;
+static volatile float m_tachometer_abs;
 static volatile float last_inj_adc_isr_duration;
 static volatile float m_pos_pid_now;
 
 // Private functions
-
+static void do_dc_cal(void);
 void observer_update(float v_alpha, float v_beta, float i_alpha, float i_beta,
 		float dt, volatile float *x1, volatile float *x2, volatile float *phase);
 static void pll_run(float phase, float dt, volatile float *phase_var,
@@ -205,6 +207,7 @@ void mcpwm_foc_init(volatile mc_configuration *configuration) {
 	m_output_on = false;
 	m_pos_pid_set = 0.0;
 	m_speed_pid_set_rpm = 0.0;
+	m_speed_pid_cruise_control_type = CRUISE_CONTROL_MOTOR_SETTINGS;
 	m_phase_now_observer = 0.0;
 	m_phase_now_observer_override = 0.0;
 	m_phase_observer_override = false;
@@ -214,8 +217,8 @@ void mcpwm_foc_init(volatile mc_configuration *configuration) {
 	m_observer_x2 = 0.0;
 	m_pll_phase = 0.0;
 	m_pll_speed = 0.0;
-	m_tachometer = 0;
-	m_tachometer_abs = 0;
+	m_tachometer = 0.0;
+	m_tachometer_abs = 0.0;
 	last_inj_adc_isr_duration = 0;
 	m_pos_pid_now = 0.0;
 	memset((void*)&m_motor_state, 0, sizeof(motor_state_t));
@@ -408,8 +411,9 @@ void mcpwm_foc_init(volatile mc_configuration *configuration) {
 	utils_sys_unlock_cnt();
 
 	// Calibrate current offset
-	
-	
+	ENABLE_GATE();
+	DCCAL_OFF();
+	do_dc_cal();
 
 	// Various time measurements
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM12, ENABLE);
@@ -516,8 +520,28 @@ void mcpwm_foc_set_duty_noramp(float dutyCycle) {
  * The electrical RPM goal value to use.
  */
 void mcpwm_foc_set_pid_speed(float rpm) {
+	// Too low RPM set. Reset state and return.
+	if (fabsf(rpm) < m_conf->s_pid_min_erpm) {
+		mcpwm_foc_set_duty(0.0);
+		return;
+	}
 	m_control_mode = CONTROL_MODE_SPEED;
 	m_speed_pid_set_rpm = rpm;
+	m_speed_pid_cruise_control_type = CRUISE_CONTROL_MOTOR_SETTINGS;
+
+	if (m_state != MC_STATE_RUNNING) {
+		m_state = MC_STATE_RUNNING;
+	}
+}
+
+void mcpwm_foc_set_pid_speed_with_cruise_status(float rpm, ppm_cruise cruise_status) {
+	if (fabsf(rpm) < m_conf->s_pid_min_erpm) {
+		mcpwm_foc_set_duty(0.0);
+		return;
+	}
+	m_control_mode = CONTROL_MODE_SPEED;
+	m_speed_pid_set_rpm = rpm;
+	m_speed_pid_cruise_control_type = cruise_status;
 
 	if (m_state != MC_STATE_RUNNING) {
 		m_state = MC_STATE_RUNNING;
@@ -581,7 +605,7 @@ void mcpwm_foc_set_brake_current(float current) {
 		return;
 	}
 
-	utils_truncate_number(&current, m_conf->lo_current_min, m_conf->lo_current_max);
+	utils_truncate_number(&current, m_conf->lo_current_min, fabsf(m_conf->lo_current_min));
 
 	m_control_mode = CONTROL_MODE_CURRENT_BRAKE;
 	m_iq_set = current;
@@ -714,7 +738,7 @@ float mcpwm_foc_get_tot_current_in(void) {
  * The filtered input current.
  */
 float mcpwm_foc_get_tot_current_in_filtered(void) {
-	return m_motor_state.i_bus; // TODO: Calculate filtered current?
+	return m_motor_state.i_bus_filter; // TODO: Calculate filtered current?
 }
 
 /**
@@ -729,10 +753,10 @@ float mcpwm_foc_get_tot_current_in_filtered(void) {
  * be this number divided by (3 * MOTOR_POLE_NUMBER).
  */
 int mcpwm_foc_get_tachometer_value(bool reset) {
-	int val = m_tachometer;
+	int val = (int) m_tachometer;
 
 	if (reset) {
-		m_tachometer = 0;
+		m_tachometer = 0.0;
 	}
 
 	return val;
@@ -749,10 +773,10 @@ int mcpwm_foc_get_tachometer_value(bool reset) {
  * be this number divided by (3 * MOTOR_POLE_NUMBER).
  */
 int mcpwm_foc_get_tachometer_abs_value(bool reset) {
-	int val = m_tachometer_abs;
+	int val = (int) m_tachometer_abs;
 
 	if (reset) {
-		m_tachometer_abs = 0;
+		m_tachometer_abs = 0.0;
 	}
 
 	return val;
@@ -1566,7 +1590,12 @@ void mcpwm_foc_adc_inj_int_handler(void) {
 		// Apply current limits
 		const float mod_q = m_motor_state.mod_q;
 		utils_truncate_number(&iq_set_tmp, m_conf->lo_current_min, m_conf->lo_current_max);
-		utils_saturate_vector_2d(&id_set_tmp, &iq_set_tmp, m_conf->lo_current_max);
+		if (iq_set_tmp < 0.0) {
+			utils_saturate_vector_2d(&id_set_tmp, &iq_set_tmp, m_conf->lo_current_min);
+		} else {
+
+			utils_saturate_vector_2d(&id_set_tmp, &iq_set_tmp, m_conf->lo_current_max);
+		}
 		if (mod_q > 0.001) {
 			utils_truncate_number(&iq_set_tmp, m_conf->lo_in_current_min / mod_q, m_conf->lo_in_current_max / mod_q);
 		} else if (mod_q < -0.001) {
@@ -1605,6 +1634,7 @@ void mcpwm_foc_adc_inj_int_handler(void) {
 		m_motor_state.id_filter = 0.0;
 		m_motor_state.iq_filter = 0.0;
 		m_motor_state.i_bus = 0.0;
+		m_motor_state.i_bus_filter = 0.0;
 		m_motor_state.i_abs = 0.0;
 		m_motor_state.i_abs_filter = 0.0;
 
@@ -1637,10 +1667,11 @@ void mcpwm_foc_adc_inj_int_handler(void) {
 
 	// Update tachometer
 	static float phase_last = 0.0;
-	int diff = (int)((utils_angle_difference_rad(m_motor_state.phase, phase_last) * (180.0 / M_PI)) / 60.0);
-	if (diff != 0) {
+	// int diff = (int)((utils_angle_difference_rad(m_motor_state.phase, phase_last) * (180.0 / M_PI)) / 60.0);
+	float diff = (utils_angle_difference_rad(m_motor_state.phase, phase_last) * (180.0 / M_PI)) / 60.0;
+	if ((int) diff != 0) {
 		m_tachometer += diff;
-		m_tachometer_abs += abs(diff);
+		m_tachometer_abs += fabsf(diff);
 		phase_last = m_motor_state.phase;
 	}
 
@@ -1753,7 +1784,19 @@ static THD_FUNCTION(timer_thread, arg) {
 
 }
 
-
+static void do_dc_cal(void) {
+	DCCAL_ON();
+	while(IS_DRV_FAULT()){};
+	chThdSleepMilliseconds(1000);
+	m_curr0_sum = 0;
+	m_curr1_sum = 0;
+	m_curr_samples = 0;
+	while(m_curr_samples < 4000) {};
+	m_curr0_offset = m_curr0_sum / m_curr_samples;
+	m_curr1_offset = m_curr1_sum / m_curr_samples;
+	DCCAL_OFF();
+	m_dccal_done = true;
+}
 
 // See http://cas.ensmp.fr/~praly/Telechargement/Journaux/2010-IEEE_TPEL-Lee-Hong-Nam-Ortega-Praly-Astolfi.pdf
 void observer_update(float v_alpha, float v_beta, float i_alpha, float i_beta,
@@ -1860,6 +1903,7 @@ static void control_current(volatile motor_state_t *state_m, float dt) {
 
 	// TODO: Have a look at this?
 	state_m->i_bus = state_m->mod_d * state_m->id + state_m->mod_q * state_m->iq;
+	UTILS_LP_FAST(state_m->i_bus_filter, state_m->i_bus, MCPWM_FOC_I_FILTER_CONST);
 	state_m->i_abs = sqrtf(state_m->id * state_m->id + state_m->iq * state_m->iq);
 	state_m->i_abs_filter = sqrtf(state_m->id_filter * state_m->id_filter + state_m->iq_filter * state_m->iq_filter);
 
@@ -2103,6 +2147,7 @@ static void run_pid_control_speed(float dt) {
 	if (fabsf(m_speed_pid_set_rpm) < m_conf->s_pid_min_erpm) {
 		i_term = 0.0;
 		prev_error = 0;
+		m_iq_set = 0.0;
 		return;
 	}
 
@@ -2125,8 +2170,17 @@ static void run_pid_control_speed(float dt) {
 
 	// Calculate output
 	float output = p_term + i_term + d_term;
-	utils_truncate_number(&output, -1.0, 1.0);
 
+	if ((m_speed_pid_cruise_control_type == CRUISE_CONTROL_MOTOR_SETTINGS && m_conf->s_pid_breaking_enabled) || m_speed_pid_cruise_control_type == CRUISE_CONTROL_BRAKING_ENABLED) {
+		utils_truncate_number(&output, -1.0, 1.0);
+	} else {
+		if(m_speed_pid_set_rpm < 0.0){
+			utils_truncate_number(&output, -1.0, 0.0);
+		}else{
+			utils_truncate_number(&output, 0.0, 1.0);
+		}
+	}
+	
 	m_iq_set = output * m_conf->lo_current_max;
 }
 
@@ -2194,8 +2248,8 @@ static float correct_hall(float angle, float speed, float dt) {
 	float rpm_abs = fabsf(speed / ((2.0 * M_PI) / 60.0));
 	static bool using_hall = true;
 
-	// Hysteresis 5 % of total speed
-	float hyst = m_conf->foc_sl_erpm * 0.05;
+	// Hysteresis 10 % of total speed
+	float hyst = m_conf->foc_sl_erpm * 0.10;
 	if (using_hall) {
 		if (rpm_abs > (m_conf->foc_sl_erpm + hyst)) {
 			using_hall = false;

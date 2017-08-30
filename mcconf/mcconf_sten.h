@@ -33,9 +33,9 @@
  * Parameters
  */
 #define MCCONF_DEFAULT_MOTOR_TYPE			MOTOR_TYPE_BLDC
-#define MCCONF_L_CURRENT_MAX				300.0	// Current limit in Amperes (Upper)
-#define MCCONF_L_CURRENT_MIN				-300.0	// Current limit in Amperes (Lower)
-#define MCCONF_L_MAX_ABS_CURRENT			450.0	// The maximum absolute current above which a fault is generated
+#define MCCONF_L_CURRENT_MAX				35.0	// Current limit in Amperes (Upper)
+#define MCCONF_L_CURRENT_MIN				-30.0	// Current limit in Amperes (Lower)
+#define MCCONF_L_MAX_ABS_CURRENT			130.0	// The maximum absolute current above which a fault is generated
 #define MCCONF_L_SLOW_ABS_OVERCURRENT		1		// Use the filtered (and hence slower) current for the overcurrent fault detection
 #define MCCONF_L_IN_CURRENT_MAX				25.0	// Input current limit in Amperes (Upper)
 #define MCCONF_L_IN_CURRENT_MIN				-20.0	// Input current limit in Amperes (Lower)
@@ -74,6 +74,6 @@
 #define MCCONF_S_PID_KP					0.0001	// Proportional gain
 #define MCCONF_S_PID_KI					0.002	// Integral gain
 #define MCCONF_S_PID_KD					0.0		// Derivative gain
-#define MCCONF_S_PID_MIN_RPM				1200.0	// Minimum allowed RPM
-
+#define MCCONF_S_PID_MIN_RPM			1200.0	// Minimum allowed RPM
+#define MCCONF_S_PID_BREAKING_ENABLED   1 		// enable braking at pid speed mode (cruise control)
 #endif /* MCCONF_STEN_H_ */

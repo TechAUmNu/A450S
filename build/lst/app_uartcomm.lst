@@ -1,0 +1,5049 @@
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 1
+   4              		.eabi_attribute 28, 1
+   5              		.fpu fpv4-sp-d16
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 2
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.thumb
+  16              		.syntax unified
+  17              		.file	"app_uartcomm.c"
+  18              		.text
+  19              	.Ltext0:
+  20              		.cfi_sections	.debug_frame
+  21              		.section	.text.rxerr,"ax",%progbits
+  22              		.align	2
+  23              		.p2align 4,,15
+  24              		.thumb
+  25              		.thumb_func
+  26              		.type	rxerr, %function
+  27              	rxerr:
+  28              	.LFB258:
+  29              		.file 1 "applications/app_uartcomm.c"
+  30              		.loc 1 74 0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              	.LVL0:
+  36 0000 7047     		bx	lr
+  37              		.cfi_endproc
+  38              	.LFE258:
+  39              		.size	rxerr, .-rxerr
+  40 0002 00BF     		.section	.text.rxend,"ax",%progbits
+  41              		.align	2
+  42              		.p2align 4,,15
+  43              		.thumb
+  44              		.thumb_func
+  45              		.type	rxend, %function
+  46              	rxend:
+  47              	.LFB260:
+  48              		.loc 1 99 0
+  49              		.cfi_startproc
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  53              	.LVL1:
+  54 0000 7047     		bx	lr
+  55              		.cfi_endproc
+  56              	.LFE260:
+  57              		.size	rxend, .-rxend
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 2
+
+
+  58 0002 00BF     		.section	.text.packet_process_thread,"ax",%progbits
+  59              		.align	2
+  60              		.p2align 4,,15
+  61              		.thumb
+  62              		.thumb_func
+  63              		.type	packet_process_thread, %function
+  64              	packet_process_thread:
+  65              	.LFB266:
+  66              		.loc 1 165 0
+  67              		.cfi_startproc
+  68              		@ Volatile: function does not return.
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71              	.LVL2:
+  72              	.LBB40:
+  73              	.LBB41:
+  74              		.file 2 "ChibiOS_3.0.2/os/rt/include/chregistry.h"
+  75              		.loc 2 135 0
+  76 0000 114B     		ldr	r3, .L11
+  77              	.LBE41:
+  78              	.LBE40:
+  79              		.loc 1 170 0
+  80 0002 124A     		ldr	r2, .L11+4
+  81              	.LBB44:
+  82              	.LBB42:
+  83              		.loc 2 135 0
+  84 0004 9B69     		ldr	r3, [r3, #24]
+  85 0006 124C     		ldr	r4, .L11+8
+  86 0008 1249     		ldr	r1, .L11+12
+  87 000a 134E     		ldr	r6, .L11+16
+  88              	.LBE42:
+  89              	.LBE44:
+  90              		.loc 1 165 0
+  91 000c 80B5     		push	{r7, lr}
+  92              		.cfi_def_cfa_offset 8
+  93              		.cfi_offset 7, -8
+  94              		.cfi_offset 14, -4
+  95 000e 134F     		ldr	r7, .L11+20
+  96              	.LBB45:
+  97              	.LBB43:
+  98              		.loc 2 135 0
+  99 0010 9961     		str	r1, [r3, #24]
+ 100              	.LVL3:
+ 101              	.LBE43:
+ 102              	.LBE45:
+ 103              		.loc 1 170 0
+ 104 0012 1360     		str	r3, [r2]
+ 105              		.loc 1 176 0
+ 106 0014 A146     		mov	r9, r4
+ 107              		.loc 1 179 0
+ 108 0016 4FF00008 		mov	r8, #0
+ 109              	.LVL4:
+ 110              	.L7:
+ 111              		.loc 1 173 0
+ 112 001a 0120     		movs	r0, #1
+ 113 001c FFF7FEFF 		bl	chEvtWaitAny
+ 114              	.LVL5:
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 3
+
+
+ 115              	.L4:
+ 116 0020 2368     		ldr	r3, [r4]
+ 117              	.L5:
+ 118              		.loc 1 175 0
+ 119 0022 3268     		ldr	r2, [r6]
+ 120 0024 9A42     		cmp	r2, r3
+ 121              		.loc 1 176 0
+ 122 0026 03F10105 		add	r5, r3, #1
+ 123 002a 4FF00101 		mov	r1, #1
+ 124              		.loc 1 175 0
+ 125 002e F4D0     		beq	.L7
+ 126              		.loc 1 176 0
+ 127 0030 F85C     		ldrb	r0, [r7, r3]	@ zero_extendqisi2
+ 128 0032 2560     		str	r5, [r4]
+ 129 0034 FFF7FEFF 		bl	packet_process_byte
+ 130              	.LVL6:
+ 131              		.loc 1 178 0
+ 132 0038 2368     		ldr	r3, [r4]
+ 133 003a B3F5806F 		cmp	r3, #1024
+ 134 003e F0D1     		bne	.L5
+ 135              		.loc 1 179 0
+ 136 0040 C9F80080 		str	r8, [r9]
+ 137 0044 ECE7     		b	.L4
+ 138              	.L12:
+ 139 0046 00BF     		.align	2
+ 140              	.L11:
+ 141 0048 00000000 		.word	ch
+ 142 004c 00000000 		.word	.LANCHOR0
+ 143 0050 00000000 		.word	.LANCHOR1
+ 144 0054 00000000 		.word	.LC0
+ 145 0058 00000000 		.word	.LANCHOR3
+ 146 005c 00000000 		.word	.LANCHOR2
+ 147              		.cfi_endproc
+ 148              	.LFE266:
+ 149              		.size	packet_process_thread, .-packet_process_thread
+ 150              		.section	.text.rxchar,"ax",%progbits
+ 151              		.align	2
+ 152              		.p2align 4,,15
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.type	rxchar, %function
+ 156              	rxchar:
+ 157              	.LFB259:
+ 158              		.loc 1 83 0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              	.LVL7:
+ 163              		.loc 1 85 0
+ 164 0000 0B4B     		ldr	r3, .L16
+ 165 0002 1868     		ldr	r0, [r3]
+ 166              	.LVL8:
+ 167 0004 421C     		adds	r2, r0, #1
+ 168              		.loc 1 83 0
+ 169 0006 10B5     		push	{r4, lr}
+ 170              		.cfi_def_cfa_offset 8
+ 171              		.cfi_offset 4, -8
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 4
+
+
+ 172              		.cfi_offset 14, -4
+ 173              		.loc 1 87 0
+ 174 0008 B2F5806F 		cmp	r2, #1024
+ 175              		.loc 1 85 0
+ 176 000c 094C     		ldr	r4, .L16+4
+ 177 000e 1A60     		str	r2, [r3]
+ 178              		.loc 1 88 0
+ 179 0010 04BF     		itt	eq
+ 180 0012 0022     		moveq	r2, #0
+ 181 0014 1A60     		streq	r2, [r3]
+ 182              		.loc 1 85 0
+ 183 0016 2154     		strb	r1, [r4, r0]
+ 184              	.LBB46:
+ 185              	.LBB47:
+ 186              	.LBB48:
+ 187              	.LBB49:
+ 188              	.LBB50:
+ 189              		.file 3 "ChibiOS_3.0.2/os/ext/CMSIS/include/core_cmFunc.h"
+ 190              		.loc 3 546 0
+ 191 0018 2023     		movs	r3, #32
+ 192              		.syntax unified
+ 193              	@ 546 "ChibiOS_3.0.2/os/ext/CMSIS/include/core_cmFunc.h" 1
+ 194 001a 83F31188 		MSR basepri, r3
+ 195              	@ 0 "" 2
+ 196              	.LVL9:
+ 197              		.thumb
+ 198              		.syntax unified
+ 199              	.LBE50:
+ 200              	.LBE49:
+ 201              	.LBE48:
+ 202              	.LBE47:
+ 203              	.LBE46:
+ 204              		.loc 1 92 0
+ 205 001e 064B     		ldr	r3, .L16+8
+ 206 0020 0121     		movs	r1, #1
+ 207              	.LVL10:
+ 208 0022 1868     		ldr	r0, [r3]
+ 209 0024 FFF7FEFF 		bl	chEvtSignalI
+ 210              	.LVL11:
+ 211              	.LBB51:
+ 212              	.LBB52:
+ 213              	.LBB53:
+ 214              	.LBB54:
+ 215              	.LBB55:
+ 216              		.loc 3 546 0
+ 217 0028 0023     		movs	r3, #0
+ 218              		.syntax unified
+ 219              	@ 546 "ChibiOS_3.0.2/os/ext/CMSIS/include/core_cmFunc.h" 1
+ 220 002a 83F31188 		MSR basepri, r3
+ 221              	@ 0 "" 2
+ 222              	.LVL12:
+ 223              		.thumb
+ 224              		.syntax unified
+ 225 002e 10BD     		pop	{r4, pc}
+ 226              	.L17:
+ 227              		.align	2
+ 228              	.L16:
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 5
+
+
+ 229 0030 00000000 		.word	.LANCHOR3
+ 230 0034 00000000 		.word	.LANCHOR2
+ 231 0038 00000000 		.word	.LANCHOR0
+ 232              	.LBE55:
+ 233              	.LBE54:
+ 234              	.LBE53:
+ 235              	.LBE52:
+ 236              	.LBE51:
+ 237              		.cfi_endproc
+ 238              	.LFE259:
+ 239              		.size	rxchar, .-rxchar
+ 240              		.section	.text.process_packet,"ax",%progbits
+ 241              		.align	2
+ 242              		.p2align 4,,15
+ 243              		.thumb
+ 244              		.thumb_func
+ 245              		.type	process_packet, %function
+ 246              	process_packet:
+ 247              	.LFB261:
+ 248              		.loc 1 118 0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252              	.LVL13:
+ 253 0000 38B5     		push	{r3, r4, r5, lr}
+ 254              		.cfi_def_cfa_offset 16
+ 255              		.cfi_offset 3, -16
+ 256              		.cfi_offset 4, -12
+ 257              		.cfi_offset 5, -8
+ 258              		.cfi_offset 14, -4
+ 259              		.loc 1 118 0
+ 260 0002 0446     		mov	r4, r0
+ 261 0004 0D46     		mov	r5, r1
+ 262              		.loc 1 119 0
+ 263 0006 0448     		ldr	r0, .L20
+ 264              	.LVL14:
+ 265 0008 FFF7FEFF 		bl	commands_set_send_func
+ 266              	.LVL15:
+ 267              		.loc 1 120 0
+ 268 000c 2946     		mov	r1, r5
+ 269 000e 2046     		mov	r0, r4
+ 270              		.loc 1 121 0
+ 271 0010 BDE83840 		pop	{r3, r4, r5, lr}
+ 272              		.cfi_restore 14
+ 273              		.cfi_restore 5
+ 274              		.cfi_restore 4
+ 275              		.cfi_restore 3
+ 276              		.cfi_def_cfa_offset 0
+ 277              	.LVL16:
+ 278              		.loc 1 120 0
+ 279 0014 FFF7FEBF 		b	commands_process_packet
+ 280              	.LVL17:
+ 281              	.L21:
+ 282              		.align	2
+ 283              	.L20:
+ 284 0018 00000000 		.word	send_packet_wrapper
+ 285              		.cfi_endproc
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 6
+
+
+ 286              	.LFE261:
+ 287              		.size	process_packet, .-process_packet
+ 288              		.section	.text.send_packet_wrapper,"ax",%progbits
+ 289              		.align	2
+ 290              		.p2align 4,,15
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.type	send_packet_wrapper, %function
+ 294              	send_packet_wrapper:
+ 295              	.LFB262:
+ 296              		.loc 1 123 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301              	.LVL18:
+ 302              		.loc 1 124 0
+ 303 0000 0122     		movs	r2, #1
+ 304 0002 FFF7FEBF 		b	packet_send_packet
+ 305              	.LVL19:
+ 306              		.cfi_endproc
+ 307              	.LFE262:
+ 308              		.size	send_packet_wrapper, .-send_packet_wrapper
+ 309 0006 00BF     		.section	.text.send_packet,"ax",%progbits
+ 310              		.align	2
+ 311              		.p2align 4,,15
+ 312              		.thumb
+ 313              		.thumb_func
+ 314              		.type	send_packet, %function
+ 315              	send_packet:
+ 316              	.LFB263:
+ 317              		.loc 1 127 0
+ 318              		.cfi_startproc
+ 319              		@ args = 0, pretend = 0, frame = 0
+ 320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321              	.LVL20:
+ 322 0000 70B5     		push	{r4, r5, r6, lr}
+ 323              		.cfi_def_cfa_offset 16
+ 324              		.cfi_offset 4, -16
+ 325              		.cfi_offset 5, -12
+ 326              		.cfi_offset 6, -8
+ 327              		.cfi_offset 14, -4
+ 328              		.loc 1 129 0
+ 329 0002 0C4C     		ldr	r4, .L30
+ 330 0004 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 331 0006 012B     		cmp	r3, #1
+ 332              		.loc 1 127 0
+ 333 0008 0646     		mov	r6, r0
+ 334 000a 0D46     		mov	r5, r1
+ 335              		.loc 1 129 0
+ 336 000c 05D1     		bne	.L25
+ 337              	.LVL21:
+ 338              	.L24:
+ 339              		.loc 1 130 0
+ 340 000e 0120     		movs	r0, #1
+ 341 0010 FFF7FEFF 		bl	chThdSleep
+ 342              	.LVL22:
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 7
+
+
+ 343              		.loc 1 129 0
+ 344 0014 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 345 0016 012B     		cmp	r3, #1
+ 346 0018 F9D0     		beq	.L24
+ 347              	.L25:
+ 348              		.loc 1 136 0
+ 349 001a 3146     		mov	r1, r6
+ 350 001c 2A46     		mov	r2, r5
+ 351 001e 0648     		ldr	r0, .L30+4
+ 352 0020 FFF7FEFF 		bl	memcpy
+ 353              	.LVL23:
+ 354              		.loc 1 138 0
+ 355 0024 2946     		mov	r1, r5
+ 356 0026 044A     		ldr	r2, .L30+4
+ 357 0028 0248     		ldr	r0, .L30
+ 358              		.loc 1 139 0
+ 359 002a BDE87040 		pop	{r4, r5, r6, lr}
+ 360              		.cfi_restore 14
+ 361              		.cfi_restore 6
+ 362              		.cfi_restore 5
+ 363              		.cfi_restore 4
+ 364              		.cfi_def_cfa_offset 0
+ 365              	.LVL24:
+ 366              		.loc 1 138 0
+ 367 002e FFF7FEBF 		b	uartStartSend
+ 368              	.LVL25:
+ 369              	.L31:
+ 370 0032 00BF     		.align	2
+ 371              	.L30:
+ 372 0034 00000000 		.word	UARTD6
+ 373 0038 00000000 		.word	.LANCHOR4
+ 374              		.cfi_endproc
+ 375              	.LFE263:
+ 376              		.size	send_packet, .-send_packet
+ 377              		.section	.text.txend2,"ax",%progbits
+ 378              		.align	2
+ 379              		.p2align 4,,15
+ 380              		.thumb
+ 381              		.thumb_func
+ 382              		.type	txend2, %function
+ 383              	txend2:
+ 384              	.LFB268:
+ 385              		.cfi_startproc
+ 386              		@ args = 0, pretend = 0, frame = 0
+ 387              		@ frame_needed = 0, uses_anonymous_args = 0
+ 388              		@ link register save eliminated.
+ 389 0000 7047     		bx	lr
+ 390              		.cfi_endproc
+ 391              	.LFE268:
+ 392              		.size	txend2, .-txend2
+ 393 0002 00BF     		.section	.text.txend1,"ax",%progbits
+ 394              		.align	2
+ 395              		.p2align 4,,15
+ 396              		.thumb
+ 397              		.thumb_func
+ 398              		.type	txend1, %function
+ 399              	txend1:
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 8
+
+
+ 400              	.LFB270:
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 0
+ 403              		@ frame_needed = 0, uses_anonymous_args = 0
+ 404              		@ link register save eliminated.
+ 405 0000 7047     		bx	lr
+ 406              		.cfi_endproc
+ 407              	.LFE270:
+ 408              		.size	txend1, .-txend1
+ 409 0002 00BF     		.section	.text.app_uartcomm_start,"ax",%progbits
+ 410              		.align	2
+ 411              		.p2align 4,,15
+ 412              		.global	app_uartcomm_start
+ 413              		.thumb
+ 414              		.thumb_func
+ 415              		.type	app_uartcomm_start, %function
+ 416              	app_uartcomm_start:
+ 417              	.LFB264:
+ 418              		.loc 1 141 0
+ 419              		.cfi_startproc
+ 420              		@ args = 0, pretend = 0, frame = 0
+ 421              		@ frame_needed = 0, uses_anonymous_args = 0
+ 422              		.loc 1 141 0
+ 423 0000 30B5     		push	{r4, r5, lr}
+ 424              		.cfi_def_cfa_offset 12
+ 425              		.cfi_offset 4, -12
+ 426              		.cfi_offset 5, -8
+ 427              		.cfi_offset 14, -4
+ 428              		.loc 1 142 0
+ 429 0002 0122     		movs	r2, #1
+ 430              		.loc 1 141 0
+ 431 0004 83B0     		sub	sp, sp, #12
+ 432              		.cfi_def_cfa_offset 24
+ 433              		.loc 1 145 0
+ 434 0006 114C     		ldr	r4, .L36
+ 435              		.loc 1 142 0
+ 436 0008 1149     		ldr	r1, .L36+4
+ 437 000a 1248     		ldr	r0, .L36+8
+ 438 000c FFF7FEFF 		bl	packet_init
+ 439              	.LVL26:
+ 440              		.loc 1 144 0
+ 441 0010 1149     		ldr	r1, .L36+12
+ 442 0012 1248     		ldr	r0, .L36+16
+ 443 0014 FFF7FEFF 		bl	uartStart
+ 444              	.LVL27:
+ 445              		.loc 1 145 0
+ 446 0018 2046     		mov	r0, r4
+ 447 001a 40F23A42 		movw	r2, #1082
+ 448 001e 4021     		movs	r1, #64
+ 449 0020 FFF7FEFF 		bl	_pal_lld_setgroupmode
+ 450              	.LVL28:
+ 451              		.loc 1 148 0
+ 452 0024 2046     		mov	r0, r4
+ 453 0026 40F23A42 		movw	r2, #1082
+ 454 002a 8021     		movs	r1, #128
+ 455              		.loc 1 152 0
+ 456 002c 0C4C     		ldr	r4, .L36+20
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 9
+
+
+ 457              		.loc 1 148 0
+ 458 002e FFF7FEFF 		bl	_pal_lld_setgroupmode
+ 459              	.LVL29:
+ 460              		.loc 1 152 0
+ 461 0032 0125     		movs	r5, #1
+ 462              		.loc 1 154 0
+ 463 0034 0022     		movs	r2, #0
+ 464 0036 0092     		str	r2, [sp]
+ 465 0038 0A4B     		ldr	r3, .L36+24
+ 466              		.loc 1 152 0
+ 467 003a 2560     		str	r5, [r4]
+ 468              		.loc 1 154 0
+ 469 003c 4022     		movs	r2, #64
+ 470 003e 41F29811 		movw	r1, #4504
+ 471 0042 0948     		ldr	r0, .L36+28
+ 472 0044 FFF7FEFF 		bl	chThdCreateStatic
+ 473              	.LVL30:
+ 474              		.loc 1 155 0
+ 475 0048 03B0     		add	sp, sp, #12
+ 476              		.cfi_def_cfa_offset 12
+ 477              		@ sp needed
+ 478 004a 30BD     		pop	{r4, r5, pc}
+ 479              	.L37:
+ 480              		.align	2
+ 481              	.L36:
+ 482 004c 00080240 		.word	1073874944
+ 483 0050 00000000 		.word	process_packet
+ 484 0054 00000000 		.word	send_packet
+ 485 0058 00000000 		.word	.LANCHOR5
+ 486 005c 00000000 		.word	UARTD6
+ 487 0060 00000000 		.word	.LANCHOR6
+ 488 0064 00000000 		.word	packet_process_thread
+ 489 0068 00000000 		.word	.LANCHOR7
+ 490              		.cfi_endproc
+ 491              	.LFE264:
+ 492              		.size	app_uartcomm_start, .-app_uartcomm_start
+ 493              		.section	.text.app_uartcomm_configure,"ax",%progbits
+ 494              		.align	2
+ 495              		.p2align 4,,15
+ 496              		.global	app_uartcomm_configure
+ 497              		.thumb
+ 498              		.thumb_func
+ 499              		.type	app_uartcomm_configure, %function
+ 500              	app_uartcomm_configure:
+ 501              	.LFB265:
+ 502              		.loc 1 157 0
+ 503              		.cfi_startproc
+ 504              		@ args = 0, pretend = 0, frame = 0
+ 505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 506              		@ link register save eliminated.
+ 507              	.LVL31:
+ 508              		.loc 1 160 0
+ 509 0000 044B     		ldr	r3, .L41
+ 510              		.loc 1 158 0
+ 511 0002 0549     		ldr	r1, .L41+4
+ 512              		.loc 1 160 0
+ 513 0004 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 10
+
+
+ 514              		.loc 1 158 0
+ 515 0006 4861     		str	r0, [r1, #20]
+ 516              		.loc 1 160 0
+ 517 0008 03B9     		cbnz	r3, .L40
+ 518 000a 7047     		bx	lr
+ 519              	.L40:
+ 520              		.loc 1 161 0
+ 521 000c 0348     		ldr	r0, .L41+8
+ 522              	.LVL32:
+ 523 000e FFF7FEBF 		b	uartStart
+ 524              	.LVL33:
+ 525              	.L42:
+ 526 0012 00BF     		.align	2
+ 527              	.L41:
+ 528 0014 00000000 		.word	.LANCHOR6
+ 529 0018 00000000 		.word	.LANCHOR5
+ 530 001c 00000000 		.word	UARTD6
+ 531              		.cfi_endproc
+ 532              	.LFE265:
+ 533              		.size	app_uartcomm_configure, .-app_uartcomm_configure
+ 534              		.section	.bss.serial_rx_write_pos,"aw",%nobits
+ 535              		.align	2
+ 536              		.set	.LANCHOR3,. + 0
+ 537              		.type	serial_rx_write_pos, %object
+ 538              		.size	serial_rx_write_pos, 4
+ 539              	serial_rx_write_pos:
+ 540 0000 00000000 		.space	4
+ 541              		.section	.bss.is_running,"aw",%nobits
+ 542              		.align	2
+ 543              		.set	.LANCHOR6,. + 0
+ 544              		.type	is_running, %object
+ 545              		.size	is_running, 4
+ 546              	is_running:
+ 547 0000 00000000 		.space	4
+ 548              		.section	.data.uart_cfg,"aw",%progbits
+ 549              		.align	2
+ 550              		.set	.LANCHOR5,. + 0
+ 551              		.type	uart_cfg, %object
+ 552              		.size	uart_cfg, 32
+ 553              	uart_cfg:
+ 554 0000 00000000 		.word	txend1
+ 555 0004 00000000 		.word	txend2
+ 556 0008 00000000 		.word	rxend
+ 557 000c 00000000 		.word	rxchar
+ 558 0010 00000000 		.word	rxerr
+ 559 0014 00C20100 		.word	115200
+ 560 0018 0000     		.short	0
+ 561 001a 0040     		.short	16384
+ 562 001c 0000     		.short	0
+ 563 001e 0000     		.space	2
+ 564              		.section	.bss.buffer.9683,"aw",%nobits
+ 565              		.align	2
+ 566              		.set	.LANCHOR4,. + 0
+ 567              		.type	buffer.9683, %object
+ 568              		.size	buffer.9683, 1029
+ 569              	buffer.9683:
+ 570 0000 00000000 		.space	1029
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 11
+
+
+ 570      00000000 
+ 570      00000000 
+ 570      00000000 
+ 570      00000000 
+ 571              		.section	.bss.packet_process_thread_wa,"aw",%nobits
+ 572              		.align	3
+ 573              		.set	.LANCHOR7,. + 0
+ 574              		.type	packet_process_thread_wa, %object
+ 575              		.size	packet_process_thread_wa, 4504
+ 576              	packet_process_thread_wa:
+ 577 0000 00000000 		.space	4504
+ 577      00000000 
+ 577      00000000 
+ 577      00000000 
+ 577      00000000 
+ 578              		.section	.bss.serial_rx_buffer,"aw",%nobits
+ 579              		.align	2
+ 580              		.set	.LANCHOR2,. + 0
+ 581              		.type	serial_rx_buffer, %object
+ 582              		.size	serial_rx_buffer, 1024
+ 583              	serial_rx_buffer:
+ 584 0000 00000000 		.space	1024
+ 584      00000000 
+ 584      00000000 
+ 584      00000000 
+ 584      00000000 
+ 585              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 586              		.align	2
+ 587              	.LC0:
+ 588 0000 75617274 		.ascii	"uartcomm process\000"
+ 588      636F6D6D 
+ 588      2070726F 
+ 588      63657373 
+ 588      00
+ 589              		.section	.bss.serial_rx_read_pos,"aw",%nobits
+ 590              		.align	2
+ 591              		.set	.LANCHOR1,. + 0
+ 592              		.type	serial_rx_read_pos, %object
+ 593              		.size	serial_rx_read_pos, 4
+ 594              	serial_rx_read_pos:
+ 595 0000 00000000 		.space	4
+ 596              		.section	.bss.process_tp,"aw",%nobits
+ 597              		.align	2
+ 598              		.set	.LANCHOR0,. + 0
+ 599              		.type	process_tp, %object
+ 600              		.size	process_tp, 4
+ 601              	process_tp:
+ 602 0000 00000000 		.space	4
+ 603              		.text
+ 604              	.Letext0:
+ 605              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\mach
+ 606              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\
+ 607              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q3\\lib\\gcc\\arm-none-eabi\\5.4
+ 608              		.file 7 "ChibiOS_3.0.2/os/rt/ports/ARMCMx/compilers/GCC/chtypes.h"
+ 609              		.file 8 "ChibiOS_3.0.2/os/rt/include/chsystypes.h"
+ 610              		.file 9 "ChibiOS_3.0.2/os/rt/include/chschd.h"
+ 611              		.file 10 "ChibiOS_3.0.2/os/ext/CMSIS/ST/stm32f407xx.h"
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 12
+
+
+ 612              		.file 11 "ChibiOS_3.0.2/os/rt/ports/ARMCMx/chcore.h"
+ 613              		.file 12 "ChibiOS_3.0.2/os/rt/ports/ARMCMx/chcore_v7m.h"
+ 614              		.file 13 "ChibiOS_3.0.2/os/rt/include/chtm.h"
+ 615              		.file 14 "ChibiOS_3.0.2/os/rt/include/chsem.h"
+ 616              		.file 15 "ChibiOS_3.0.2/os/rt/include/chmtx.h"
+ 617              		.file 16 "ChibiOS_3.0.2/os/hal/ports/STM32/STM32F4xx/stm32_dma.h"
+ 618              		.file 17 "ChibiOS_3.0.2/os/hal/ports/STM32/LLD/GPIOv2/pal_lld.h"
+ 619              		.file 18 "ChibiOS_3.0.2/os/hal/include/uart.h"
+ 620              		.file 19 "ChibiOS_3.0.2/os/hal/ports/STM32/LLD/USARTv1/uart_lld.h"
+ 621              		.file 20 "ChibiOS_3.0.2/os/rt/include/chsys.h"
+ 622              		.file 21 "ChibiOS_3.0.2/os/ext/CMSIS/include/core_cm4.h"
+ 623              		.file 22 "ChibiOS_3.0.2/os/rt/include/chevents.h"
+ 624              		.file 23 "./packet.h"
+ 625              		.file 24 "./commands.h"
+ 626              		.file 25 "ChibiOS_3.0.2/os/rt/include/chthreads.h"
+ 627              		.section	.debug_info,"",%progbits
+ 628              	.Ldebug_info0:
+ 629 0000 2B110000 		.4byte	0x112b
+ 630 0004 0400     		.2byte	0x4
+ 631 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 632 000a 04       		.byte	0x4
+ 633 000b 01       		.uleb128 0x1
+ 634 000c 83030000 		.4byte	.LASF208
+ 635 0010 0C       		.byte	0xc
+ 636 0011 3E010000 		.4byte	.LASF209
+ 637 0015 90060000 		.4byte	.LASF210
+ 638 0019 20000000 		.4byte	.Ldebug_ranges0+0x20
+ 639 001d 00000000 		.4byte	0
+ 640 0021 00000000 		.4byte	.Ldebug_line0
+ 641 0025 02       		.uleb128 0x2
+ 642 0026 01       		.byte	0x1
+ 643 0027 06       		.byte	0x6
+ 644 0028 77090000 		.4byte	.LASF0
+ 645 002c 03       		.uleb128 0x3
+ 646 002d C4070000 		.4byte	.LASF3
+ 647 0031 04       		.byte	0x4
+ 648 0032 1D       		.byte	0x1d
+ 649 0033 37000000 		.4byte	0x37
+ 650 0037 02       		.uleb128 0x2
+ 651 0038 01       		.byte	0x1
+ 652 0039 08       		.byte	0x8
+ 653 003a 96080000 		.4byte	.LASF1
+ 654 003e 02       		.uleb128 0x2
+ 655 003f 02       		.byte	0x2
+ 656 0040 05       		.byte	0x5
+ 657 0041 10070000 		.4byte	.LASF2
+ 658 0045 03       		.uleb128 0x3
+ 659 0046 C4020000 		.4byte	.LASF4
+ 660 004a 04       		.byte	0x4
+ 661 004b 2B       		.byte	0x2b
+ 662 004c 50000000 		.4byte	0x50
+ 663 0050 02       		.uleb128 0x2
+ 664 0051 02       		.byte	0x2
+ 665 0052 07       		.byte	0x7
+ 666 0053 9A090000 		.4byte	.LASF5
+ 667 0057 03       		.uleb128 0x3
+ 668 0058 1C010000 		.4byte	.LASF6
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 13
+
+
+ 669 005c 04       		.byte	0x4
+ 670 005d 3F       		.byte	0x3f
+ 671 005e 62000000 		.4byte	0x62
+ 672 0062 02       		.uleb128 0x2
+ 673 0063 04       		.byte	0x4
+ 674 0064 05       		.byte	0x5
+ 675 0065 37070000 		.4byte	.LASF7
+ 676 0069 03       		.uleb128 0x3
+ 677 006a B0080000 		.4byte	.LASF8
+ 678 006e 04       		.byte	0x4
+ 679 006f 41       		.byte	0x41
+ 680 0070 74000000 		.4byte	0x74
+ 681 0074 02       		.uleb128 0x2
+ 682 0075 04       		.byte	0x4
+ 683 0076 07       		.byte	0x7
+ 684 0077 4B060000 		.4byte	.LASF9
+ 685 007b 02       		.uleb128 0x2
+ 686 007c 08       		.byte	0x8
+ 687 007d 05       		.byte	0x5
+ 688 007e 30050000 		.4byte	.LASF10
+ 689 0082 03       		.uleb128 0x3
+ 690 0083 BE040000 		.4byte	.LASF11
+ 691 0087 04       		.byte	0x4
+ 692 0088 5B       		.byte	0x5b
+ 693 0089 8D000000 		.4byte	0x8d
+ 694 008d 02       		.uleb128 0x2
+ 695 008e 08       		.byte	0x8
+ 696 008f 07       		.byte	0x7
+ 697 0090 95020000 		.4byte	.LASF12
+ 698 0094 04       		.uleb128 0x4
+ 699 0095 04       		.byte	0x4
+ 700 0096 05       		.byte	0x5
+ 701 0097 696E7400 		.ascii	"int\000"
+ 702 009b 02       		.uleb128 0x2
+ 703 009c 04       		.byte	0x4
+ 704 009d 07       		.byte	0x7
+ 705 009e DF000000 		.4byte	.LASF13
+ 706 00a2 03       		.uleb128 0x3
+ 707 00a3 5F050000 		.4byte	.LASF14
+ 708 00a7 05       		.byte	0x5
+ 709 00a8 18       		.byte	0x18
+ 710 00a9 2C000000 		.4byte	0x2c
+ 711 00ad 03       		.uleb128 0x3
+ 712 00ae AB060000 		.4byte	.LASF15
+ 713 00b2 05       		.byte	0x5
+ 714 00b3 24       		.byte	0x24
+ 715 00b4 45000000 		.4byte	0x45
+ 716 00b8 03       		.uleb128 0x3
+ 717 00b9 62080000 		.4byte	.LASF16
+ 718 00bd 05       		.byte	0x5
+ 719 00be 2C       		.byte	0x2c
+ 720 00bf 57000000 		.4byte	0x57
+ 721 00c3 03       		.uleb128 0x3
+ 722 00c4 1C020000 		.4byte	.LASF17
+ 723 00c8 05       		.byte	0x5
+ 724 00c9 30       		.byte	0x30
+ 725 00ca 69000000 		.4byte	0x69
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 14
+
+
+ 726 00ce 03       		.uleb128 0x3
+ 727 00cf 91070000 		.4byte	.LASF18
+ 728 00d3 05       		.byte	0x5
+ 729 00d4 3C       		.byte	0x3c
+ 730 00d5 82000000 		.4byte	0x82
+ 731 00d9 03       		.uleb128 0x3
+ 732 00da 50030000 		.4byte	.LASF19
+ 733 00de 06       		.byte	0x6
+ 734 00df D8       		.byte	0xd8
+ 735 00e0 9B000000 		.4byte	0x9b
+ 736 00e4 05       		.uleb128 0x5
+ 737 00e5 AD000000 		.4byte	0xad
+ 738 00e9 05       		.uleb128 0x5
+ 739 00ea B8000000 		.4byte	0xb8
+ 740 00ee 05       		.uleb128 0x5
+ 741 00ef C3000000 		.4byte	0xc3
+ 742 00f3 03       		.uleb128 0x3
+ 743 00f4 E6060000 		.4byte	.LASF20
+ 744 00f8 07       		.byte	0x7
+ 745 00f9 45       		.byte	0x45
+ 746 00fa C3000000 		.4byte	0xc3
+ 747 00fe 03       		.uleb128 0x3
+ 748 00ff 75060000 		.4byte	.LASF21
+ 749 0103 07       		.byte	0x7
+ 750 0104 48       		.byte	0x48
+ 751 0105 A2000000 		.4byte	0xa2
+ 752 0109 03       		.uleb128 0x3
+ 753 010a 0F050000 		.4byte	.LASF22
+ 754 010e 07       		.byte	0x7
+ 755 010f 49       		.byte	0x49
+ 756 0110 A2000000 		.4byte	0xa2
+ 757 0114 03       		.uleb128 0x3
+ 758 0115 22080000 		.4byte	.LASF23
+ 759 0119 07       		.byte	0x7
+ 760 011a 4A       		.byte	0x4a
+ 761 011b A2000000 		.4byte	0xa2
+ 762 011f 03       		.uleb128 0x3
+ 763 0120 39060000 		.4byte	.LASF24
+ 764 0124 07       		.byte	0x7
+ 765 0125 4B       		.byte	0x4b
+ 766 0126 A2000000 		.4byte	0xa2
+ 767 012a 03       		.uleb128 0x3
+ 768 012b 57020000 		.4byte	.LASF25
+ 769 012f 07       		.byte	0x7
+ 770 0130 4C       		.byte	0x4c
+ 771 0131 C3000000 		.4byte	0xc3
+ 772 0135 03       		.uleb128 0x3
+ 773 0136 EC050000 		.4byte	.LASF26
+ 774 013a 07       		.byte	0x7
+ 775 013b 4D       		.byte	0x4d
+ 776 013c B8000000 		.4byte	0xb8
+ 777 0140 03       		.uleb128 0x3
+ 778 0141 25020000 		.4byte	.LASF27
+ 779 0145 07       		.byte	0x7
+ 780 0146 4F       		.byte	0x4f
+ 781 0147 C3000000 		.4byte	0xc3
+ 782 014b 03       		.uleb128 0x3
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 15
+
+
+ 783 014c CF020000 		.4byte	.LASF28
+ 784 0150 07       		.byte	0x7
+ 785 0151 51       		.byte	0x51
+ 786 0152 B8000000 		.4byte	0xb8
+ 787 0156 03       		.uleb128 0x3
+ 788 0157 DC040000 		.4byte	.LASF29
+ 789 015b 08       		.byte	0x8
+ 790 015c 33       		.byte	0x33
+ 791 015d C3000000 		.4byte	0xc3
+ 792 0161 03       		.uleb128 0x3
+ 793 0162 22030000 		.4byte	.LASF30
+ 794 0166 08       		.byte	0x8
+ 795 0167 3F       		.byte	0x3f
+ 796 0168 6C010000 		.4byte	0x16c
+ 797 016c 06       		.uleb128 0x6
+ 798 016d 90050000 		.4byte	.LASF52
+ 799 0171 48       		.byte	0x48
+ 800 0172 09       		.byte	0x9
+ 801 0173 C2       		.byte	0xc2
+ 802 0174 71020000 		.4byte	0x271
+ 803 0178 07       		.uleb128 0x7
+ 804 0179 8A070000 		.4byte	.LASF31
+ 805 017d 09       		.byte	0x9
+ 806 017e C3       		.byte	0xc3
+ 807 017f 7C020000 		.4byte	0x27c
+ 808 0183 00       		.byte	0
+ 809 0184 07       		.uleb128 0x7
+ 810 0185 12080000 		.4byte	.LASF32
+ 811 0189 09       		.byte	0x9
+ 812 018a C5       		.byte	0xc5
+ 813 018b 7C020000 		.4byte	0x27c
+ 814 018f 04       		.byte	0x4
+ 815 0190 07       		.uleb128 0x7
+ 816 0191 69000000 		.4byte	.LASF33
+ 817 0195 09       		.byte	0x9
+ 818 0196 C7       		.byte	0xc7
+ 819 0197 2A010000 		.4byte	0x12a
+ 820 019b 08       		.byte	0x8
+ 821 019c 07       		.uleb128 0x7
+ 822 019d 9A070000 		.4byte	.LASF34
+ 823 01a1 09       		.byte	0x9
+ 824 01a2 C8       		.byte	0xc8
+ 825 01a3 7E050000 		.4byte	0x57e
+ 826 01a7 0C       		.byte	0xc
+ 827 01a8 07       		.uleb128 0x7
+ 828 01a9 FD020000 		.4byte	.LASF35
+ 829 01ad 09       		.byte	0x9
+ 830 01ae CA       		.byte	0xca
+ 831 01af 7C020000 		.4byte	0x27c
+ 832 01b3 10       		.byte	0x10
+ 833 01b4 07       		.uleb128 0x7
+ 834 01b5 92090000 		.4byte	.LASF36
+ 835 01b9 09       		.byte	0x9
+ 836 01ba CB       		.byte	0xcb
+ 837 01bb 7C020000 		.4byte	0x27c
+ 838 01bf 14       		.byte	0x14
+ 839 01c0 07       		.uleb128 0x7
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 16
+
+
+ 840 01c1 E6040000 		.4byte	.LASF37
+ 841 01c5 09       		.byte	0x9
+ 842 01c6 D2       		.byte	0xd2
+ 843 01c7 C3070000 		.4byte	0x7c3
+ 844 01cb 18       		.byte	0x18
+ 845 01cc 07       		.uleb128 0x7
+ 846 01cd 48050000 		.4byte	.LASF38
+ 847 01d1 09       		.byte	0x9
+ 848 01d2 DD       		.byte	0xdd
+ 849 01d3 09010000 		.4byte	0x109
+ 850 01d7 1C       		.byte	0x1c
+ 851 01d8 07       		.uleb128 0x7
+ 852 01d9 0E060000 		.4byte	.LASF39
+ 853 01dd 09       		.byte	0x9
+ 854 01de E1       		.byte	0xe1
+ 855 01df FE000000 		.4byte	0xfe
+ 856 01e3 1D       		.byte	0x1d
+ 857 01e4 07       		.uleb128 0x7
+ 858 01e5 D1080000 		.4byte	.LASF40
+ 859 01e9 09       		.byte	0x9
+ 860 01ea E6       		.byte	0xe6
+ 861 01eb 14010000 		.4byte	0x114
+ 862 01ef 1E       		.byte	0x1e
+ 863 01f0 07       		.uleb128 0x7
+ 864 01f1 ED080000 		.4byte	.LASF41
+ 865 01f5 09       		.byte	0x9
+ 866 01f6 EC       		.byte	0xec
+ 867 01f7 1F010000 		.4byte	0x11f
+ 868 01fb 1F       		.byte	0x1f
+ 869 01fc 07       		.uleb128 0x7
+ 870 01fd 4F000000 		.4byte	.LASF42
+ 871 0201 09       		.byte	0x9
+ 872 0202 F3       		.byte	0xf3
+ 873 0203 D5070000 		.4byte	0x7d5
+ 874 0207 20       		.byte	0x20
+ 875 0208 08       		.uleb128 0x8
+ 876 0209 705F7500 		.ascii	"p_u\000"
+ 877 020d 09       		.byte	0x9
+ 878 020e 3101     		.2byte	0x131
+ 879 0210 FE060000 		.4byte	0x6fe
+ 880 0214 24       		.byte	0x24
+ 881 0215 09       		.uleb128 0x9
+ 882 0216 12010000 		.4byte	.LASF43
+ 883 021a 09       		.byte	0x9
+ 884 021b 3601     		.2byte	0x136
+ 885 021d 82020000 		.4byte	0x282
+ 886 0221 28       		.byte	0x28
+ 887 0222 09       		.uleb128 0x9
+ 888 0223 D4000000 		.4byte	.LASF44
+ 889 0227 09       		.byte	0x9
+ 890 0228 3C01     		.2byte	0x13c
+ 891 022a A6020000 		.4byte	0x2a6
+ 892 022e 2C       		.byte	0x2c
+ 893 022f 09       		.uleb128 0x9
+ 894 0230 6F060000 		.4byte	.LASF45
+ 895 0234 09       		.byte	0x9
+ 896 0235 4001     		.2byte	0x140
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 17
+
+
+ 897 0237 35010000 		.4byte	0x135
+ 898 023b 34       		.byte	0x34
+ 899 023c 09       		.uleb128 0x9
+ 900 023d 24070000 		.4byte	.LASF46
+ 901 0241 09       		.byte	0x9
+ 902 0242 4601     		.2byte	0x146
+ 903 0244 40010000 		.4byte	0x140
+ 904 0248 38       		.byte	0x38
+ 905 0249 09       		.uleb128 0x9
+ 906 024a 6F050000 		.4byte	.LASF47
+ 907 024e 09       		.byte	0x9
+ 908 024f 4D01     		.2byte	0x14d
+ 909 0251 BD070000 		.4byte	0x7bd
+ 910 0255 3C       		.byte	0x3c
+ 911 0256 09       		.uleb128 0x9
+ 912 0257 FB060000 		.4byte	.LASF48
+ 913 025b 09       		.byte	0x9
+ 914 025c 5101     		.2byte	0x151
+ 915 025e 2A010000 		.4byte	0x12a
+ 916 0262 40       		.byte	0x40
+ 917 0263 09       		.uleb128 0x9
+ 918 0264 67050000 		.4byte	.LASF49
+ 919 0268 09       		.byte	0x9
+ 920 0269 5801     		.2byte	0x158
+ 921 026b 59030000 		.4byte	0x359
+ 922 026f 44       		.byte	0x44
+ 923 0270 00       		.byte	0
+ 924 0271 03       		.uleb128 0x3
+ 925 0272 B4060000 		.4byte	.LASF50
+ 926 0276 08       		.byte	0x8
+ 927 0277 44       		.byte	0x44
+ 928 0278 7C020000 		.4byte	0x27c
+ 929 027c 0A       		.uleb128 0xa
+ 930 027d 04       		.byte	0x4
+ 931 027e 61010000 		.4byte	0x161
+ 932 0282 03       		.uleb128 0x3
+ 933 0283 F5000000 		.4byte	.LASF51
+ 934 0287 08       		.byte	0x8
+ 935 0288 49       		.byte	0x49
+ 936 0289 8D020000 		.4byte	0x28d
+ 937 028d 06       		.uleb128 0x6
+ 938 028e 0D000000 		.4byte	.LASF53
+ 939 0292 04       		.byte	0x4
+ 940 0293 09       		.byte	0x9
+ 941 0294 B0       		.byte	0xb0
+ 942 0295 A6020000 		.4byte	0x2a6
+ 943 0299 07       		.uleb128 0x7
+ 944 029a 8A070000 		.4byte	.LASF31
+ 945 029e 09       		.byte	0x9
+ 946 029f B1       		.byte	0xb1
+ 947 02a0 7C020000 		.4byte	0x27c
+ 948 02a4 00       		.byte	0
+ 949 02a5 00       		.byte	0
+ 950 02a6 03       		.uleb128 0x3
+ 951 02a7 1D000000 		.4byte	.LASF54
+ 952 02ab 08       		.byte	0x8
+ 953 02ac 50       		.byte	0x50
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 18
+
+
+ 954 02ad B1020000 		.4byte	0x2b1
+ 955 02b1 06       		.uleb128 0x6
+ 956 02b2 CB050000 		.4byte	.LASF55
+ 957 02b6 08       		.byte	0x8
+ 958 02b7 09       		.byte	0x9
+ 959 02b8 B7       		.byte	0xb7
+ 960 02b9 D6020000 		.4byte	0x2d6
+ 961 02bd 07       		.uleb128 0x7
+ 962 02be 8A070000 		.4byte	.LASF31
+ 963 02c2 09       		.byte	0x9
+ 964 02c3 B8       		.byte	0xb8
+ 965 02c4 7C020000 		.4byte	0x27c
+ 966 02c8 00       		.byte	0
+ 967 02c9 07       		.uleb128 0x7
+ 968 02ca 12080000 		.4byte	.LASF32
+ 969 02ce 09       		.byte	0x9
+ 970 02cf B9       		.byte	0xb9
+ 971 02d0 7C020000 		.4byte	0x27c
+ 972 02d4 04       		.byte	0x4
+ 973 02d5 00       		.byte	0
+ 974 02d6 03       		.uleb128 0x3
+ 975 02d7 42080000 		.4byte	.LASF56
+ 976 02db 08       		.byte	0x8
+ 977 02dc 57       		.byte	0x57
+ 978 02dd E1020000 		.4byte	0x2e1
+ 979 02e1 0B       		.uleb128 0xb
+ 980 02e2 73010000 		.4byte	.LASF57
+ 981 02e6 1C       		.byte	0x1c
+ 982 02e7 09       		.byte	0x9
+ 983 02e8 9001     		.2byte	0x190
+ 984 02ea 3D030000 		.4byte	0x33d
+ 985 02ee 09       		.uleb128 0x9
+ 986 02ef 0F0A0000 		.4byte	.LASF58
+ 987 02f3 09       		.byte	0x9
+ 988 02f4 9101     		.2byte	0x191
+ 989 02f6 A6020000 		.4byte	0x2a6
+ 990 02fa 00       		.byte	0
+ 991 02fb 09       		.uleb128 0x9
+ 992 02fc 31020000 		.4byte	.LASF59
+ 993 0300 09       		.byte	0x9
+ 994 0301 9201     		.2byte	0x192
+ 995 0303 2A010000 		.4byte	0x12a
+ 996 0307 08       		.byte	0x8
+ 997 0308 09       		.uleb128 0x9
+ 998 0309 AD090000 		.4byte	.LASF60
+ 999 030d 09       		.byte	0x9
+ 1000 030e 9401     		.2byte	0x194
+ 1001 0310 7E050000 		.4byte	0x57e
+ 1002 0314 0C       		.byte	0xc
+ 1003 0315 09       		.uleb128 0x9
+ 1004 0316 00050000 		.4byte	.LASF61
+ 1005 031a 09       		.byte	0x9
+ 1006 031b 9701     		.2byte	0x197
+ 1007 031d 7C020000 		.4byte	0x27c
+ 1008 0321 10       		.byte	0x10
+ 1009 0322 09       		.uleb128 0x9
+ 1010 0323 43060000 		.4byte	.LASF62
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 19
+
+
+ 1011 0327 09       		.byte	0x9
+ 1012 0328 9801     		.2byte	0x198
+ 1013 032a 7C020000 		.4byte	0x27c
+ 1014 032e 14       		.byte	0x14
+ 1015 032f 09       		.uleb128 0x9
+ 1016 0330 1A070000 		.4byte	.LASF63
+ 1017 0334 09       		.byte	0x9
+ 1018 0335 9B01     		.2byte	0x19b
+ 1019 0337 7C020000 		.4byte	0x27c
+ 1020 033b 18       		.byte	0x18
+ 1021 033c 00       		.byte	0
+ 1022 033d 03       		.uleb128 0x3
+ 1023 033e 5E030000 		.4byte	.LASF64
+ 1024 0342 08       		.byte	0x8
+ 1025 0343 5C       		.byte	0x5c
+ 1026 0344 48030000 		.4byte	0x348
+ 1027 0348 0A       		.uleb128 0xa
+ 1028 0349 04       		.byte	0x4
+ 1029 034a 4E030000 		.4byte	0x34e
+ 1030 034e 0C       		.uleb128 0xc
+ 1031 034f 59030000 		.4byte	0x359
+ 1032 0353 0D       		.uleb128 0xd
+ 1033 0354 59030000 		.4byte	0x359
+ 1034 0358 00       		.byte	0
+ 1035 0359 0E       		.uleb128 0xe
+ 1036 035a 04       		.byte	0x4
+ 1037 035b 03       		.uleb128 0x3
+ 1038 035c 16060000 		.4byte	.LASF65
+ 1039 0360 08       		.byte	0x8
+ 1040 0361 61       		.byte	0x61
+ 1041 0362 66030000 		.4byte	0x366
+ 1042 0366 0B       		.uleb128 0xb
+ 1043 0367 5F020000 		.4byte	.LASF66
+ 1044 036b 14       		.byte	0x14
+ 1045 036c 09       		.byte	0x9
+ 1046 036d 6B01     		.2byte	0x16b
+ 1047 036f B5030000 		.4byte	0x3b5
+ 1048 0373 09       		.uleb128 0x9
+ 1049 0374 1D090000 		.4byte	.LASF67
+ 1050 0378 09       		.byte	0x9
+ 1051 0379 6C01     		.2byte	0x16c
+ 1052 037b DA070000 		.4byte	0x7da
+ 1053 037f 00       		.byte	0
+ 1054 0380 09       		.uleb128 0x9
+ 1055 0381 E7090000 		.4byte	.LASF68
+ 1056 0385 09       		.byte	0x9
+ 1057 0386 6D01     		.2byte	0x16d
+ 1058 0388 DA070000 		.4byte	0x7da
+ 1059 038c 04       		.byte	0x4
+ 1060 038d 09       		.uleb128 0x9
+ 1061 038e F7040000 		.4byte	.LASF69
+ 1062 0392 09       		.byte	0x9
+ 1063 0393 6E01     		.2byte	0x16e
+ 1064 0395 56010000 		.4byte	0x156
+ 1065 0399 08       		.byte	0x8
+ 1066 039a 09       		.uleb128 0x9
+ 1067 039b D3090000 		.4byte	.LASF70
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 20
+
+
+ 1068 039f 09       		.byte	0x9
+ 1069 03a0 6F01     		.2byte	0x16f
+ 1070 03a2 3D030000 		.4byte	0x33d
+ 1071 03a6 0C       		.byte	0xc
+ 1072 03a7 09       		.uleb128 0x9
+ 1073 03a8 3D020000 		.4byte	.LASF71
+ 1074 03ac 09       		.byte	0x9
+ 1075 03ad 7101     		.2byte	0x171
+ 1076 03af 59030000 		.4byte	0x359
+ 1077 03b3 10       		.byte	0x10
+ 1078 03b4 00       		.byte	0
+ 1079 03b5 03       		.uleb128 0x3
+ 1080 03b6 BB080000 		.4byte	.LASF72
+ 1081 03ba 08       		.byte	0x8
+ 1082 03bb 66       		.byte	0x66
+ 1083 03bc C0030000 		.4byte	0x3c0
+ 1084 03c0 0B       		.uleb128 0xb
+ 1085 03c1 0B030000 		.4byte	.LASF73
+ 1086 03c5 10       		.byte	0x10
+ 1087 03c6 09       		.byte	0x9
+ 1088 03c7 7B01     		.2byte	0x17b
+ 1089 03c9 02040000 		.4byte	0x402
+ 1090 03cd 09       		.uleb128 0x9
+ 1091 03ce 1D090000 		.4byte	.LASF67
+ 1092 03d2 09       		.byte	0x9
+ 1093 03d3 7C01     		.2byte	0x17c
+ 1094 03d5 DA070000 		.4byte	0x7da
+ 1095 03d9 00       		.byte	0
+ 1096 03da 09       		.uleb128 0x9
+ 1097 03db E7090000 		.4byte	.LASF68
+ 1098 03df 09       		.byte	0x9
+ 1099 03e0 7E01     		.2byte	0x17e
+ 1100 03e2 DA070000 		.4byte	0x7da
+ 1101 03e6 04       		.byte	0x4
+ 1102 03e7 09       		.uleb128 0x9
+ 1103 03e8 F7040000 		.4byte	.LASF69
+ 1104 03ec 09       		.byte	0x9
+ 1105 03ed 8001     		.2byte	0x180
+ 1106 03ef 56010000 		.4byte	0x156
+ 1107 03f3 08       		.byte	0x8
+ 1108 03f4 09       		.uleb128 0x9
+ 1109 03f5 C9000000 		.4byte	.LASF74
+ 1110 03f9 09       		.byte	0x9
+ 1111 03fa 8201     		.2byte	0x182
+ 1112 03fc D5070000 		.4byte	0x7d5
+ 1113 0400 0C       		.byte	0xc
+ 1114 0401 00       		.byte	0
+ 1115 0402 03       		.uleb128 0x3
+ 1116 0403 BC050000 		.4byte	.LASF75
+ 1117 0407 08       		.byte	0x8
+ 1118 0408 6B       		.byte	0x6b
+ 1119 0409 0D040000 		.4byte	0x40d
+ 1120 040d 0B       		.uleb128 0xb
+ 1121 040e E9010000 		.4byte	.LASF76
+ 1122 0412 04       		.byte	0x4
+ 1123 0413 09       		.byte	0x9
+ 1124 0414 A201     		.2byte	0x1a2
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 21
+
+
+ 1125 0416 28040000 		.4byte	0x428
+ 1126 041a 09       		.uleb128 0x9
+ 1127 041b D8080000 		.4byte	.LASF77
+ 1128 041f 09       		.byte	0x9
+ 1129 0420 AA01     		.2byte	0x1aa
+ 1130 0422 E0070000 		.4byte	0x7e0
+ 1131 0426 00       		.byte	0
+ 1132 0427 00       		.byte	0
+ 1133 0428 03       		.uleb128 0x3
+ 1134 0429 52090000 		.4byte	.LASF78
+ 1135 042d 08       		.byte	0x8
+ 1136 042e 70       		.byte	0x70
+ 1137 042f 33040000 		.4byte	0x433
+ 1138 0433 0F       		.uleb128 0xf
+ 1139 0434 61070000 		.4byte	.LASF79
+ 1140 0438 5802     		.2byte	0x258
+ 1141 043a 09       		.byte	0x9
+ 1142 043b C201     		.2byte	0x1c2
+ 1143 043d 8F040000 		.4byte	0x48f
+ 1144 0441 09       		.uleb128 0x9
+ 1145 0442 A0070000 		.4byte	.LASF80
+ 1146 0446 09       		.byte	0x9
+ 1147 0447 C601     		.2byte	0x1c6
+ 1148 0449 D6020000 		.4byte	0x2d6
+ 1149 044d 00       		.byte	0
+ 1150 044e 09       		.uleb128 0x9
+ 1151 044f 37010000 		.4byte	.LASF81
+ 1152 0453 09       		.byte	0x9
+ 1153 0454 CA01     		.2byte	0x1ca
+ 1154 0456 B5030000 		.4byte	0x3b5
+ 1155 045a 1C       		.byte	0x1c
+ 1156 045b 08       		.uleb128 0x8
+ 1157 045c 64626700 		.ascii	"dbg\000"
+ 1158 0460 09       		.byte	0x9
+ 1159 0461 CE01     		.2byte	0x1ce
+ 1160 0463 02040000 		.4byte	0x402
+ 1161 0467 2C       		.byte	0x2c
+ 1162 0468 09       		.uleb128 0x9
+ 1163 0469 7D060000 		.4byte	.LASF82
+ 1164 046d 09       		.byte	0x9
+ 1165 046e D201     		.2byte	0x1d2
+ 1166 0470 61010000 		.4byte	0x161
+ 1167 0474 30       		.byte	0x30
+ 1168 0475 08       		.uleb128 0x8
+ 1169 0476 746D00   		.ascii	"tm\000"
+ 1170 0479 09       		.byte	0x9
+ 1171 047a D701     		.2byte	0x1d7
+ 1172 047c F3060000 		.4byte	0x6f3
+ 1173 0480 78       		.byte	0x78
+ 1174 0481 09       		.uleb128 0x9
+ 1175 0482 81010000 		.4byte	.LASF83
+ 1176 0486 09       		.byte	0x9
+ 1177 0487 E301     		.2byte	0x1e3
+ 1178 0489 E5070000 		.4byte	0x7e5
+ 1179 048d 80       		.byte	0x80
+ 1180 048e 00       		.byte	0
+ 1181 048f 02       		.uleb128 0x2
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 22
+
+
+ 1182 0490 04       		.byte	0x4
+ 1183 0491 07       		.byte	0x7
+ 1184 0492 19080000 		.4byte	.LASF84
+ 1185 0496 10       		.uleb128 0x10
+ 1186 0497 18       		.byte	0x18
+ 1187 0498 0A       		.byte	0xa
+ 1188 0499 6B01     		.2byte	0x16b
+ 1189 049b ED040000 		.4byte	0x4ed
+ 1190 049f 08       		.uleb128 0x8
+ 1191 04a0 435200   		.ascii	"CR\000"
+ 1192 04a3 0A       		.byte	0xa
+ 1193 04a4 6D01     		.2byte	0x16d
+ 1194 04a6 EE000000 		.4byte	0xee
+ 1195 04aa 00       		.byte	0
+ 1196 04ab 09       		.uleb128 0x9
+ 1197 04ac 90010000 		.4byte	.LASF85
+ 1198 04b0 0A       		.byte	0xa
+ 1199 04b1 6E01     		.2byte	0x16e
+ 1200 04b3 EE000000 		.4byte	0xee
+ 1201 04b7 04       		.byte	0x4
+ 1202 04b8 08       		.uleb128 0x8
+ 1203 04b9 50415200 		.ascii	"PAR\000"
+ 1204 04bd 0A       		.byte	0xa
+ 1205 04be 6F01     		.2byte	0x16f
+ 1206 04c0 EE000000 		.4byte	0xee
+ 1207 04c4 08       		.byte	0x8
+ 1208 04c5 09       		.uleb128 0x9
+ 1209 04c6 D7040000 		.4byte	.LASF86
+ 1210 04ca 0A       		.byte	0xa
+ 1211 04cb 7001     		.2byte	0x170
+ 1212 04cd EE000000 		.4byte	0xee
+ 1213 04d1 0C       		.byte	0xc
+ 1214 04d2 09       		.uleb128 0x9
+ 1215 04d3 FF070000 		.4byte	.LASF87
+ 1216 04d7 0A       		.byte	0xa
+ 1217 04d8 7101     		.2byte	0x171
+ 1218 04da EE000000 		.4byte	0xee
+ 1219 04de 10       		.byte	0x10
+ 1220 04df 08       		.uleb128 0x8
+ 1221 04e0 46435200 		.ascii	"FCR\000"
+ 1222 04e4 0A       		.byte	0xa
+ 1223 04e5 7201     		.2byte	0x172
+ 1224 04e7 EE000000 		.4byte	0xee
+ 1225 04eb 14       		.byte	0x14
+ 1226 04ec 00       		.byte	0
+ 1227 04ed 11       		.uleb128 0x11
+ 1228 04ee 26060000 		.4byte	.LASF88
+ 1229 04f2 0A       		.byte	0xa
+ 1230 04f3 7301     		.2byte	0x173
+ 1231 04f5 96040000 		.4byte	0x496
+ 1232 04f9 10       		.uleb128 0x10
+ 1233 04fa 1C       		.byte	0x1c
+ 1234 04fb 0A       		.byte	0xa
+ 1235 04fc 0903     		.2byte	0x309
+ 1236 04fe 5C050000 		.4byte	0x55c
+ 1237 0502 08       		.uleb128 0x8
+ 1238 0503 535200   		.ascii	"SR\000"
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 23
+
+
+ 1239 0506 0A       		.byte	0xa
+ 1240 0507 0B03     		.2byte	0x30b
+ 1241 0509 EE000000 		.4byte	0xee
+ 1242 050d 00       		.byte	0
+ 1243 050e 08       		.uleb128 0x8
+ 1244 050f 445200   		.ascii	"DR\000"
+ 1245 0512 0A       		.byte	0xa
+ 1246 0513 0C03     		.2byte	0x30c
+ 1247 0515 EE000000 		.4byte	0xee
+ 1248 0519 04       		.byte	0x4
+ 1249 051a 08       		.uleb128 0x8
+ 1250 051b 42525200 		.ascii	"BRR\000"
+ 1251 051f 0A       		.byte	0xa
+ 1252 0520 0D03     		.2byte	0x30d
+ 1253 0522 EE000000 		.4byte	0xee
+ 1254 0526 08       		.byte	0x8
+ 1255 0527 08       		.uleb128 0x8
+ 1256 0528 43523100 		.ascii	"CR1\000"
+ 1257 052c 0A       		.byte	0xa
+ 1258 052d 0E03     		.2byte	0x30e
+ 1259 052f EE000000 		.4byte	0xee
+ 1260 0533 0C       		.byte	0xc
+ 1261 0534 08       		.uleb128 0x8
+ 1262 0535 43523200 		.ascii	"CR2\000"
+ 1263 0539 0A       		.byte	0xa
+ 1264 053a 0F03     		.2byte	0x30f
+ 1265 053c EE000000 		.4byte	0xee
+ 1266 0540 10       		.byte	0x10
+ 1267 0541 08       		.uleb128 0x8
+ 1268 0542 43523300 		.ascii	"CR3\000"
+ 1269 0546 0A       		.byte	0xa
+ 1270 0547 1003     		.2byte	0x310
+ 1271 0549 EE000000 		.4byte	0xee
+ 1272 054d 14       		.byte	0x14
+ 1273 054e 09       		.uleb128 0x9
+ 1274 054f F9010000 		.4byte	.LASF89
+ 1275 0553 0A       		.byte	0xa
+ 1276 0554 1103     		.2byte	0x311
+ 1277 0556 EE000000 		.4byte	0xee
+ 1278 055a 18       		.byte	0x18
+ 1279 055b 00       		.byte	0
+ 1280 055c 11       		.uleb128 0x11
+ 1281 055d C9040000 		.4byte	.LASF90
+ 1282 0561 0A       		.byte	0xa
+ 1283 0562 1203     		.2byte	0x312
+ 1284 0564 F9040000 		.4byte	0x4f9
+ 1285 0568 03       		.uleb128 0x3
+ 1286 0569 60000000 		.4byte	.LASF91
+ 1287 056d 0B       		.byte	0xb
+ 1288 056e 65       		.byte	0x65
+ 1289 056f 59030000 		.4byte	0x359
+ 1290 0573 03       		.uleb128 0x3
+ 1291 0574 B3090000 		.4byte	.LASF92
+ 1292 0578 0B       		.byte	0xb
+ 1293 0579 6D       		.byte	0x6d
+ 1294 057a CE000000 		.4byte	0xce
+ 1295 057e 06       		.uleb128 0x6
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 24
+
+
+ 1296 057f F2050000 		.4byte	.LASF93
+ 1297 0583 04       		.byte	0x4
+ 1298 0584 0B       		.byte	0xb
+ 1299 0585 89       		.byte	0x89
+ 1300 0586 97050000 		.4byte	0x597
+ 1301 058a 12       		.uleb128 0x12
+ 1302 058b 72313300 		.ascii	"r13\000"
+ 1303 058f 0B       		.byte	0xb
+ 1304 0590 8A       		.byte	0x8a
+ 1305 0591 D8060000 		.4byte	0x6d8
+ 1306 0595 00       		.byte	0
+ 1307 0596 00       		.byte	0
+ 1308 0597 06       		.uleb128 0x6
+ 1309 0598 40070000 		.4byte	.LASF94
+ 1310 059c 64       		.byte	0x64
+ 1311 059d 0C       		.byte	0xc
+ 1312 059e F4       		.byte	0xf4
+ 1313 059f D8060000 		.4byte	0x6d8
+ 1314 05a3 12       		.uleb128 0x12
+ 1315 05a4 73313600 		.ascii	"s16\000"
+ 1316 05a8 0C       		.byte	0xc
+ 1317 05a9 F6       		.byte	0xf6
+ 1318 05aa 68050000 		.4byte	0x568
+ 1319 05ae 00       		.byte	0
+ 1320 05af 12       		.uleb128 0x12
+ 1321 05b0 73313700 		.ascii	"s17\000"
+ 1322 05b4 0C       		.byte	0xc
+ 1323 05b5 F7       		.byte	0xf7
+ 1324 05b6 68050000 		.4byte	0x568
+ 1325 05ba 04       		.byte	0x4
+ 1326 05bb 12       		.uleb128 0x12
+ 1327 05bc 73313800 		.ascii	"s18\000"
+ 1328 05c0 0C       		.byte	0xc
+ 1329 05c1 F8       		.byte	0xf8
+ 1330 05c2 68050000 		.4byte	0x568
+ 1331 05c6 08       		.byte	0x8
+ 1332 05c7 12       		.uleb128 0x12
+ 1333 05c8 73313900 		.ascii	"s19\000"
+ 1334 05cc 0C       		.byte	0xc
+ 1335 05cd F9       		.byte	0xf9
+ 1336 05ce 68050000 		.4byte	0x568
+ 1337 05d2 0C       		.byte	0xc
+ 1338 05d3 12       		.uleb128 0x12
+ 1339 05d4 73323000 		.ascii	"s20\000"
+ 1340 05d8 0C       		.byte	0xc
+ 1341 05d9 FA       		.byte	0xfa
+ 1342 05da 68050000 		.4byte	0x568
+ 1343 05de 10       		.byte	0x10
+ 1344 05df 12       		.uleb128 0x12
+ 1345 05e0 73323100 		.ascii	"s21\000"
+ 1346 05e4 0C       		.byte	0xc
+ 1347 05e5 FB       		.byte	0xfb
+ 1348 05e6 68050000 		.4byte	0x568
+ 1349 05ea 14       		.byte	0x14
+ 1350 05eb 12       		.uleb128 0x12
+ 1351 05ec 73323200 		.ascii	"s22\000"
+ 1352 05f0 0C       		.byte	0xc
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 25
+
+
+ 1353 05f1 FC       		.byte	0xfc
+ 1354 05f2 68050000 		.4byte	0x568
+ 1355 05f6 18       		.byte	0x18
+ 1356 05f7 12       		.uleb128 0x12
+ 1357 05f8 73323300 		.ascii	"s23\000"
+ 1358 05fc 0C       		.byte	0xc
+ 1359 05fd FD       		.byte	0xfd
+ 1360 05fe 68050000 		.4byte	0x568
+ 1361 0602 1C       		.byte	0x1c
+ 1362 0603 12       		.uleb128 0x12
+ 1363 0604 73323400 		.ascii	"s24\000"
+ 1364 0608 0C       		.byte	0xc
+ 1365 0609 FE       		.byte	0xfe
+ 1366 060a 68050000 		.4byte	0x568
+ 1367 060e 20       		.byte	0x20
+ 1368 060f 12       		.uleb128 0x12
+ 1369 0610 73323500 		.ascii	"s25\000"
+ 1370 0614 0C       		.byte	0xc
+ 1371 0615 FF       		.byte	0xff
+ 1372 0616 68050000 		.4byte	0x568
+ 1373 061a 24       		.byte	0x24
+ 1374 061b 08       		.uleb128 0x8
+ 1375 061c 73323600 		.ascii	"s26\000"
+ 1376 0620 0C       		.byte	0xc
+ 1377 0621 0001     		.2byte	0x100
+ 1378 0623 68050000 		.4byte	0x568
+ 1379 0627 28       		.byte	0x28
+ 1380 0628 08       		.uleb128 0x8
+ 1381 0629 73323700 		.ascii	"s27\000"
+ 1382 062d 0C       		.byte	0xc
+ 1383 062e 0101     		.2byte	0x101
+ 1384 0630 68050000 		.4byte	0x568
+ 1385 0634 2C       		.byte	0x2c
+ 1386 0635 08       		.uleb128 0x8
+ 1387 0636 73323800 		.ascii	"s28\000"
+ 1388 063a 0C       		.byte	0xc
+ 1389 063b 0201     		.2byte	0x102
+ 1390 063d 68050000 		.4byte	0x568
+ 1391 0641 30       		.byte	0x30
+ 1392 0642 08       		.uleb128 0x8
+ 1393 0643 73323900 		.ascii	"s29\000"
+ 1394 0647 0C       		.byte	0xc
+ 1395 0648 0301     		.2byte	0x103
+ 1396 064a 68050000 		.4byte	0x568
+ 1397 064e 34       		.byte	0x34
+ 1398 064f 08       		.uleb128 0x8
+ 1399 0650 73333000 		.ascii	"s30\000"
+ 1400 0654 0C       		.byte	0xc
+ 1401 0655 0401     		.2byte	0x104
+ 1402 0657 68050000 		.4byte	0x568
+ 1403 065b 38       		.byte	0x38
+ 1404 065c 08       		.uleb128 0x8
+ 1405 065d 73333100 		.ascii	"s31\000"
+ 1406 0661 0C       		.byte	0xc
+ 1407 0662 0501     		.2byte	0x105
+ 1408 0664 68050000 		.4byte	0x568
+ 1409 0668 3C       		.byte	0x3c
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 26
+
+
+ 1410 0669 08       		.uleb128 0x8
+ 1411 066a 723400   		.ascii	"r4\000"
+ 1412 066d 0C       		.byte	0xc
+ 1413 066e 0701     		.2byte	0x107
+ 1414 0670 68050000 		.4byte	0x568
+ 1415 0674 40       		.byte	0x40
+ 1416 0675 08       		.uleb128 0x8
+ 1417 0676 723500   		.ascii	"r5\000"
+ 1418 0679 0C       		.byte	0xc
+ 1419 067a 0801     		.2byte	0x108
+ 1420 067c 68050000 		.4byte	0x568
+ 1421 0680 44       		.byte	0x44
+ 1422 0681 08       		.uleb128 0x8
+ 1423 0682 723600   		.ascii	"r6\000"
+ 1424 0685 0C       		.byte	0xc
+ 1425 0686 0901     		.2byte	0x109
+ 1426 0688 68050000 		.4byte	0x568
+ 1427 068c 48       		.byte	0x48
+ 1428 068d 08       		.uleb128 0x8
+ 1429 068e 723700   		.ascii	"r7\000"
+ 1430 0691 0C       		.byte	0xc
+ 1431 0692 0A01     		.2byte	0x10a
+ 1432 0694 68050000 		.4byte	0x568
+ 1433 0698 4C       		.byte	0x4c
+ 1434 0699 08       		.uleb128 0x8
+ 1435 069a 723800   		.ascii	"r8\000"
+ 1436 069d 0C       		.byte	0xc
+ 1437 069e 0B01     		.2byte	0x10b
+ 1438 06a0 68050000 		.4byte	0x568
+ 1439 06a4 50       		.byte	0x50
+ 1440 06a5 08       		.uleb128 0x8
+ 1441 06a6 723900   		.ascii	"r9\000"
+ 1442 06a9 0C       		.byte	0xc
+ 1443 06aa 0C01     		.2byte	0x10c
+ 1444 06ac 68050000 		.4byte	0x568
+ 1445 06b0 54       		.byte	0x54
+ 1446 06b1 08       		.uleb128 0x8
+ 1447 06b2 72313000 		.ascii	"r10\000"
+ 1448 06b6 0C       		.byte	0xc
+ 1449 06b7 0D01     		.2byte	0x10d
+ 1450 06b9 68050000 		.4byte	0x568
+ 1451 06bd 58       		.byte	0x58
+ 1452 06be 08       		.uleb128 0x8
+ 1453 06bf 72313100 		.ascii	"r11\000"
+ 1454 06c3 0C       		.byte	0xc
+ 1455 06c4 0E01     		.2byte	0x10e
+ 1456 06c6 68050000 		.4byte	0x568
+ 1457 06ca 5C       		.byte	0x5c
+ 1458 06cb 08       		.uleb128 0x8
+ 1459 06cc 6C7200   		.ascii	"lr\000"
+ 1460 06cf 0C       		.byte	0xc
+ 1461 06d0 0F01     		.2byte	0x10f
+ 1462 06d2 68050000 		.4byte	0x568
+ 1463 06d6 60       		.byte	0x60
+ 1464 06d7 00       		.byte	0
+ 1465 06d8 0A       		.uleb128 0xa
+ 1466 06d9 04       		.byte	0x4
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 27
+
+
+ 1467 06da 97050000 		.4byte	0x597
+ 1468 06de 13       		.uleb128 0x13
+ 1469 06df 04       		.byte	0x4
+ 1470 06e0 0D       		.byte	0xd
+ 1471 06e1 38       		.byte	0x38
+ 1472 06e2 F3060000 		.4byte	0x6f3
+ 1473 06e6 07       		.uleb128 0x7
+ 1474 06e7 67030000 		.4byte	.LASF95
+ 1475 06eb 0D       		.byte	0xd
+ 1476 06ec 3C       		.byte	0x3c
+ 1477 06ed F3000000 		.4byte	0xf3
+ 1478 06f1 00       		.byte	0
+ 1479 06f2 00       		.byte	0
+ 1480 06f3 03       		.uleb128 0x3
+ 1481 06f4 3E000000 		.4byte	.LASF96
+ 1482 06f8 0D       		.byte	0xd
+ 1483 06f9 3D       		.byte	0x3d
+ 1484 06fa DE060000 		.4byte	0x6de
+ 1485 06fe 14       		.uleb128 0x14
+ 1486 06ff 04       		.byte	0x4
+ 1487 0700 09       		.byte	0x9
+ 1488 0701 FA       		.byte	0xfa
+ 1489 0702 5B070000 		.4byte	0x75b
+ 1490 0706 15       		.uleb128 0x15
+ 1491 0707 57030000 		.4byte	.LASF97
+ 1492 070b 09       		.byte	0x9
+ 1493 070c 0101     		.2byte	0x101
+ 1494 070e 35010000 		.4byte	0x135
+ 1495 0712 15       		.uleb128 0x15
+ 1496 0713 170A0000 		.4byte	.LASF98
+ 1497 0717 09       		.byte	0x9
+ 1498 0718 0801     		.2byte	0x108
+ 1499 071a 35010000 		.4byte	0x135
+ 1500 071e 15       		.uleb128 0x15
+ 1501 071f 26010000 		.4byte	.LASF99
+ 1502 0723 09       		.byte	0x9
+ 1503 0724 0F01     		.2byte	0x10f
+ 1504 0726 59030000 		.4byte	0x359
+ 1505 072a 15       		.uleb128 0x15
+ 1506 072b 5E090000 		.4byte	.LASF100
+ 1507 072f 09       		.byte	0x9
+ 1508 0730 1601     		.2byte	0x116
+ 1509 0732 5B070000 		.4byte	0x75b
+ 1510 0736 15       		.uleb128 0x15
+ 1511 0737 6A080000 		.4byte	.LASF101
+ 1512 073b 09       		.byte	0x9
+ 1513 073c 1E01     		.2byte	0x11e
+ 1514 073e 86070000 		.4byte	0x786
+ 1515 0742 15       		.uleb128 0x15
+ 1516 0743 2D000000 		.4byte	.LASF102
+ 1517 0747 09       		.byte	0x9
+ 1518 0748 2701     		.2byte	0x127
+ 1519 074a BD070000 		.4byte	0x7bd
+ 1520 074e 15       		.uleb128 0x15
+ 1521 074f 95010000 		.4byte	.LASF103
+ 1522 0753 09       		.byte	0x9
+ 1523 0754 2F01     		.2byte	0x12f
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 28
+
+
+ 1524 0756 40010000 		.4byte	0x140
+ 1525 075a 00       		.byte	0
+ 1526 075b 0A       		.uleb128 0xa
+ 1527 075c 04       		.byte	0x4
+ 1528 075d 71020000 		.4byte	0x271
+ 1529 0761 06       		.uleb128 0x6
+ 1530 0762 4A020000 		.4byte	.LASF104
+ 1531 0766 0C       		.byte	0xc
+ 1532 0767 0E       		.byte	0xe
+ 1533 0768 34       		.byte	0x34
+ 1534 0769 86070000 		.4byte	0x786
+ 1535 076d 07       		.uleb128 0x7
+ 1536 076e B1070000 		.4byte	.LASF105
+ 1537 0772 0E       		.byte	0xe
+ 1538 0773 35       		.byte	0x35
+ 1539 0774 A6020000 		.4byte	0x2a6
+ 1540 0778 00       		.byte	0
+ 1541 0779 07       		.uleb128 0x7
+ 1542 077a E3010000 		.4byte	.LASF106
+ 1543 077e 0E       		.byte	0xe
+ 1544 077f 37       		.byte	0x37
+ 1545 0780 4B010000 		.4byte	0x14b
+ 1546 0784 08       		.byte	0x8
+ 1547 0785 00       		.byte	0
+ 1548 0786 0A       		.uleb128 0xa
+ 1549 0787 04       		.byte	0x4
+ 1550 0788 61070000 		.4byte	0x761
+ 1551 078c 06       		.uleb128 0x6
+ 1552 078d B5040000 		.4byte	.LASF107
+ 1553 0791 10       		.byte	0x10
+ 1554 0792 0F       		.byte	0xf
+ 1555 0793 39       		.byte	0x39
+ 1556 0794 BD070000 		.4byte	0x7bd
+ 1557 0798 07       		.uleb128 0x7
+ 1558 0799 2F070000 		.4byte	.LASF108
+ 1559 079d 0F       		.byte	0xf
+ 1560 079e 3A       		.byte	0x3a
+ 1561 079f A6020000 		.4byte	0x2a6
+ 1562 07a3 00       		.byte	0
+ 1563 07a4 07       		.uleb128 0x7
+ 1564 07a5 AD040000 		.4byte	.LASF109
+ 1565 07a9 0F       		.byte	0xf
+ 1566 07aa 3C       		.byte	0x3c
+ 1567 07ab 7C020000 		.4byte	0x27c
+ 1568 07af 08       		.byte	0x8
+ 1569 07b0 07       		.uleb128 0x7
+ 1570 07b1 70090000 		.4byte	.LASF110
+ 1571 07b5 0F       		.byte	0xf
+ 1572 07b6 3E       		.byte	0x3e
+ 1573 07b7 00080000 		.4byte	0x800
+ 1574 07bb 0C       		.byte	0xc
+ 1575 07bc 00       		.byte	0
+ 1576 07bd 0A       		.uleb128 0xa
+ 1577 07be 04       		.byte	0x4
+ 1578 07bf 8C070000 		.4byte	0x78c
+ 1579 07c3 0A       		.uleb128 0xa
+ 1580 07c4 04       		.byte	0x4
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 29
+
+
+ 1581 07c5 D0070000 		.4byte	0x7d0
+ 1582 07c9 02       		.uleb128 0x2
+ 1583 07ca 01       		.byte	0x1
+ 1584 07cb 08       		.byte	0x8
+ 1585 07cc 5B000000 		.4byte	.LASF111
+ 1586 07d0 16       		.uleb128 0x16
+ 1587 07d1 C9070000 		.4byte	0x7c9
+ 1588 07d5 05       		.uleb128 0x5
+ 1589 07d6 56010000 		.4byte	0x156
+ 1590 07da 0A       		.uleb128 0xa
+ 1591 07db 04       		.byte	0x4
+ 1592 07dc 5B030000 		.4byte	0x35b
+ 1593 07e0 05       		.uleb128 0x5
+ 1594 07e1 C3070000 		.4byte	0x7c3
+ 1595 07e5 17       		.uleb128 0x17
+ 1596 07e6 73050000 		.4byte	0x573
+ 1597 07ea F5070000 		.4byte	0x7f5
+ 1598 07ee 18       		.uleb128 0x18
+ 1599 07ef 8F040000 		.4byte	0x48f
+ 1600 07f3 3A       		.byte	0x3a
+ 1601 07f4 00       		.byte	0
+ 1602 07f5 03       		.uleb128 0x3
+ 1603 07f6 71080000 		.4byte	.LASF112
+ 1604 07fa 0F       		.byte	0xf
+ 1605 07fb 34       		.byte	0x34
+ 1606 07fc 8C070000 		.4byte	0x78c
+ 1607 0800 0A       		.uleb128 0xa
+ 1608 0801 04       		.byte	0x4
+ 1609 0802 F5070000 		.4byte	0x7f5
+ 1610 0806 02       		.uleb128 0x2
+ 1611 0807 04       		.byte	0x4
+ 1612 0808 04       		.byte	0x4
+ 1613 0809 44020000 		.4byte	.LASF113
+ 1614 080d 02       		.uleb128 0x2
+ 1615 080e 01       		.byte	0x1
+ 1616 080f 02       		.byte	0x2
+ 1617 0810 7D030000 		.4byte	.LASF114
+ 1618 0814 13       		.uleb128 0x13
+ 1619 0815 0C       		.byte	0xc
+ 1620 0816 10       		.byte	0x10
+ 1621 0817 DA       		.byte	0xda
+ 1622 0818 59080000 		.4byte	0x859
+ 1623 081c 07       		.uleb128 0x7
+ 1624 081d 350A0000 		.4byte	.LASF115
+ 1625 0821 10       		.byte	0x10
+ 1626 0822 DB       		.byte	0xdb
+ 1627 0823 59080000 		.4byte	0x859
+ 1628 0827 00       		.byte	0
+ 1629 0828 07       		.uleb128 0x7
+ 1630 0829 38020000 		.4byte	.LASF116
+ 1631 082d 10       		.byte	0x10
+ 1632 082e DC       		.byte	0xdc
+ 1633 082f 5F080000 		.4byte	0x85f
+ 1634 0833 04       		.byte	0x4
+ 1635 0834 07       		.uleb128 0x7
+ 1636 0835 08050000 		.4byte	.LASF117
+ 1637 0839 10       		.byte	0x10
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 30
+
+
+ 1638 083a DD       		.byte	0xdd
+ 1639 083b A2000000 		.4byte	0xa2
+ 1640 083f 08       		.byte	0x8
+ 1641 0840 07       		.uleb128 0x7
+ 1642 0841 200A0000 		.4byte	.LASF118
+ 1643 0845 10       		.byte	0x10
+ 1644 0846 DF       		.byte	0xdf
+ 1645 0847 A2000000 		.4byte	0xa2
+ 1646 084b 09       		.byte	0x9
+ 1647 084c 07       		.uleb128 0x7
+ 1648 084d BD020000 		.4byte	.LASF119
+ 1649 0851 10       		.byte	0x10
+ 1650 0852 E0       		.byte	0xe0
+ 1651 0853 A2000000 		.4byte	0xa2
+ 1652 0857 0A       		.byte	0xa
+ 1653 0858 00       		.byte	0
+ 1654 0859 0A       		.uleb128 0xa
+ 1655 085a 04       		.byte	0x4
+ 1656 085b ED040000 		.4byte	0x4ed
+ 1657 085f 0A       		.uleb128 0xa
+ 1658 0860 04       		.byte	0x4
+ 1659 0861 EE000000 		.4byte	0xee
+ 1660 0865 03       		.uleb128 0x3
+ 1661 0866 1D050000 		.4byte	.LASF120
+ 1662 086a 10       		.byte	0x10
+ 1663 086b E1       		.byte	0xe1
+ 1664 086c 14080000 		.4byte	0x814
+ 1665 0870 13       		.uleb128 0x13
+ 1666 0871 04       		.byte	0x4
+ 1667 0872 11       		.byte	0x11
+ 1668 0873 B3       		.byte	0xb3
+ 1669 0874 91080000 		.4byte	0x891
+ 1670 0878 12       		.uleb128 0x12
+ 1671 0879 73657400 		.ascii	"set\000"
+ 1672 087d 11       		.byte	0x11
+ 1673 087e B4       		.byte	0xb4
+ 1674 087f AD000000 		.4byte	0xad
+ 1675 0883 00       		.byte	0
+ 1676 0884 07       		.uleb128 0x7
+ 1677 0885 EE060000 		.4byte	.LASF121
+ 1678 0889 11       		.byte	0x11
+ 1679 088a B5       		.byte	0xb5
+ 1680 088b AD000000 		.4byte	0xad
+ 1681 088f 02       		.byte	0x2
+ 1682 0890 00       		.byte	0
+ 1683 0891 14       		.uleb128 0x14
+ 1684 0892 04       		.byte	0x4
+ 1685 0893 11       		.byte	0x11
+ 1686 0894 B1       		.byte	0xb1
+ 1687 0895 AC080000 		.4byte	0x8ac
+ 1688 0899 19       		.uleb128 0x19
+ 1689 089a 5700     		.ascii	"W\000"
+ 1690 089c 11       		.byte	0x11
+ 1691 089d B2       		.byte	0xb2
+ 1692 089e C3000000 		.4byte	0xc3
+ 1693 08a2 19       		.uleb128 0x19
+ 1694 08a3 4800     		.ascii	"H\000"
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 31
+
+
+ 1695 08a5 11       		.byte	0x11
+ 1696 08a6 B6       		.byte	0xb6
+ 1697 08a7 70080000 		.4byte	0x870
+ 1698 08ab 00       		.byte	0
+ 1699 08ac 13       		.uleb128 0x13
+ 1700 08ad 2C       		.byte	0x2c
+ 1701 08ae 11       		.byte	0x11
+ 1702 08af A9       		.byte	0xa9
+ 1703 08b0 39090000 		.4byte	0x939
+ 1704 08b4 07       		.uleb128 0x7
+ 1705 08b5 E0020000 		.4byte	.LASF122
+ 1706 08b9 11       		.byte	0x11
+ 1707 08ba AB       		.byte	0xab
+ 1708 08bb EE000000 		.4byte	0xee
+ 1709 08bf 00       		.byte	0
+ 1710 08c0 07       		.uleb128 0x7
+ 1711 08c1 6B070000 		.4byte	.LASF123
+ 1712 08c5 11       		.byte	0x11
+ 1713 08c6 AC       		.byte	0xac
+ 1714 08c7 EE000000 		.4byte	0xee
+ 1715 08cb 04       		.byte	0x4
+ 1716 08cc 07       		.uleb128 0x7
+ 1717 08cd 88060000 		.4byte	.LASF124
+ 1718 08d1 11       		.byte	0x11
+ 1719 08d2 AD       		.byte	0xad
+ 1720 08d3 EE000000 		.4byte	0xee
+ 1721 08d7 08       		.byte	0x8
+ 1722 08d8 07       		.uleb128 0x7
+ 1723 08d9 A7040000 		.4byte	.LASF125
+ 1724 08dd 11       		.byte	0x11
+ 1725 08de AE       		.byte	0xae
+ 1726 08df EE000000 		.4byte	0xee
+ 1727 08e3 0C       		.byte	0xc
+ 1728 08e4 12       		.uleb128 0x12
+ 1729 08e5 49445200 		.ascii	"IDR\000"
+ 1730 08e9 11       		.byte	0x11
+ 1731 08ea AF       		.byte	0xaf
+ 1732 08eb EE000000 		.4byte	0xee
+ 1733 08ef 10       		.byte	0x10
+ 1734 08f0 12       		.uleb128 0x12
+ 1735 08f1 4F445200 		.ascii	"ODR\000"
+ 1736 08f5 11       		.byte	0x11
+ 1737 08f6 B0       		.byte	0xb0
+ 1738 08f7 EE000000 		.4byte	0xee
+ 1739 08fb 14       		.byte	0x14
+ 1740 08fc 07       		.uleb128 0x7
+ 1741 08fd 56000000 		.4byte	.LASF126
+ 1742 0901 11       		.byte	0x11
+ 1743 0902 B7       		.byte	0xb7
+ 1744 0903 39090000 		.4byte	0x939
+ 1745 0907 18       		.byte	0x18
+ 1746 0908 07       		.uleb128 0x7
+ 1747 0909 2A0A0000 		.4byte	.LASF127
+ 1748 090d 11       		.byte	0x11
+ 1749 090e B8       		.byte	0xb8
+ 1750 090f EE000000 		.4byte	0xee
+ 1751 0913 1C       		.byte	0x1c
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 32
+
+
+ 1752 0914 07       		.uleb128 0x7
+ 1753 0915 F8020000 		.4byte	.LASF128
+ 1754 0919 11       		.byte	0x11
+ 1755 091a B9       		.byte	0xb9
+ 1756 091b EE000000 		.4byte	0xee
+ 1757 091f 20       		.byte	0x20
+ 1758 0920 07       		.uleb128 0x7
+ 1759 0921 E6020000 		.4byte	.LASF129
+ 1760 0925 11       		.byte	0x11
+ 1761 0926 BA       		.byte	0xba
+ 1762 0927 EE000000 		.4byte	0xee
+ 1763 092b 24       		.byte	0x24
+ 1764 092c 12       		.uleb128 0x12
+ 1765 092d 42525200 		.ascii	"BRR\000"
+ 1766 0931 11       		.byte	0x11
+ 1767 0932 BB       		.byte	0xbb
+ 1768 0933 EE000000 		.4byte	0xee
+ 1769 0937 28       		.byte	0x28
+ 1770 0938 00       		.byte	0
+ 1771 0939 05       		.uleb128 0x5
+ 1772 093a 91080000 		.4byte	0x891
+ 1773 093e 03       		.uleb128 0x3
+ 1774 093f EB020000 		.4byte	.LASF130
+ 1775 0943 11       		.byte	0x11
+ 1776 0944 BC       		.byte	0xbc
+ 1777 0945 AC080000 		.4byte	0x8ac
+ 1778 0949 11       		.uleb128 0x11
+ 1779 094a 01060000 		.4byte	.LASF131
+ 1780 094e 11       		.byte	0x11
+ 1781 094f 0E01     		.2byte	0x10e
+ 1782 0951 C3000000 		.4byte	0xc3
+ 1783 0955 0A       		.uleb128 0xa
+ 1784 0956 04       		.byte	0x4
+ 1785 0957 5B090000 		.4byte	0x95b
+ 1786 095b 16       		.uleb128 0x16
+ 1787 095c 65080000 		.4byte	0x865
+ 1788 0960 1A       		.uleb128 0x1a
+ 1789 0961 01       		.byte	0x1
+ 1790 0962 37000000 		.4byte	0x37
+ 1791 0966 12       		.byte	0x12
+ 1792 0967 3D       		.byte	0x3d
+ 1793 0968 7F090000 		.4byte	0x97f
+ 1794 096c 1B       		.uleb128 0x1b
+ 1795 096d A4080000 		.4byte	.LASF132
+ 1796 0971 00       		.byte	0
+ 1797 0972 1B       		.uleb128 0x1b
+ 1798 0973 FC090000 		.4byte	.LASF133
+ 1799 0977 01       		.byte	0x1
+ 1800 0978 1B       		.uleb128 0x1b
+ 1801 0979 B9070000 		.4byte	.LASF134
+ 1802 097d 02       		.byte	0x2
+ 1803 097e 00       		.byte	0
+ 1804 097f 03       		.uleb128 0x3
+ 1805 0980 3E030000 		.4byte	.LASF135
+ 1806 0984 12       		.byte	0x12
+ 1807 0985 41       		.byte	0x41
+ 1808 0986 60090000 		.4byte	0x960
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 33
+
+
+ 1809 098a 1A       		.uleb128 0x1a
+ 1810 098b 01       		.byte	0x1
+ 1811 098c 37000000 		.4byte	0x37
+ 1812 0990 12       		.byte	0x12
+ 1813 0991 46       		.byte	0x46
+ 1814 0992 A9090000 		.4byte	0x9a9
+ 1815 0996 1B       		.uleb128 0x1b
+ 1816 0997 00000000 		.4byte	.LASF136
+ 1817 099b 00       		.byte	0
+ 1818 099c 1B       		.uleb128 0x1b
+ 1819 099d 83090000 		.4byte	.LASF137
+ 1820 09a1 01       		.byte	0x1
+ 1821 09a2 1B       		.uleb128 0x1b
+ 1822 09a3 AD010000 		.4byte	.LASF138
+ 1823 09a7 02       		.byte	0x2
+ 1824 09a8 00       		.byte	0
+ 1825 09a9 03       		.uleb128 0x3
+ 1826 09aa DD070000 		.4byte	.LASF139
+ 1827 09ae 12       		.byte	0x12
+ 1828 09af 4A       		.byte	0x4a
+ 1829 09b0 8A090000 		.4byte	0x98a
+ 1830 09b4 1A       		.uleb128 0x1a
+ 1831 09b5 01       		.byte	0x1
+ 1832 09b6 37000000 		.4byte	0x37
+ 1833 09ba 12       		.byte	0x12
+ 1834 09bb 4F       		.byte	0x4f
+ 1835 09bc D3090000 		.4byte	0x9d3
+ 1836 09c0 1B       		.uleb128 0x1b
+ 1837 09c1 10090000 		.4byte	.LASF140
+ 1838 09c5 00       		.byte	0
+ 1839 09c6 1B       		.uleb128 0x1b
+ 1840 09c7 6E030000 		.4byte	.LASF141
+ 1841 09cb 01       		.byte	0x1
+ 1842 09cc 1B       		.uleb128 0x1b
+ 1843 09cd AC020000 		.4byte	.LASF142
+ 1844 09d1 02       		.byte	0x2
+ 1845 09d2 00       		.byte	0
+ 1846 09d3 03       		.uleb128 0x3
+ 1847 09d4 04010000 		.4byte	.LASF143
+ 1848 09d8 12       		.byte	0x12
+ 1849 09d9 53       		.byte	0x53
+ 1850 09da B4090000 		.4byte	0x9b4
+ 1851 09de 11       		.uleb128 0x11
+ 1852 09df 70020000 		.4byte	.LASF144
+ 1853 09e3 13       		.byte	0x13
+ 1854 09e4 B101     		.2byte	0x1b1
+ 1855 09e6 C3000000 		.4byte	0xc3
+ 1856 09ea 11       		.uleb128 0x11
+ 1857 09eb D5020000 		.4byte	.LASF145
+ 1858 09ef 13       		.byte	0x13
+ 1859 09f0 B601     		.2byte	0x1b6
+ 1860 09f2 F6090000 		.4byte	0x9f6
+ 1861 09f6 0B       		.uleb128 0xb
+ 1862 09f7 D5020000 		.4byte	.LASF145
+ 1863 09fb 1C       		.byte	0x1c
+ 1864 09fc 13       		.byte	0x13
+ 1865 09fd FE01     		.2byte	0x1fe
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 34
+
+
+ 1866 09ff 790A0000 		.4byte	0xa79
+ 1867 0a03 09       		.uleb128 0x9
+ 1868 0a04 0A090000 		.4byte	.LASF146
+ 1869 0a08 13       		.byte	0x13
+ 1870 0a09 0202     		.2byte	0x202
+ 1871 0a0b 7F090000 		.4byte	0x97f
+ 1872 0a0f 00       		.byte	0
+ 1873 0a10 09       		.uleb128 0x9
+ 1874 0a11 79080000 		.4byte	.LASF147
+ 1875 0a15 13       		.byte	0x13
+ 1876 0a16 0602     		.2byte	0x206
+ 1877 0a18 A9090000 		.4byte	0x9a9
+ 1878 0a1c 01       		.byte	0x1
+ 1879 0a1d 09       		.uleb128 0x9
+ 1880 0a1e 59070000 		.4byte	.LASF148
+ 1881 0a22 13       		.byte	0x13
+ 1882 0a23 0A02     		.2byte	0x20a
+ 1883 0a25 D3090000 		.4byte	0x9d3
+ 1884 0a29 02       		.byte	0x2
+ 1885 0a2a 09       		.uleb128 0x9
+ 1886 0a2b F4060000 		.4byte	.LASF149
+ 1887 0a2f 13       		.byte	0x13
+ 1888 0a30 0E02     		.2byte	0x20e
+ 1889 0a32 6B0B0000 		.4byte	0xb6b
+ 1890 0a36 04       		.byte	0x4
+ 1891 0a37 09       		.uleb128 0x9
+ 1892 0a38 AD050000 		.4byte	.LASF150
+ 1893 0a3c 13       		.byte	0x13
+ 1894 0a3d 1602     		.2byte	0x216
+ 1895 0a3f 760B0000 		.4byte	0xb76
+ 1896 0a43 08       		.byte	0x8
+ 1897 0a44 09       		.uleb128 0x9
+ 1898 0a45 70000000 		.4byte	.LASF151
+ 1899 0a49 13       		.byte	0x13
+ 1900 0a4a 1A02     		.2byte	0x21a
+ 1901 0a4c C3000000 		.4byte	0xc3
+ 1902 0a50 0C       		.byte	0xc
+ 1903 0a51 09       		.uleb128 0x9
+ 1904 0a52 89000000 		.4byte	.LASF152
+ 1905 0a56 13       		.byte	0x13
+ 1906 0a57 1E02     		.2byte	0x21e
+ 1907 0a59 55090000 		.4byte	0x955
+ 1908 0a5d 10       		.byte	0x10
+ 1909 0a5e 09       		.uleb128 0x9
+ 1910 0a5f 16020000 		.4byte	.LASF153
+ 1911 0a63 13       		.byte	0x13
+ 1912 0a64 2202     		.2byte	0x222
+ 1913 0a66 55090000 		.4byte	0x955
+ 1914 0a6a 14       		.byte	0x14
+ 1915 0a6b 09       		.uleb128 0x9
+ 1916 0a6c 2F0A0000 		.4byte	.LASF154
+ 1917 0a70 13       		.byte	0x13
+ 1918 0a71 2602     		.2byte	0x226
+ 1919 0a73 E4000000 		.4byte	0xe4
+ 1920 0a77 18       		.byte	0x18
+ 1921 0a78 00       		.byte	0
+ 1922 0a79 11       		.uleb128 0x11
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 35
+
+
+ 1923 0a7a 060A0000 		.4byte	.LASF155
+ 1924 0a7e 13       		.byte	0x13
+ 1925 0a7f BD01     		.2byte	0x1bd
+ 1926 0a81 850A0000 		.4byte	0xa85
+ 1927 0a85 0A       		.uleb128 0xa
+ 1928 0a86 04       		.byte	0x4
+ 1929 0a87 8B0A0000 		.4byte	0xa8b
+ 1930 0a8b 0C       		.uleb128 0xc
+ 1931 0a8c 960A0000 		.4byte	0xa96
+ 1932 0a90 0D       		.uleb128 0xd
+ 1933 0a91 960A0000 		.4byte	0xa96
+ 1934 0a95 00       		.byte	0
+ 1935 0a96 0A       		.uleb128 0xa
+ 1936 0a97 04       		.byte	0x4
+ 1937 0a98 EA090000 		.4byte	0x9ea
+ 1938 0a9c 11       		.uleb128 0x11
+ 1939 0a9d ED040000 		.4byte	.LASF156
+ 1940 0aa1 13       		.byte	0x13
+ 1941 0aa2 C501     		.2byte	0x1c5
+ 1942 0aa4 A80A0000 		.4byte	0xaa8
+ 1943 0aa8 0A       		.uleb128 0xa
+ 1944 0aa9 04       		.byte	0x4
+ 1945 0aaa AE0A0000 		.4byte	0xaae
+ 1946 0aae 0C       		.uleb128 0xc
+ 1947 0aaf BE0A0000 		.4byte	0xabe
+ 1948 0ab3 0D       		.uleb128 0xd
+ 1949 0ab4 960A0000 		.4byte	0xa96
+ 1950 0ab8 0D       		.uleb128 0xd
+ 1951 0ab9 AD000000 		.4byte	0xad
+ 1952 0abd 00       		.byte	0
+ 1953 0abe 11       		.uleb128 0x11
+ 1954 0abf 72070000 		.4byte	.LASF157
+ 1955 0ac3 13       		.byte	0x13
+ 1956 0ac4 CD01     		.2byte	0x1cd
+ 1957 0ac6 CA0A0000 		.4byte	0xaca
+ 1958 0aca 0A       		.uleb128 0xa
+ 1959 0acb 04       		.byte	0x4
+ 1960 0acc D00A0000 		.4byte	0xad0
+ 1961 0ad0 0C       		.uleb128 0xc
+ 1962 0ad1 E00A0000 		.4byte	0xae0
+ 1963 0ad5 0D       		.uleb128 0xd
+ 1964 0ad6 960A0000 		.4byte	0xa96
+ 1965 0ada 0D       		.uleb128 0xd
+ 1966 0adb DE090000 		.4byte	0x9de
+ 1967 0adf 00       		.byte	0
+ 1968 0ae0 10       		.uleb128 0x10
+ 1969 0ae1 20       		.byte	0x20
+ 1970 0ae2 13       		.byte	0x13
+ 1971 0ae3 D301     		.2byte	0x1d3
+ 1972 0ae5 5F0B0000 		.4byte	0xb5f
+ 1973 0ae9 09       		.uleb128 0x9
+ 1974 0aea 3E050000 		.4byte	.LASF158
+ 1975 0aee 13       		.byte	0x13
+ 1976 0aef D701     		.2byte	0x1d7
+ 1977 0af1 790A0000 		.4byte	0xa79
+ 1978 0af5 00       		.byte	0
+ 1979 0af6 09       		.uleb128 0x9
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 36
+
+
+ 1980 0af7 34000000 		.4byte	.LASF159
+ 1981 0afb 13       		.byte	0x13
+ 1982 0afc DB01     		.2byte	0x1db
+ 1983 0afe 790A0000 		.4byte	0xa79
+ 1984 0b02 04       		.byte	0x4
+ 1985 0b03 09       		.uleb128 0x9
+ 1986 0b04 EC000000 		.4byte	.LASF160
+ 1987 0b08 13       		.byte	0x13
+ 1988 0b09 DF01     		.2byte	0x1df
+ 1989 0b0b 790A0000 		.4byte	0xa79
+ 1990 0b0f 08       		.byte	0x8
+ 1991 0b10 09       		.uleb128 0x9
+ 1992 0b11 06070000 		.4byte	.LASF161
+ 1993 0b15 13       		.byte	0x13
+ 1994 0b16 E301     		.2byte	0x1e3
+ 1995 0b18 9C0A0000 		.4byte	0xa9c
+ 1996 0b1c 0C       		.byte	0xc
+ 1997 0b1d 09       		.uleb128 0x9
+ 1998 0b1e B3050000 		.4byte	.LASF162
+ 1999 0b22 13       		.byte	0x13
+ 2000 0b23 E701     		.2byte	0x1e7
+ 2001 0b25 BE0A0000 		.4byte	0xabe
+ 2002 0b29 10       		.byte	0x10
+ 2003 0b2a 09       		.uleb128 0x9
+ 2004 0b2b DD010000 		.4byte	.LASF163
+ 2005 0b2f 13       		.byte	0x13
+ 2006 0b30 EC01     		.2byte	0x1ec
+ 2007 0b32 C3000000 		.4byte	0xc3
+ 2008 0b36 14       		.byte	0x14
+ 2009 0b37 08       		.uleb128 0x8
+ 2010 0b38 63723100 		.ascii	"cr1\000"
+ 2011 0b3c 13       		.byte	0x13
+ 2012 0b3d F001     		.2byte	0x1f0
+ 2013 0b3f AD000000 		.4byte	0xad
+ 2014 0b43 18       		.byte	0x18
+ 2015 0b44 08       		.uleb128 0x8
+ 2016 0b45 63723200 		.ascii	"cr2\000"
+ 2017 0b49 13       		.byte	0x13
+ 2018 0b4a F401     		.2byte	0x1f4
+ 2019 0b4c AD000000 		.4byte	0xad
+ 2020 0b50 1A       		.byte	0x1a
+ 2021 0b51 08       		.uleb128 0x8
+ 2022 0b52 63723300 		.ascii	"cr3\000"
+ 2023 0b56 13       		.byte	0x13
+ 2024 0b57 F801     		.2byte	0x1f8
+ 2025 0b59 AD000000 		.4byte	0xad
+ 2026 0b5d 1C       		.byte	0x1c
+ 2027 0b5e 00       		.byte	0
+ 2028 0b5f 11       		.uleb128 0x11
+ 2029 0b60 A6070000 		.4byte	.LASF164
+ 2030 0b64 13       		.byte	0x13
+ 2031 0b65 F901     		.2byte	0x1f9
+ 2032 0b67 E00A0000 		.4byte	0xae0
+ 2033 0b6b 0A       		.uleb128 0xa
+ 2034 0b6c 04       		.byte	0x4
+ 2035 0b6d 710B0000 		.4byte	0xb71
+ 2036 0b71 16       		.uleb128 0x16
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 37
+
+
+ 2037 0b72 5F0B0000 		.4byte	0xb5f
+ 2038 0b76 0A       		.uleb128 0xa
+ 2039 0b77 04       		.byte	0x4
+ 2040 0b78 5C050000 		.4byte	0x55c
+ 2041 0b7c 0A       		.uleb128 0xa
+ 2042 0b7d 04       		.byte	0x4
+ 2043 0b7e 37000000 		.4byte	0x37
+ 2044 0b82 1C       		.uleb128 0x1c
+ 2045 0b83 7C070000 		.4byte	.LASF169
+ 2046 0b87 03       		.byte	0x3
+ 2047 0b88 2002     		.2byte	0x220
+ 2048 0b8a 03       		.byte	0x3
+ 2049 0b8b 9C0B0000 		.4byte	0xb9c
+ 2050 0b8f 1D       		.uleb128 0x1d
+ 2051 0b90 05030000 		.4byte	.LASF171
+ 2052 0b94 03       		.byte	0x3
+ 2053 0b95 2002     		.2byte	0x220
+ 2054 0b97 C3000000 		.4byte	0xc3
+ 2055 0b9b 00       		.byte	0
+ 2056 0b9c 1E       		.uleb128 0x1e
+ 2057 0b9d 2D010000 		.4byte	.LASF165
+ 2058 0ba1 0C       		.byte	0xc
+ 2059 0ba2 BC01     		.2byte	0x1bc
+ 2060 0ba4 03       		.byte	0x3
+ 2061 0ba5 1E       		.uleb128 0x1e
+ 2062 0ba6 DB090000 		.4byte	.LASF166
+ 2063 0baa 0C       		.byte	0xc
+ 2064 0bab CA01     		.2byte	0x1ca
+ 2065 0bad 03       		.byte	0x3
+ 2066 0bae 1E       		.uleb128 0x1e
+ 2067 0baf 60010000 		.4byte	.LASF167
+ 2068 0bb3 0C       		.byte	0xc
+ 2069 0bb4 D901     		.2byte	0x1d9
+ 2070 0bb6 03       		.byte	0x3
+ 2071 0bb7 1E       		.uleb128 0x1e
+ 2072 0bb8 81080000 		.4byte	.LASF168
+ 2073 0bbc 0C       		.byte	0xc
+ 2074 0bbd E401     		.2byte	0x1e4
+ 2075 0bbf 03       		.byte	0x3
+ 2076 0bc0 1F       		.uleb128 0x1f
+ 2077 0bc1 C5090000 		.4byte	.LASF211
+ 2078 0bc5 19       		.byte	0x19
+ 2079 0bc6 AE       		.byte	0xae
+ 2080 0bc7 7C020000 		.4byte	0x27c
+ 2081 0bcb 03       		.byte	0x3
+ 2082 0bcc 20       		.uleb128 0x20
+ 2083 0bcd D3060000 		.4byte	.LASF170
+ 2084 0bd1 02       		.byte	0x2
+ 2085 0bd2 84       		.byte	0x84
+ 2086 0bd3 03       		.byte	0x3
+ 2087 0bd4 E40B0000 		.4byte	0xbe4
+ 2088 0bd8 21       		.uleb128 0x21
+ 2089 0bd9 D8070000 		.4byte	.LASF172
+ 2090 0bdd 02       		.byte	0x2
+ 2091 0bde 84       		.byte	0x84
+ 2092 0bdf C3070000 		.4byte	0x7c3
+ 2093 0be3 00       		.byte	0
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 38
+
+
+ 2094 0be4 1E       		.uleb128 0x1e
+ 2095 0be5 2B030000 		.4byte	.LASF173
+ 2096 0be9 14       		.byte	0x14
+ 2097 0bea 9601     		.2byte	0x196
+ 2098 0bec 03       		.byte	0x3
+ 2099 0bed 1E       		.uleb128 0x1e
+ 2100 0bee 9C010000 		.4byte	.LASF174
+ 2101 0bf2 14       		.byte	0x14
+ 2102 0bf3 8201     		.2byte	0x182
+ 2103 0bf5 03       		.byte	0x3
+ 2104 0bf6 22       		.uleb128 0x22
+ 2105 0bf7 3C0A0000 		.4byte	.LASF177
+ 2106 0bfb 01       		.byte	0x1
+ 2107 0bfc 4A       		.byte	0x4a
+ 2108 0bfd 00000000 		.4byte	.LFB258
+ 2109 0c01 02000000 		.4byte	.LFE258-.LFB258
+ 2110 0c05 01       		.uleb128 0x1
+ 2111 0c06 9C       		.byte	0x9c
+ 2112 0c07 240C0000 		.4byte	0xc24
+ 2113 0c0b 23       		.uleb128 0x23
+ 2114 0c0c 4A030000 		.4byte	.LASF175
+ 2115 0c10 01       		.byte	0x1
+ 2116 0c11 4A       		.byte	0x4a
+ 2117 0c12 960A0000 		.4byte	0xa96
+ 2118 0c16 01       		.uleb128 0x1
+ 2119 0c17 50       		.byte	0x50
+ 2120 0c18 24       		.uleb128 0x24
+ 2121 0c19 6500     		.ascii	"e\000"
+ 2122 0c1b 01       		.byte	0x1
+ 2123 0c1c 4A       		.byte	0x4a
+ 2124 0c1d DE090000 		.4byte	0x9de
+ 2125 0c21 01       		.uleb128 0x1
+ 2126 0c22 51       		.byte	0x51
+ 2127 0c23 00       		.byte	0
+ 2128 0c24 20       		.uleb128 0x20
+ 2129 0c25 5A010000 		.4byte	.LASF176
+ 2130 0c29 01       		.byte	0x1
+ 2131 0c2a 63       		.byte	0x63
+ 2132 0c2b 01       		.byte	0x1
+ 2133 0c2c 3C0C0000 		.4byte	0xc3c
+ 2134 0c30 21       		.uleb128 0x21
+ 2135 0c31 4A030000 		.4byte	.LASF175
+ 2136 0c35 01       		.byte	0x1
+ 2137 0c36 63       		.byte	0x63
+ 2138 0c37 960A0000 		.4byte	0xa96
+ 2139 0c3b 00       		.byte	0
+ 2140 0c3c 25       		.uleb128 0x25
+ 2141 0c3d 240C0000 		.4byte	0xc24
+ 2142 0c41 00000000 		.4byte	.LFB260
+ 2143 0c45 02000000 		.4byte	.LFE260-.LFB260
+ 2144 0c49 01       		.uleb128 0x1
+ 2145 0c4a 9C       		.byte	0x9c
+ 2146 0c4b 570C0000 		.4byte	0xc57
+ 2147 0c4f 26       		.uleb128 0x26
+ 2148 0c50 300C0000 		.4byte	0xc30
+ 2149 0c54 01       		.uleb128 0x1
+ 2150 0c55 50       		.byte	0x50
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 39
+
+
+ 2151 0c56 00       		.byte	0
+ 2152 0c57 27       		.uleb128 0x27
+ 2153 0c58 B3000000 		.4byte	.LASF212
+ 2154 0c5c 01       		.byte	0x1
+ 2155 0c5d A5       		.byte	0xa5
+ 2156 0c5e 00000000 		.4byte	.LFB266
+ 2157 0c62 60000000 		.4byte	.LFE266-.LFB266
+ 2158 0c66 01       		.uleb128 0x1
+ 2159 0c67 9C       		.byte	0x9c
+ 2160 0c68 BB0C0000 		.4byte	0xcbb
+ 2161 0c6c 28       		.uleb128 0x28
+ 2162 0c6d 61726700 		.ascii	"arg\000"
+ 2163 0c71 01       		.byte	0x1
+ 2164 0c72 A5       		.byte	0xa5
+ 2165 0c73 59030000 		.4byte	0x359
+ 2166 0c77 00000000 		.4byte	.LLST0
+ 2167 0c7b 29       		.uleb128 0x29
+ 2168 0c7c CC0B0000 		.4byte	0xbcc
+ 2169 0c80 00000000 		.4byte	.LBB40
+ 2170 0c84 00000000 		.4byte	.Ldebug_ranges0+0
+ 2171 0c88 01       		.byte	0x1
+ 2172 0c89 A8       		.byte	0xa8
+ 2173 0c8a 980C0000 		.4byte	0xc98
+ 2174 0c8e 2A       		.uleb128 0x2a
+ 2175 0c8f D80B0000 		.4byte	0xbd8
+ 2176 0c93 21000000 		.4byte	.LLST1
+ 2177 0c97 00       		.byte	0
+ 2178 0c98 2B       		.uleb128 0x2b
+ 2179 0c99 20000000 		.4byte	.LVL5
+ 2180 0c9d A0100000 		.4byte	0x10a0
+ 2181 0ca1 AB0C0000 		.4byte	0xcab
+ 2182 0ca5 2C       		.uleb128 0x2c
+ 2183 0ca6 01       		.uleb128 0x1
+ 2184 0ca7 50       		.byte	0x50
+ 2185 0ca8 01       		.uleb128 0x1
+ 2186 0ca9 31       		.byte	0x31
+ 2187 0caa 00       		.byte	0
+ 2188 0cab 2D       		.uleb128 0x2d
+ 2189 0cac 38000000 		.4byte	.LVL6
+ 2190 0cb0 AB100000 		.4byte	0x10ab
+ 2191 0cb4 2C       		.uleb128 0x2c
+ 2192 0cb5 01       		.uleb128 0x1
+ 2193 0cb6 51       		.byte	0x51
+ 2194 0cb7 01       		.uleb128 0x1
+ 2195 0cb8 31       		.byte	0x31
+ 2196 0cb9 00       		.byte	0
+ 2197 0cba 00       		.byte	0
+ 2198 0cbb 22       		.uleb128 0x22
+ 2199 0cbc DC050000 		.4byte	.LASF178
+ 2200 0cc0 01       		.byte	0x1
+ 2201 0cc1 53       		.byte	0x53
+ 2202 0cc2 00000000 		.4byte	.LFB259
+ 2203 0cc6 3C000000 		.4byte	.LFE259-.LFB259
+ 2204 0cca 01       		.uleb128 0x1
+ 2205 0ccb 9C       		.byte	0x9c
+ 2206 0ccc 9C0D0000 		.4byte	0xd9c
+ 2207 0cd0 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 40
+
+
+ 2208 0cd1 4A030000 		.4byte	.LASF175
+ 2209 0cd5 01       		.byte	0x1
+ 2210 0cd6 53       		.byte	0x53
+ 2211 0cd7 960A0000 		.4byte	0xa96
+ 2212 0cdb 39000000 		.4byte	.LLST2
+ 2213 0cdf 28       		.uleb128 0x28
+ 2214 0ce0 6300     		.ascii	"c\000"
+ 2215 0ce2 01       		.byte	0x1
+ 2216 0ce3 53       		.byte	0x53
+ 2217 0ce4 AD000000 		.4byte	0xad
+ 2218 0ce8 5A000000 		.4byte	.LLST3
+ 2219 0cec 2F       		.uleb128 0x2f
+ 2220 0ced ED0B0000 		.4byte	0xbed
+ 2221 0cf1 18000000 		.4byte	.LBB46
+ 2222 0cf5 06000000 		.4byte	.LBE46-.LBB46
+ 2223 0cf9 01       		.byte	0x1
+ 2224 0cfa 5B       		.byte	0x5b
+ 2225 0cfb 3C0D0000 		.4byte	0xd3c
+ 2226 0cff 30       		.uleb128 0x30
+ 2227 0d00 AE0B0000 		.4byte	0xbae
+ 2228 0d04 18000000 		.4byte	.LBB47
+ 2229 0d08 06000000 		.4byte	.LBE47-.LBB47
+ 2230 0d0c 14       		.byte	0x14
+ 2231 0d0d 8401     		.2byte	0x184
+ 2232 0d0f 30       		.uleb128 0x30
+ 2233 0d10 9C0B0000 		.4byte	0xb9c
+ 2234 0d14 18000000 		.4byte	.LBB48
+ 2235 0d18 06000000 		.4byte	.LBE48-.LBB48
+ 2236 0d1c 0C       		.byte	0xc
+ 2237 0d1d DB01     		.2byte	0x1db
+ 2238 0d1f 30       		.uleb128 0x30
+ 2239 0d20 820B0000 		.4byte	0xb82
+ 2240 0d24 18000000 		.4byte	.LBB49
+ 2241 0d28 06000000 		.4byte	.LBE49-.LBB49
+ 2242 0d2c 0C       		.byte	0xc
+ 2243 0d2d BF01     		.2byte	0x1bf
+ 2244 0d2f 2A       		.uleb128 0x2a
+ 2245 0d30 8F0B0000 		.4byte	0xb8f
+ 2246 0d34 7B000000 		.4byte	.LLST4
+ 2247 0d38 00       		.byte	0
+ 2248 0d39 00       		.byte	0
+ 2249 0d3a 00       		.byte	0
+ 2250 0d3b 00       		.byte	0
+ 2251 0d3c 2F       		.uleb128 0x2f
+ 2252 0d3d E40B0000 		.4byte	0xbe4
+ 2253 0d41 28000000 		.4byte	.LBB51
+ 2254 0d45 14000000 		.4byte	.LBE51-.LBB51
+ 2255 0d49 01       		.byte	0x1
+ 2256 0d4a 5D       		.byte	0x5d
+ 2257 0d4b 8C0D0000 		.4byte	0xd8c
+ 2258 0d4f 30       		.uleb128 0x30
+ 2259 0d50 B70B0000 		.4byte	0xbb7
+ 2260 0d54 28000000 		.4byte	.LBB52
+ 2261 0d58 14000000 		.4byte	.LBE52-.LBB52
+ 2262 0d5c 14       		.byte	0x14
+ 2263 0d5d 9A01     		.2byte	0x19a
+ 2264 0d5f 30       		.uleb128 0x30
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 41
+
+
+ 2265 0d60 A50B0000 		.4byte	0xba5
+ 2266 0d64 28000000 		.4byte	.LBB53
+ 2267 0d68 14000000 		.4byte	.LBE53-.LBB53
+ 2268 0d6c 0C       		.byte	0xc
+ 2269 0d6d E601     		.2byte	0x1e6
+ 2270 0d6f 30       		.uleb128 0x30
+ 2271 0d70 820B0000 		.4byte	0xb82
+ 2272 0d74 28000000 		.4byte	.LBB54
+ 2273 0d78 14000000 		.4byte	.LBE54-.LBB54
+ 2274 0d7c 0C       		.byte	0xc
+ 2275 0d7d CD01     		.2byte	0x1cd
+ 2276 0d7f 2A       		.uleb128 0x2a
+ 2277 0d80 8F0B0000 		.4byte	0xb8f
+ 2278 0d84 90000000 		.4byte	.LLST5
+ 2279 0d88 00       		.byte	0
+ 2280 0d89 00       		.byte	0
+ 2281 0d8a 00       		.byte	0
+ 2282 0d8b 00       		.byte	0
+ 2283 0d8c 2D       		.uleb128 0x2d
+ 2284 0d8d 28000000 		.4byte	.LVL11
+ 2285 0d91 B6100000 		.4byte	0x10b6
+ 2286 0d95 2C       		.uleb128 0x2c
+ 2287 0d96 01       		.uleb128 0x1
+ 2288 0d97 51       		.byte	0x51
+ 2289 0d98 01       		.uleb128 0x1
+ 2290 0d99 31       		.byte	0x31
+ 2291 0d9a 00       		.byte	0
+ 2292 0d9b 00       		.byte	0
+ 2293 0d9c 22       		.uleb128 0x22
+ 2294 0d9d 50050000 		.4byte	.LASF179
+ 2295 0da1 01       		.byte	0x1
+ 2296 0da2 76       		.byte	0x76
+ 2297 0da3 00000000 		.4byte	.LFB261
+ 2298 0da7 1C000000 		.4byte	.LFE261-.LFB261
+ 2299 0dab 01       		.uleb128 0x1
+ 2300 0dac 9C       		.byte	0x9c
+ 2301 0dad FF0D0000 		.4byte	0xdff
+ 2302 0db1 2E       		.uleb128 0x2e
+ 2303 0db2 18050000 		.4byte	.LASF180
+ 2304 0db6 01       		.byte	0x1
+ 2305 0db7 76       		.byte	0x76
+ 2306 0db8 7C0B0000 		.4byte	0xb7c
+ 2307 0dbc A4000000 		.4byte	.LLST6
+ 2308 0dc0 28       		.uleb128 0x28
+ 2309 0dc1 6C656E00 		.ascii	"len\000"
+ 2310 0dc5 01       		.byte	0x1
+ 2311 0dc6 76       		.byte	0x76
+ 2312 0dc7 9B000000 		.4byte	0x9b
+ 2313 0dcb DB000000 		.4byte	.LLST7
+ 2314 0dcf 2B       		.uleb128 0x2b
+ 2315 0dd0 0C000000 		.4byte	.LVL15
+ 2316 0dd4 C1100000 		.4byte	0x10c1
+ 2317 0dd8 E60D0000 		.4byte	0xde6
+ 2318 0ddc 2C       		.uleb128 0x2c
+ 2319 0ddd 01       		.uleb128 0x1
+ 2320 0dde 50       		.byte	0x50
+ 2321 0ddf 05       		.uleb128 0x5
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 42
+
+
+ 2322 0de0 03       		.byte	0x3
+ 2323 0de1 00000000 		.4byte	send_packet_wrapper
+ 2324 0de5 00       		.byte	0
+ 2325 0de6 31       		.uleb128 0x31
+ 2326 0de7 18000000 		.4byte	.LVL17
+ 2327 0deb CC100000 		.4byte	0x10cc
+ 2328 0def 2C       		.uleb128 0x2c
+ 2329 0df0 01       		.uleb128 0x1
+ 2330 0df1 50       		.byte	0x50
+ 2331 0df2 03       		.uleb128 0x3
+ 2332 0df3 F3       		.byte	0xf3
+ 2333 0df4 01       		.uleb128 0x1
+ 2334 0df5 50       		.byte	0x50
+ 2335 0df6 2C       		.uleb128 0x2c
+ 2336 0df7 01       		.uleb128 0x1
+ 2337 0df8 51       		.byte	0x51
+ 2338 0df9 03       		.uleb128 0x3
+ 2339 0dfa F3       		.byte	0xf3
+ 2340 0dfb 01       		.uleb128 0x1
+ 2341 0dfc 51       		.byte	0x51
+ 2342 0dfd 00       		.byte	0
+ 2343 0dfe 00       		.byte	0
+ 2344 0dff 22       		.uleb128 0x22
+ 2345 0e00 EB070000 		.4byte	.LASF181
+ 2346 0e04 01       		.byte	0x1
+ 2347 0e05 7B       		.byte	0x7b
+ 2348 0e06 00000000 		.4byte	.LFB262
+ 2349 0e0a 06000000 		.4byte	.LFE262-.LFB262
+ 2350 0e0e 01       		.uleb128 0x1
+ 2351 0e0f 9C       		.byte	0x9c
+ 2352 0e10 500E0000 		.4byte	0xe50
+ 2353 0e14 2E       		.uleb128 0x2e
+ 2354 0e15 18050000 		.4byte	.LASF180
+ 2355 0e19 01       		.byte	0x1
+ 2356 0e1a 7B       		.byte	0x7b
+ 2357 0e1b 7C0B0000 		.4byte	0xb7c
+ 2358 0e1f 12010000 		.4byte	.LLST8
+ 2359 0e23 28       		.uleb128 0x28
+ 2360 0e24 6C656E00 		.ascii	"len\000"
+ 2361 0e28 01       		.byte	0x1
+ 2362 0e29 7B       		.byte	0x7b
+ 2363 0e2a 9B000000 		.4byte	0x9b
+ 2364 0e2e 33010000 		.4byte	.LLST9
+ 2365 0e32 31       		.uleb128 0x31
+ 2366 0e33 06000000 		.4byte	.LVL19
+ 2367 0e37 D7100000 		.4byte	0x10d7
+ 2368 0e3b 2C       		.uleb128 0x2c
+ 2369 0e3c 01       		.uleb128 0x1
+ 2370 0e3d 50       		.byte	0x50
+ 2371 0e3e 03       		.uleb128 0x3
+ 2372 0e3f F3       		.byte	0xf3
+ 2373 0e40 01       		.uleb128 0x1
+ 2374 0e41 50       		.byte	0x50
+ 2375 0e42 2C       		.uleb128 0x2c
+ 2376 0e43 01       		.uleb128 0x1
+ 2377 0e44 51       		.byte	0x51
+ 2378 0e45 03       		.uleb128 0x3
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 43
+
+
+ 2379 0e46 F3       		.byte	0xf3
+ 2380 0e47 01       		.uleb128 0x1
+ 2381 0e48 51       		.byte	0x51
+ 2382 0e49 2C       		.uleb128 0x2c
+ 2383 0e4a 01       		.uleb128 0x1
+ 2384 0e4b 52       		.byte	0x52
+ 2385 0e4c 01       		.uleb128 0x1
+ 2386 0e4d 31       		.byte	0x31
+ 2387 0e4e 00       		.byte	0
+ 2388 0e4f 00       		.byte	0
+ 2389 0e50 22       		.uleb128 0x22
+ 2390 0e51 C7060000 		.4byte	.LASF182
+ 2391 0e55 01       		.byte	0x1
+ 2392 0e56 7F       		.byte	0x7f
+ 2393 0e57 00000000 		.4byte	.LFB263
+ 2394 0e5b 3C000000 		.4byte	.LFE263-.LFB263
+ 2395 0e5f 01       		.uleb128 0x1
+ 2396 0e60 9C       		.byte	0x9c
+ 2397 0e61 E50E0000 		.4byte	0xee5
+ 2398 0e65 2E       		.uleb128 0x2e
+ 2399 0e66 18050000 		.4byte	.LASF180
+ 2400 0e6a 01       		.byte	0x1
+ 2401 0e6b 7F       		.byte	0x7f
+ 2402 0e6c 7C0B0000 		.4byte	0xb7c
+ 2403 0e70 54010000 		.4byte	.LLST10
+ 2404 0e74 28       		.uleb128 0x28
+ 2405 0e75 6C656E00 		.ascii	"len\000"
+ 2406 0e79 01       		.byte	0x1
+ 2407 0e7a 7F       		.byte	0x7f
+ 2408 0e7b 9B000000 		.4byte	0x9b
+ 2409 0e7f 80010000 		.4byte	.LLST11
+ 2410 0e83 32       		.uleb128 0x32
+ 2411 0e84 8F000000 		.4byte	.LASF186
+ 2412 0e88 01       		.byte	0x1
+ 2413 0e89 87       		.byte	0x87
+ 2414 0e8a E50E0000 		.4byte	0xee5
+ 2415 0e8e 05       		.uleb128 0x5
+ 2416 0e8f 03       		.byte	0x3
+ 2417 0e90 00000000 		.4byte	buffer.9683
+ 2418 0e94 2B       		.uleb128 0x2b
+ 2419 0e95 14000000 		.4byte	.LVL22
+ 2420 0e99 E2100000 		.4byte	0x10e2
+ 2421 0e9d A70E0000 		.4byte	0xea7
+ 2422 0ea1 2C       		.uleb128 0x2c
+ 2423 0ea2 01       		.uleb128 0x1
+ 2424 0ea3 50       		.byte	0x50
+ 2425 0ea4 01       		.uleb128 0x1
+ 2426 0ea5 31       		.byte	0x31
+ 2427 0ea6 00       		.byte	0
+ 2428 0ea7 2B       		.uleb128 0x2b
+ 2429 0ea8 24000000 		.4byte	.LVL23
+ 2430 0eac ED100000 		.4byte	0x10ed
+ 2431 0eb0 CA0E0000 		.4byte	0xeca
+ 2432 0eb4 2C       		.uleb128 0x2c
+ 2433 0eb5 01       		.uleb128 0x1
+ 2434 0eb6 50       		.byte	0x50
+ 2435 0eb7 05       		.uleb128 0x5
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 44
+
+
+ 2436 0eb8 03       		.byte	0x3
+ 2437 0eb9 00000000 		.4byte	.LANCHOR4
+ 2438 0ebd 2C       		.uleb128 0x2c
+ 2439 0ebe 01       		.uleb128 0x1
+ 2440 0ebf 51       		.byte	0x51
+ 2441 0ec0 02       		.uleb128 0x2
+ 2442 0ec1 76       		.byte	0x76
+ 2443 0ec2 00       		.sleb128 0
+ 2444 0ec3 2C       		.uleb128 0x2c
+ 2445 0ec4 01       		.uleb128 0x1
+ 2446 0ec5 52       		.byte	0x52
+ 2447 0ec6 02       		.uleb128 0x2
+ 2448 0ec7 75       		.byte	0x75
+ 2449 0ec8 00       		.sleb128 0
+ 2450 0ec9 00       		.byte	0
+ 2451 0eca 31       		.uleb128 0x31
+ 2452 0ecb 32000000 		.4byte	.LVL25
+ 2453 0ecf F6100000 		.4byte	0x10f6
+ 2454 0ed3 2C       		.uleb128 0x2c
+ 2455 0ed4 01       		.uleb128 0x1
+ 2456 0ed5 51       		.byte	0x51
+ 2457 0ed6 03       		.uleb128 0x3
+ 2458 0ed7 F3       		.byte	0xf3
+ 2459 0ed8 01       		.uleb128 0x1
+ 2460 0ed9 51       		.byte	0x51
+ 2461 0eda 2C       		.uleb128 0x2c
+ 2462 0edb 01       		.uleb128 0x1
+ 2463 0edc 52       		.byte	0x52
+ 2464 0edd 05       		.uleb128 0x5
+ 2465 0ede 03       		.byte	0x3
+ 2466 0edf 00000000 		.4byte	.LANCHOR4
+ 2467 0ee3 00       		.byte	0
+ 2468 0ee4 00       		.byte	0
+ 2469 0ee5 17       		.uleb128 0x17
+ 2470 0ee6 A2000000 		.4byte	0xa2
+ 2471 0eea F60E0000 		.4byte	0xef6
+ 2472 0eee 33       		.uleb128 0x33
+ 2473 0eef 8F040000 		.4byte	0x48f
+ 2474 0ef3 0404     		.2byte	0x404
+ 2475 0ef5 00       		.byte	0
+ 2476 0ef6 34       		.uleb128 0x34
+ 2477 0ef7 F7080000 		.4byte	.LASF183
+ 2478 0efb 01       		.byte	0x1
+ 2479 0efc 8D       		.byte	0x8d
+ 2480 0efd 00000000 		.4byte	.LFB264
+ 2481 0f01 6C000000 		.4byte	.LFE264-.LFB264
+ 2482 0f05 01       		.uleb128 0x1
+ 2483 0f06 9C       		.byte	0x9c
+ 2484 0f07 B60F0000 		.4byte	0xfb6
+ 2485 0f0b 2B       		.uleb128 0x2b
+ 2486 0f0c 10000000 		.4byte	.LVL26
+ 2487 0f10 01110000 		.4byte	0x1101
+ 2488 0f14 300F0000 		.4byte	0xf30
+ 2489 0f18 2C       		.uleb128 0x2c
+ 2490 0f19 01       		.uleb128 0x1
+ 2491 0f1a 50       		.byte	0x50
+ 2492 0f1b 05       		.uleb128 0x5
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 45
+
+
+ 2493 0f1c 03       		.byte	0x3
+ 2494 0f1d 00000000 		.4byte	send_packet
+ 2495 0f21 2C       		.uleb128 0x2c
+ 2496 0f22 01       		.uleb128 0x1
+ 2497 0f23 51       		.byte	0x51
+ 2498 0f24 05       		.uleb128 0x5
+ 2499 0f25 03       		.byte	0x3
+ 2500 0f26 00000000 		.4byte	process_packet
+ 2501 0f2a 2C       		.uleb128 0x2c
+ 2502 0f2b 01       		.uleb128 0x1
+ 2503 0f2c 52       		.byte	0x52
+ 2504 0f2d 01       		.uleb128 0x1
+ 2505 0f2e 31       		.byte	0x31
+ 2506 0f2f 00       		.byte	0
+ 2507 0f30 2B       		.uleb128 0x2b
+ 2508 0f31 18000000 		.4byte	.LVL27
+ 2509 0f35 0C110000 		.4byte	0x110c
+ 2510 0f39 470F0000 		.4byte	0xf47
+ 2511 0f3d 2C       		.uleb128 0x2c
+ 2512 0f3e 01       		.uleb128 0x1
+ 2513 0f3f 51       		.byte	0x51
+ 2514 0f40 05       		.uleb128 0x5
+ 2515 0f41 03       		.byte	0x3
+ 2516 0f42 00000000 		.4byte	.LANCHOR5
+ 2517 0f46 00       		.byte	0
+ 2518 0f47 2B       		.uleb128 0x2b
+ 2519 0f48 24000000 		.4byte	.LVL28
+ 2520 0f4c 17110000 		.4byte	0x1117
+ 2521 0f50 680F0000 		.4byte	0xf68
+ 2522 0f54 2C       		.uleb128 0x2c
+ 2523 0f55 01       		.uleb128 0x1
+ 2524 0f56 50       		.byte	0x50
+ 2525 0f57 02       		.uleb128 0x2
+ 2526 0f58 74       		.byte	0x74
+ 2527 0f59 00       		.sleb128 0
+ 2528 0f5a 2C       		.uleb128 0x2c
+ 2529 0f5b 01       		.uleb128 0x1
+ 2530 0f5c 51       		.byte	0x51
+ 2531 0f5d 02       		.uleb128 0x2
+ 2532 0f5e 08       		.byte	0x8
+ 2533 0f5f 40       		.byte	0x40
+ 2534 0f60 2C       		.uleb128 0x2c
+ 2535 0f61 01       		.uleb128 0x1
+ 2536 0f62 52       		.byte	0x52
+ 2537 0f63 03       		.uleb128 0x3
+ 2538 0f64 0A       		.byte	0xa
+ 2539 0f65 3A04     		.2byte	0x43a
+ 2540 0f67 00       		.byte	0
+ 2541 0f68 2B       		.uleb128 0x2b
+ 2542 0f69 32000000 		.4byte	.LVL29
+ 2543 0f6d 17110000 		.4byte	0x1117
+ 2544 0f71 8C0F0000 		.4byte	0xf8c
+ 2545 0f75 2C       		.uleb128 0x2c
+ 2546 0f76 01       		.uleb128 0x1
+ 2547 0f77 50       		.byte	0x50
+ 2548 0f78 05       		.uleb128 0x5
+ 2549 0f79 0C       		.byte	0xc
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 46
+
+
+ 2550 0f7a 00080240 		.4byte	0x40020800
+ 2551 0f7e 2C       		.uleb128 0x2c
+ 2552 0f7f 01       		.uleb128 0x1
+ 2553 0f80 51       		.byte	0x51
+ 2554 0f81 02       		.uleb128 0x2
+ 2555 0f82 08       		.byte	0x8
+ 2556 0f83 80       		.byte	0x80
+ 2557 0f84 2C       		.uleb128 0x2c
+ 2558 0f85 01       		.uleb128 0x1
+ 2559 0f86 52       		.byte	0x52
+ 2560 0f87 03       		.uleb128 0x3
+ 2561 0f88 0A       		.byte	0xa
+ 2562 0f89 3A04     		.2byte	0x43a
+ 2563 0f8b 00       		.byte	0
+ 2564 0f8c 2D       		.uleb128 0x2d
+ 2565 0f8d 48000000 		.4byte	.LVL30
+ 2566 0f91 23110000 		.4byte	0x1123
+ 2567 0f95 2C       		.uleb128 0x2c
+ 2568 0f96 01       		.uleb128 0x1
+ 2569 0f97 50       		.byte	0x50
+ 2570 0f98 05       		.uleb128 0x5
+ 2571 0f99 03       		.byte	0x3
+ 2572 0f9a 00000000 		.4byte	.LANCHOR7
+ 2573 0f9e 2C       		.uleb128 0x2c
+ 2574 0f9f 01       		.uleb128 0x1
+ 2575 0fa0 51       		.byte	0x51
+ 2576 0fa1 03       		.uleb128 0x3
+ 2577 0fa2 0A       		.byte	0xa
+ 2578 0fa3 9811     		.2byte	0x1198
+ 2579 0fa5 2C       		.uleb128 0x2c
+ 2580 0fa6 01       		.uleb128 0x1
+ 2581 0fa7 52       		.byte	0x52
+ 2582 0fa8 02       		.uleb128 0x2
+ 2583 0fa9 08       		.byte	0x8
+ 2584 0faa 40       		.byte	0x40
+ 2585 0fab 2C       		.uleb128 0x2c
+ 2586 0fac 01       		.uleb128 0x1
+ 2587 0fad 53       		.byte	0x53
+ 2588 0fae 05       		.uleb128 0x5
+ 2589 0faf 03       		.byte	0x3
+ 2590 0fb0 00000000 		.4byte	packet_process_thread
+ 2591 0fb4 00       		.byte	0
+ 2592 0fb5 00       		.byte	0
+ 2593 0fb6 34       		.uleb128 0x34
+ 2594 0fb7 25090000 		.4byte	.LASF184
+ 2595 0fbb 01       		.byte	0x1
+ 2596 0fbc 9D       		.byte	0x9d
+ 2597 0fbd 00000000 		.4byte	.LFB265
+ 2598 0fc1 20000000 		.4byte	.LFE265-.LFB265
+ 2599 0fc5 01       		.uleb128 0x1
+ 2600 0fc6 9C       		.byte	0x9c
+ 2601 0fc7 E40F0000 		.4byte	0xfe4
+ 2602 0fcb 2E       		.uleb128 0x2e
+ 2603 0fcc 96000000 		.4byte	.LASF185
+ 2604 0fd0 01       		.byte	0x1
+ 2605 0fd1 9D       		.byte	0x9d
+ 2606 0fd2 C3000000 		.4byte	0xc3
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 47
+
+
+ 2607 0fd6 B7010000 		.4byte	.LLST12
+ 2608 0fda 35       		.uleb128 0x35
+ 2609 0fdb 12000000 		.4byte	.LVL33
+ 2610 0fdf 0C110000 		.4byte	0x110c
+ 2611 0fe3 00       		.byte	0
+ 2612 0fe4 17       		.uleb128 0x17
+ 2613 0fe5 73050000 		.4byte	0x573
+ 2614 0fe9 F50F0000 		.4byte	0xff5
+ 2615 0fed 33       		.uleb128 0x33
+ 2616 0fee 8F040000 		.4byte	0x48f
+ 2617 0ff2 3202     		.2byte	0x232
+ 2618 0ff4 00       		.byte	0
+ 2619 0ff5 32       		.uleb128 0x32
+ 2620 0ff6 7C020000 		.4byte	.LASF187
+ 2621 0ffa 01       		.byte	0x1
+ 2622 0ffb 29       		.byte	0x29
+ 2623 0ffc E40F0000 		.4byte	0xfe4
+ 2624 1000 05       		.uleb128 0x5
+ 2625 1001 03       		.byte	0x3
+ 2626 1002 00000000 		.4byte	packet_process_thread_wa
+ 2627 1006 32       		.uleb128 0x32
+ 2628 1007 37080000 		.4byte	.LASF188
+ 2629 100b 01       		.byte	0x1
+ 2630 100c 2A       		.byte	0x2a
+ 2631 100d 7C020000 		.4byte	0x27c
+ 2632 1011 05       		.uleb128 0x5
+ 2633 1012 03       		.byte	0x3
+ 2634 1013 00000000 		.4byte	process_tp
+ 2635 1017 17       		.uleb128 0x17
+ 2636 1018 A2000000 		.4byte	0xa2
+ 2637 101c 28100000 		.4byte	0x1028
+ 2638 1020 33       		.uleb128 0x33
+ 2639 1021 8F040000 		.4byte	0x48f
+ 2640 1025 FF03     		.2byte	0x3ff
+ 2641 1027 00       		.byte	0
+ 2642 1028 32       		.uleb128 0x32
+ 2643 1029 78000000 		.4byte	.LASF189
+ 2644 102d 01       		.byte	0x1
+ 2645 102e 2D       		.byte	0x2d
+ 2646 102f 17100000 		.4byte	0x1017
+ 2647 1033 05       		.uleb128 0x5
+ 2648 1034 03       		.byte	0x3
+ 2649 1035 00000000 		.4byte	serial_rx_buffer
+ 2650 1039 32       		.uleb128 0x32
+ 2651 103a 4F080000 		.4byte	.LASF190
+ 2652 103e 01       		.byte	0x1
+ 2653 103f 2E       		.byte	0x2e
+ 2654 1040 94000000 		.4byte	0x94
+ 2655 1044 05       		.uleb128 0x5
+ 2656 1045 03       		.byte	0x3
+ 2657 1046 00000000 		.4byte	serial_rx_read_pos
+ 2658 104a 32       		.uleb128 0x32
+ 2659 104b BE010000 		.4byte	.LASF191
+ 2660 104f 01       		.byte	0x1
+ 2661 1050 2F       		.byte	0x2f
+ 2662 1051 94000000 		.4byte	0x94
+ 2663 1055 05       		.uleb128 0x5
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 48
+
+
+ 2664 1056 03       		.byte	0x3
+ 2665 1057 00000000 		.4byte	serial_rx_write_pos
+ 2666 105b 32       		.uleb128 0x32
+ 2667 105c D2010000 		.4byte	.LASF192
+ 2668 1060 01       		.byte	0x1
+ 2669 1061 30       		.byte	0x30
+ 2670 1062 94000000 		.4byte	0x94
+ 2671 1066 05       		.uleb128 0x5
+ 2672 1067 03       		.byte	0x3
+ 2673 1068 00000000 		.4byte	is_running
+ 2674 106c 32       		.uleb128 0x32
+ 2675 106d E3050000 		.4byte	.LASF193
+ 2676 1071 01       		.byte	0x1
+ 2677 1072 6A       		.byte	0x6a
+ 2678 1073 5F0B0000 		.4byte	0xb5f
+ 2679 1077 05       		.uleb128 0x5
+ 2680 1078 03       		.byte	0x3
+ 2681 1079 00000000 		.4byte	uart_cfg
+ 2682 107d 36       		.uleb128 0x36
+ 2683 107e 4C070000 		.4byte	.LASF194
+ 2684 1082 15       		.byte	0x15
+ 2685 1083 A706     		.2byte	0x6a7
+ 2686 1085 E9000000 		.4byte	0xe9
+ 2687 1089 37       		.uleb128 0x37
+ 2688 108a 636800   		.ascii	"ch\000"
+ 2689 108d 09       		.byte	0x9
+ 2690 108e 0902     		.2byte	0x209
+ 2691 1090 28040000 		.4byte	0x428
+ 2692 1094 36       		.uleb128 0x36
+ 2693 1095 FA050000 		.4byte	.LASF195
+ 2694 1099 13       		.byte	0x13
+ 2695 109a 4602     		.2byte	0x246
+ 2696 109c EA090000 		.4byte	0x9ea
+ 2697 10a0 38       		.uleb128 0x38
+ 2698 10a1 EF090000 		.4byte	.LASF196
+ 2699 10a5 EF090000 		.4byte	.LASF196
+ 2700 10a9 16       		.byte	0x16
+ 2701 10aa 8B       		.byte	0x8b
+ 2702 10ab 38       		.uleb128 0x38
+ 2703 10ac 9F000000 		.4byte	.LASF197
+ 2704 10b0 9F000000 		.4byte	.LASF197
+ 2705 10b4 17       		.byte	0x17
+ 2706 10b5 26       		.byte	0x26
+ 2707 10b6 38       		.uleb128 0x38
+ 2708 10b7 2A080000 		.4byte	.LASF198
+ 2709 10bb 2A080000 		.4byte	.LASF198
+ 2710 10bf 16       		.byte	0x16
+ 2711 10c0 85       		.byte	0x85
+ 2712 10c1 38       		.uleb128 0x38
+ 2713 10c2 79050000 		.4byte	.LASF199
+ 2714 10c6 79050000 		.4byte	.LASF199
+ 2715 10ca 18       		.byte	0x18
+ 2716 10cb 20       		.byte	0x20
+ 2717 10cc 38       		.uleb128 0x38
+ 2718 10cd FE010000 		.4byte	.LASF200
+ 2719 10d1 FE010000 		.4byte	.LASF200
+ 2720 10d5 18       		.byte	0x18
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 49
+
+
+ 2721 10d6 22       		.byte	0x22
+ 2722 10d7 38       		.uleb128 0x38
+ 2723 10d8 9A050000 		.4byte	.LASF201
+ 2724 10dc 9A050000 		.4byte	.LASF201
+ 2725 10e0 17       		.byte	0x17
+ 2726 10e1 28       		.byte	0x28
+ 2727 10e2 38       		.uleb128 0x38
+ 2728 10e3 E2080000 		.4byte	.LASF202
+ 2729 10e7 E2080000 		.4byte	.LASF202
+ 2730 10eb 19       		.byte	0x19
+ 2731 10ec 96       		.byte	0x96
+ 2732 10ed 39       		.uleb128 0x39
+ 2733 10ee BE090000 		.4byte	.LASF213
+ 2734 10f2 BE090000 		.4byte	.LASF213
+ 2735 10f6 38       		.uleb128 0x38
+ 2736 10f7 04080000 		.4byte	.LASF203
+ 2737 10fb 04080000 		.4byte	.LASF203
+ 2738 10ff 12       		.byte	0x12
+ 2739 1100 66       		.byte	0x66
+ 2740 1101 38       		.uleb128 0x38
+ 2741 1102 64090000 		.4byte	.LASF204
+ 2742 1106 64090000 		.4byte	.LASF204
+ 2743 110a 17       		.byte	0x17
+ 2744 110b 24       		.byte	0x24
+ 2745 110c 38       		.uleb128 0x38
+ 2746 110d CE070000 		.4byte	.LASF205
+ 2747 1111 CE070000 		.4byte	.LASF205
+ 2748 1115 12       		.byte	0x12
+ 2749 1116 64       		.byte	0x64
+ 2750 1117 3A       		.uleb128 0x3a
+ 2751 1118 3C090000 		.4byte	.LASF206
+ 2752 111c 3C090000 		.4byte	.LASF206
+ 2753 1120 11       		.byte	0x11
+ 2754 1121 E001     		.2byte	0x1e0
+ 2755 1123 38       		.uleb128 0x38
+ 2756 1124 5D060000 		.4byte	.LASF207
+ 2757 1128 5D060000 		.4byte	.LASF207
+ 2758 112c 19       		.byte	0x19
+ 2759 112d 89       		.byte	0x89
+ 2760 112e 00       		.byte	0
+ 2761              		.section	.debug_abbrev,"",%progbits
+ 2762              	.Ldebug_abbrev0:
+ 2763 0000 01       		.uleb128 0x1
+ 2764 0001 11       		.uleb128 0x11
+ 2765 0002 01       		.byte	0x1
+ 2766 0003 25       		.uleb128 0x25
+ 2767 0004 0E       		.uleb128 0xe
+ 2768 0005 13       		.uleb128 0x13
+ 2769 0006 0B       		.uleb128 0xb
+ 2770 0007 03       		.uleb128 0x3
+ 2771 0008 0E       		.uleb128 0xe
+ 2772 0009 1B       		.uleb128 0x1b
+ 2773 000a 0E       		.uleb128 0xe
+ 2774 000b 55       		.uleb128 0x55
+ 2775 000c 17       		.uleb128 0x17
+ 2776 000d 11       		.uleb128 0x11
+ 2777 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 50
+
+
+ 2778 000f 10       		.uleb128 0x10
+ 2779 0010 17       		.uleb128 0x17
+ 2780 0011 00       		.byte	0
+ 2781 0012 00       		.byte	0
+ 2782 0013 02       		.uleb128 0x2
+ 2783 0014 24       		.uleb128 0x24
+ 2784 0015 00       		.byte	0
+ 2785 0016 0B       		.uleb128 0xb
+ 2786 0017 0B       		.uleb128 0xb
+ 2787 0018 3E       		.uleb128 0x3e
+ 2788 0019 0B       		.uleb128 0xb
+ 2789 001a 03       		.uleb128 0x3
+ 2790 001b 0E       		.uleb128 0xe
+ 2791 001c 00       		.byte	0
+ 2792 001d 00       		.byte	0
+ 2793 001e 03       		.uleb128 0x3
+ 2794 001f 16       		.uleb128 0x16
+ 2795 0020 00       		.byte	0
+ 2796 0021 03       		.uleb128 0x3
+ 2797 0022 0E       		.uleb128 0xe
+ 2798 0023 3A       		.uleb128 0x3a
+ 2799 0024 0B       		.uleb128 0xb
+ 2800 0025 3B       		.uleb128 0x3b
+ 2801 0026 0B       		.uleb128 0xb
+ 2802 0027 49       		.uleb128 0x49
+ 2803 0028 13       		.uleb128 0x13
+ 2804 0029 00       		.byte	0
+ 2805 002a 00       		.byte	0
+ 2806 002b 04       		.uleb128 0x4
+ 2807 002c 24       		.uleb128 0x24
+ 2808 002d 00       		.byte	0
+ 2809 002e 0B       		.uleb128 0xb
+ 2810 002f 0B       		.uleb128 0xb
+ 2811 0030 3E       		.uleb128 0x3e
+ 2812 0031 0B       		.uleb128 0xb
+ 2813 0032 03       		.uleb128 0x3
+ 2814 0033 08       		.uleb128 0x8
+ 2815 0034 00       		.byte	0
+ 2816 0035 00       		.byte	0
+ 2817 0036 05       		.uleb128 0x5
+ 2818 0037 35       		.uleb128 0x35
+ 2819 0038 00       		.byte	0
+ 2820 0039 49       		.uleb128 0x49
+ 2821 003a 13       		.uleb128 0x13
+ 2822 003b 00       		.byte	0
+ 2823 003c 00       		.byte	0
+ 2824 003d 06       		.uleb128 0x6
+ 2825 003e 13       		.uleb128 0x13
+ 2826 003f 01       		.byte	0x1
+ 2827 0040 03       		.uleb128 0x3
+ 2828 0041 0E       		.uleb128 0xe
+ 2829 0042 0B       		.uleb128 0xb
+ 2830 0043 0B       		.uleb128 0xb
+ 2831 0044 3A       		.uleb128 0x3a
+ 2832 0045 0B       		.uleb128 0xb
+ 2833 0046 3B       		.uleb128 0x3b
+ 2834 0047 0B       		.uleb128 0xb
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 51
+
+
+ 2835 0048 01       		.uleb128 0x1
+ 2836 0049 13       		.uleb128 0x13
+ 2837 004a 00       		.byte	0
+ 2838 004b 00       		.byte	0
+ 2839 004c 07       		.uleb128 0x7
+ 2840 004d 0D       		.uleb128 0xd
+ 2841 004e 00       		.byte	0
+ 2842 004f 03       		.uleb128 0x3
+ 2843 0050 0E       		.uleb128 0xe
+ 2844 0051 3A       		.uleb128 0x3a
+ 2845 0052 0B       		.uleb128 0xb
+ 2846 0053 3B       		.uleb128 0x3b
+ 2847 0054 0B       		.uleb128 0xb
+ 2848 0055 49       		.uleb128 0x49
+ 2849 0056 13       		.uleb128 0x13
+ 2850 0057 38       		.uleb128 0x38
+ 2851 0058 0B       		.uleb128 0xb
+ 2852 0059 00       		.byte	0
+ 2853 005a 00       		.byte	0
+ 2854 005b 08       		.uleb128 0x8
+ 2855 005c 0D       		.uleb128 0xd
+ 2856 005d 00       		.byte	0
+ 2857 005e 03       		.uleb128 0x3
+ 2858 005f 08       		.uleb128 0x8
+ 2859 0060 3A       		.uleb128 0x3a
+ 2860 0061 0B       		.uleb128 0xb
+ 2861 0062 3B       		.uleb128 0x3b
+ 2862 0063 05       		.uleb128 0x5
+ 2863 0064 49       		.uleb128 0x49
+ 2864 0065 13       		.uleb128 0x13
+ 2865 0066 38       		.uleb128 0x38
+ 2866 0067 0B       		.uleb128 0xb
+ 2867 0068 00       		.byte	0
+ 2868 0069 00       		.byte	0
+ 2869 006a 09       		.uleb128 0x9
+ 2870 006b 0D       		.uleb128 0xd
+ 2871 006c 00       		.byte	0
+ 2872 006d 03       		.uleb128 0x3
+ 2873 006e 0E       		.uleb128 0xe
+ 2874 006f 3A       		.uleb128 0x3a
+ 2875 0070 0B       		.uleb128 0xb
+ 2876 0071 3B       		.uleb128 0x3b
+ 2877 0072 05       		.uleb128 0x5
+ 2878 0073 49       		.uleb128 0x49
+ 2879 0074 13       		.uleb128 0x13
+ 2880 0075 38       		.uleb128 0x38
+ 2881 0076 0B       		.uleb128 0xb
+ 2882 0077 00       		.byte	0
+ 2883 0078 00       		.byte	0
+ 2884 0079 0A       		.uleb128 0xa
+ 2885 007a 0F       		.uleb128 0xf
+ 2886 007b 00       		.byte	0
+ 2887 007c 0B       		.uleb128 0xb
+ 2888 007d 0B       		.uleb128 0xb
+ 2889 007e 49       		.uleb128 0x49
+ 2890 007f 13       		.uleb128 0x13
+ 2891 0080 00       		.byte	0
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 52
+
+
+ 2892 0081 00       		.byte	0
+ 2893 0082 0B       		.uleb128 0xb
+ 2894 0083 13       		.uleb128 0x13
+ 2895 0084 01       		.byte	0x1
+ 2896 0085 03       		.uleb128 0x3
+ 2897 0086 0E       		.uleb128 0xe
+ 2898 0087 0B       		.uleb128 0xb
+ 2899 0088 0B       		.uleb128 0xb
+ 2900 0089 3A       		.uleb128 0x3a
+ 2901 008a 0B       		.uleb128 0xb
+ 2902 008b 3B       		.uleb128 0x3b
+ 2903 008c 05       		.uleb128 0x5
+ 2904 008d 01       		.uleb128 0x1
+ 2905 008e 13       		.uleb128 0x13
+ 2906 008f 00       		.byte	0
+ 2907 0090 00       		.byte	0
+ 2908 0091 0C       		.uleb128 0xc
+ 2909 0092 15       		.uleb128 0x15
+ 2910 0093 01       		.byte	0x1
+ 2911 0094 27       		.uleb128 0x27
+ 2912 0095 19       		.uleb128 0x19
+ 2913 0096 01       		.uleb128 0x1
+ 2914 0097 13       		.uleb128 0x13
+ 2915 0098 00       		.byte	0
+ 2916 0099 00       		.byte	0
+ 2917 009a 0D       		.uleb128 0xd
+ 2918 009b 05       		.uleb128 0x5
+ 2919 009c 00       		.byte	0
+ 2920 009d 49       		.uleb128 0x49
+ 2921 009e 13       		.uleb128 0x13
+ 2922 009f 00       		.byte	0
+ 2923 00a0 00       		.byte	0
+ 2924 00a1 0E       		.uleb128 0xe
+ 2925 00a2 0F       		.uleb128 0xf
+ 2926 00a3 00       		.byte	0
+ 2927 00a4 0B       		.uleb128 0xb
+ 2928 00a5 0B       		.uleb128 0xb
+ 2929 00a6 00       		.byte	0
+ 2930 00a7 00       		.byte	0
+ 2931 00a8 0F       		.uleb128 0xf
+ 2932 00a9 13       		.uleb128 0x13
+ 2933 00aa 01       		.byte	0x1
+ 2934 00ab 03       		.uleb128 0x3
+ 2935 00ac 0E       		.uleb128 0xe
+ 2936 00ad 0B       		.uleb128 0xb
+ 2937 00ae 05       		.uleb128 0x5
+ 2938 00af 3A       		.uleb128 0x3a
+ 2939 00b0 0B       		.uleb128 0xb
+ 2940 00b1 3B       		.uleb128 0x3b
+ 2941 00b2 05       		.uleb128 0x5
+ 2942 00b3 01       		.uleb128 0x1
+ 2943 00b4 13       		.uleb128 0x13
+ 2944 00b5 00       		.byte	0
+ 2945 00b6 00       		.byte	0
+ 2946 00b7 10       		.uleb128 0x10
+ 2947 00b8 13       		.uleb128 0x13
+ 2948 00b9 01       		.byte	0x1
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 53
+
+
+ 2949 00ba 0B       		.uleb128 0xb
+ 2950 00bb 0B       		.uleb128 0xb
+ 2951 00bc 3A       		.uleb128 0x3a
+ 2952 00bd 0B       		.uleb128 0xb
+ 2953 00be 3B       		.uleb128 0x3b
+ 2954 00bf 05       		.uleb128 0x5
+ 2955 00c0 01       		.uleb128 0x1
+ 2956 00c1 13       		.uleb128 0x13
+ 2957 00c2 00       		.byte	0
+ 2958 00c3 00       		.byte	0
+ 2959 00c4 11       		.uleb128 0x11
+ 2960 00c5 16       		.uleb128 0x16
+ 2961 00c6 00       		.byte	0
+ 2962 00c7 03       		.uleb128 0x3
+ 2963 00c8 0E       		.uleb128 0xe
+ 2964 00c9 3A       		.uleb128 0x3a
+ 2965 00ca 0B       		.uleb128 0xb
+ 2966 00cb 3B       		.uleb128 0x3b
+ 2967 00cc 05       		.uleb128 0x5
+ 2968 00cd 49       		.uleb128 0x49
+ 2969 00ce 13       		.uleb128 0x13
+ 2970 00cf 00       		.byte	0
+ 2971 00d0 00       		.byte	0
+ 2972 00d1 12       		.uleb128 0x12
+ 2973 00d2 0D       		.uleb128 0xd
+ 2974 00d3 00       		.byte	0
+ 2975 00d4 03       		.uleb128 0x3
+ 2976 00d5 08       		.uleb128 0x8
+ 2977 00d6 3A       		.uleb128 0x3a
+ 2978 00d7 0B       		.uleb128 0xb
+ 2979 00d8 3B       		.uleb128 0x3b
+ 2980 00d9 0B       		.uleb128 0xb
+ 2981 00da 49       		.uleb128 0x49
+ 2982 00db 13       		.uleb128 0x13
+ 2983 00dc 38       		.uleb128 0x38
+ 2984 00dd 0B       		.uleb128 0xb
+ 2985 00de 00       		.byte	0
+ 2986 00df 00       		.byte	0
+ 2987 00e0 13       		.uleb128 0x13
+ 2988 00e1 13       		.uleb128 0x13
+ 2989 00e2 01       		.byte	0x1
+ 2990 00e3 0B       		.uleb128 0xb
+ 2991 00e4 0B       		.uleb128 0xb
+ 2992 00e5 3A       		.uleb128 0x3a
+ 2993 00e6 0B       		.uleb128 0xb
+ 2994 00e7 3B       		.uleb128 0x3b
+ 2995 00e8 0B       		.uleb128 0xb
+ 2996 00e9 01       		.uleb128 0x1
+ 2997 00ea 13       		.uleb128 0x13
+ 2998 00eb 00       		.byte	0
+ 2999 00ec 00       		.byte	0
+ 3000 00ed 14       		.uleb128 0x14
+ 3001 00ee 17       		.uleb128 0x17
+ 3002 00ef 01       		.byte	0x1
+ 3003 00f0 0B       		.uleb128 0xb
+ 3004 00f1 0B       		.uleb128 0xb
+ 3005 00f2 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 54
+
+
+ 3006 00f3 0B       		.uleb128 0xb
+ 3007 00f4 3B       		.uleb128 0x3b
+ 3008 00f5 0B       		.uleb128 0xb
+ 3009 00f6 01       		.uleb128 0x1
+ 3010 00f7 13       		.uleb128 0x13
+ 3011 00f8 00       		.byte	0
+ 3012 00f9 00       		.byte	0
+ 3013 00fa 15       		.uleb128 0x15
+ 3014 00fb 0D       		.uleb128 0xd
+ 3015 00fc 00       		.byte	0
+ 3016 00fd 03       		.uleb128 0x3
+ 3017 00fe 0E       		.uleb128 0xe
+ 3018 00ff 3A       		.uleb128 0x3a
+ 3019 0100 0B       		.uleb128 0xb
+ 3020 0101 3B       		.uleb128 0x3b
+ 3021 0102 05       		.uleb128 0x5
+ 3022 0103 49       		.uleb128 0x49
+ 3023 0104 13       		.uleb128 0x13
+ 3024 0105 00       		.byte	0
+ 3025 0106 00       		.byte	0
+ 3026 0107 16       		.uleb128 0x16
+ 3027 0108 26       		.uleb128 0x26
+ 3028 0109 00       		.byte	0
+ 3029 010a 49       		.uleb128 0x49
+ 3030 010b 13       		.uleb128 0x13
+ 3031 010c 00       		.byte	0
+ 3032 010d 00       		.byte	0
+ 3033 010e 17       		.uleb128 0x17
+ 3034 010f 01       		.uleb128 0x1
+ 3035 0110 01       		.byte	0x1
+ 3036 0111 49       		.uleb128 0x49
+ 3037 0112 13       		.uleb128 0x13
+ 3038 0113 01       		.uleb128 0x1
+ 3039 0114 13       		.uleb128 0x13
+ 3040 0115 00       		.byte	0
+ 3041 0116 00       		.byte	0
+ 3042 0117 18       		.uleb128 0x18
+ 3043 0118 21       		.uleb128 0x21
+ 3044 0119 00       		.byte	0
+ 3045 011a 49       		.uleb128 0x49
+ 3046 011b 13       		.uleb128 0x13
+ 3047 011c 2F       		.uleb128 0x2f
+ 3048 011d 0B       		.uleb128 0xb
+ 3049 011e 00       		.byte	0
+ 3050 011f 00       		.byte	0
+ 3051 0120 19       		.uleb128 0x19
+ 3052 0121 0D       		.uleb128 0xd
+ 3053 0122 00       		.byte	0
+ 3054 0123 03       		.uleb128 0x3
+ 3055 0124 08       		.uleb128 0x8
+ 3056 0125 3A       		.uleb128 0x3a
+ 3057 0126 0B       		.uleb128 0xb
+ 3058 0127 3B       		.uleb128 0x3b
+ 3059 0128 0B       		.uleb128 0xb
+ 3060 0129 49       		.uleb128 0x49
+ 3061 012a 13       		.uleb128 0x13
+ 3062 012b 00       		.byte	0
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 55
+
+
+ 3063 012c 00       		.byte	0
+ 3064 012d 1A       		.uleb128 0x1a
+ 3065 012e 04       		.uleb128 0x4
+ 3066 012f 01       		.byte	0x1
+ 3067 0130 0B       		.uleb128 0xb
+ 3068 0131 0B       		.uleb128 0xb
+ 3069 0132 49       		.uleb128 0x49
+ 3070 0133 13       		.uleb128 0x13
+ 3071 0134 3A       		.uleb128 0x3a
+ 3072 0135 0B       		.uleb128 0xb
+ 3073 0136 3B       		.uleb128 0x3b
+ 3074 0137 0B       		.uleb128 0xb
+ 3075 0138 01       		.uleb128 0x1
+ 3076 0139 13       		.uleb128 0x13
+ 3077 013a 00       		.byte	0
+ 3078 013b 00       		.byte	0
+ 3079 013c 1B       		.uleb128 0x1b
+ 3080 013d 28       		.uleb128 0x28
+ 3081 013e 00       		.byte	0
+ 3082 013f 03       		.uleb128 0x3
+ 3083 0140 0E       		.uleb128 0xe
+ 3084 0141 1C       		.uleb128 0x1c
+ 3085 0142 0B       		.uleb128 0xb
+ 3086 0143 00       		.byte	0
+ 3087 0144 00       		.byte	0
+ 3088 0145 1C       		.uleb128 0x1c
+ 3089 0146 2E       		.uleb128 0x2e
+ 3090 0147 01       		.byte	0x1
+ 3091 0148 03       		.uleb128 0x3
+ 3092 0149 0E       		.uleb128 0xe
+ 3093 014a 3A       		.uleb128 0x3a
+ 3094 014b 0B       		.uleb128 0xb
+ 3095 014c 3B       		.uleb128 0x3b
+ 3096 014d 05       		.uleb128 0x5
+ 3097 014e 27       		.uleb128 0x27
+ 3098 014f 19       		.uleb128 0x19
+ 3099 0150 20       		.uleb128 0x20
+ 3100 0151 0B       		.uleb128 0xb
+ 3101 0152 01       		.uleb128 0x1
+ 3102 0153 13       		.uleb128 0x13
+ 3103 0154 00       		.byte	0
+ 3104 0155 00       		.byte	0
+ 3105 0156 1D       		.uleb128 0x1d
+ 3106 0157 05       		.uleb128 0x5
+ 3107 0158 00       		.byte	0
+ 3108 0159 03       		.uleb128 0x3
+ 3109 015a 0E       		.uleb128 0xe
+ 3110 015b 3A       		.uleb128 0x3a
+ 3111 015c 0B       		.uleb128 0xb
+ 3112 015d 3B       		.uleb128 0x3b
+ 3113 015e 05       		.uleb128 0x5
+ 3114 015f 49       		.uleb128 0x49
+ 3115 0160 13       		.uleb128 0x13
+ 3116 0161 00       		.byte	0
+ 3117 0162 00       		.byte	0
+ 3118 0163 1E       		.uleb128 0x1e
+ 3119 0164 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 56
+
+
+ 3120 0165 00       		.byte	0
+ 3121 0166 03       		.uleb128 0x3
+ 3122 0167 0E       		.uleb128 0xe
+ 3123 0168 3A       		.uleb128 0x3a
+ 3124 0169 0B       		.uleb128 0xb
+ 3125 016a 3B       		.uleb128 0x3b
+ 3126 016b 05       		.uleb128 0x5
+ 3127 016c 27       		.uleb128 0x27
+ 3128 016d 19       		.uleb128 0x19
+ 3129 016e 20       		.uleb128 0x20
+ 3130 016f 0B       		.uleb128 0xb
+ 3131 0170 00       		.byte	0
+ 3132 0171 00       		.byte	0
+ 3133 0172 1F       		.uleb128 0x1f
+ 3134 0173 2E       		.uleb128 0x2e
+ 3135 0174 00       		.byte	0
+ 3136 0175 03       		.uleb128 0x3
+ 3137 0176 0E       		.uleb128 0xe
+ 3138 0177 3A       		.uleb128 0x3a
+ 3139 0178 0B       		.uleb128 0xb
+ 3140 0179 3B       		.uleb128 0x3b
+ 3141 017a 0B       		.uleb128 0xb
+ 3142 017b 27       		.uleb128 0x27
+ 3143 017c 19       		.uleb128 0x19
+ 3144 017d 49       		.uleb128 0x49
+ 3145 017e 13       		.uleb128 0x13
+ 3146 017f 20       		.uleb128 0x20
+ 3147 0180 0B       		.uleb128 0xb
+ 3148 0181 00       		.byte	0
+ 3149 0182 00       		.byte	0
+ 3150 0183 20       		.uleb128 0x20
+ 3151 0184 2E       		.uleb128 0x2e
+ 3152 0185 01       		.byte	0x1
+ 3153 0186 03       		.uleb128 0x3
+ 3154 0187 0E       		.uleb128 0xe
+ 3155 0188 3A       		.uleb128 0x3a
+ 3156 0189 0B       		.uleb128 0xb
+ 3157 018a 3B       		.uleb128 0x3b
+ 3158 018b 0B       		.uleb128 0xb
+ 3159 018c 27       		.uleb128 0x27
+ 3160 018d 19       		.uleb128 0x19
+ 3161 018e 20       		.uleb128 0x20
+ 3162 018f 0B       		.uleb128 0xb
+ 3163 0190 01       		.uleb128 0x1
+ 3164 0191 13       		.uleb128 0x13
+ 3165 0192 00       		.byte	0
+ 3166 0193 00       		.byte	0
+ 3167 0194 21       		.uleb128 0x21
+ 3168 0195 05       		.uleb128 0x5
+ 3169 0196 00       		.byte	0
+ 3170 0197 03       		.uleb128 0x3
+ 3171 0198 0E       		.uleb128 0xe
+ 3172 0199 3A       		.uleb128 0x3a
+ 3173 019a 0B       		.uleb128 0xb
+ 3174 019b 3B       		.uleb128 0x3b
+ 3175 019c 0B       		.uleb128 0xb
+ 3176 019d 49       		.uleb128 0x49
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 57
+
+
+ 3177 019e 13       		.uleb128 0x13
+ 3178 019f 00       		.byte	0
+ 3179 01a0 00       		.byte	0
+ 3180 01a1 22       		.uleb128 0x22
+ 3181 01a2 2E       		.uleb128 0x2e
+ 3182 01a3 01       		.byte	0x1
+ 3183 01a4 03       		.uleb128 0x3
+ 3184 01a5 0E       		.uleb128 0xe
+ 3185 01a6 3A       		.uleb128 0x3a
+ 3186 01a7 0B       		.uleb128 0xb
+ 3187 01a8 3B       		.uleb128 0x3b
+ 3188 01a9 0B       		.uleb128 0xb
+ 3189 01aa 27       		.uleb128 0x27
+ 3190 01ab 19       		.uleb128 0x19
+ 3191 01ac 11       		.uleb128 0x11
+ 3192 01ad 01       		.uleb128 0x1
+ 3193 01ae 12       		.uleb128 0x12
+ 3194 01af 06       		.uleb128 0x6
+ 3195 01b0 40       		.uleb128 0x40
+ 3196 01b1 18       		.uleb128 0x18
+ 3197 01b2 9742     		.uleb128 0x2117
+ 3198 01b4 19       		.uleb128 0x19
+ 3199 01b5 01       		.uleb128 0x1
+ 3200 01b6 13       		.uleb128 0x13
+ 3201 01b7 00       		.byte	0
+ 3202 01b8 00       		.byte	0
+ 3203 01b9 23       		.uleb128 0x23
+ 3204 01ba 05       		.uleb128 0x5
+ 3205 01bb 00       		.byte	0
+ 3206 01bc 03       		.uleb128 0x3
+ 3207 01bd 0E       		.uleb128 0xe
+ 3208 01be 3A       		.uleb128 0x3a
+ 3209 01bf 0B       		.uleb128 0xb
+ 3210 01c0 3B       		.uleb128 0x3b
+ 3211 01c1 0B       		.uleb128 0xb
+ 3212 01c2 49       		.uleb128 0x49
+ 3213 01c3 13       		.uleb128 0x13
+ 3214 01c4 02       		.uleb128 0x2
+ 3215 01c5 18       		.uleb128 0x18
+ 3216 01c6 00       		.byte	0
+ 3217 01c7 00       		.byte	0
+ 3218 01c8 24       		.uleb128 0x24
+ 3219 01c9 05       		.uleb128 0x5
+ 3220 01ca 00       		.byte	0
+ 3221 01cb 03       		.uleb128 0x3
+ 3222 01cc 08       		.uleb128 0x8
+ 3223 01cd 3A       		.uleb128 0x3a
+ 3224 01ce 0B       		.uleb128 0xb
+ 3225 01cf 3B       		.uleb128 0x3b
+ 3226 01d0 0B       		.uleb128 0xb
+ 3227 01d1 49       		.uleb128 0x49
+ 3228 01d2 13       		.uleb128 0x13
+ 3229 01d3 02       		.uleb128 0x2
+ 3230 01d4 18       		.uleb128 0x18
+ 3231 01d5 00       		.byte	0
+ 3232 01d6 00       		.byte	0
+ 3233 01d7 25       		.uleb128 0x25
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 58
+
+
+ 3234 01d8 2E       		.uleb128 0x2e
+ 3235 01d9 01       		.byte	0x1
+ 3236 01da 31       		.uleb128 0x31
+ 3237 01db 13       		.uleb128 0x13
+ 3238 01dc 11       		.uleb128 0x11
+ 3239 01dd 01       		.uleb128 0x1
+ 3240 01de 12       		.uleb128 0x12
+ 3241 01df 06       		.uleb128 0x6
+ 3242 01e0 40       		.uleb128 0x40
+ 3243 01e1 18       		.uleb128 0x18
+ 3244 01e2 9742     		.uleb128 0x2117
+ 3245 01e4 19       		.uleb128 0x19
+ 3246 01e5 01       		.uleb128 0x1
+ 3247 01e6 13       		.uleb128 0x13
+ 3248 01e7 00       		.byte	0
+ 3249 01e8 00       		.byte	0
+ 3250 01e9 26       		.uleb128 0x26
+ 3251 01ea 05       		.uleb128 0x5
+ 3252 01eb 00       		.byte	0
+ 3253 01ec 31       		.uleb128 0x31
+ 3254 01ed 13       		.uleb128 0x13
+ 3255 01ee 02       		.uleb128 0x2
+ 3256 01ef 18       		.uleb128 0x18
+ 3257 01f0 00       		.byte	0
+ 3258 01f1 00       		.byte	0
+ 3259 01f2 27       		.uleb128 0x27
+ 3260 01f3 2E       		.uleb128 0x2e
+ 3261 01f4 01       		.byte	0x1
+ 3262 01f5 03       		.uleb128 0x3
+ 3263 01f6 0E       		.uleb128 0xe
+ 3264 01f7 3A       		.uleb128 0x3a
+ 3265 01f8 0B       		.uleb128 0xb
+ 3266 01f9 3B       		.uleb128 0x3b
+ 3267 01fa 0B       		.uleb128 0xb
+ 3268 01fb 27       		.uleb128 0x27
+ 3269 01fc 19       		.uleb128 0x19
+ 3270 01fd 8701     		.uleb128 0x87
+ 3271 01ff 19       		.uleb128 0x19
+ 3272 0200 11       		.uleb128 0x11
+ 3273 0201 01       		.uleb128 0x1
+ 3274 0202 12       		.uleb128 0x12
+ 3275 0203 06       		.uleb128 0x6
+ 3276 0204 40       		.uleb128 0x40
+ 3277 0205 18       		.uleb128 0x18
+ 3278 0206 9742     		.uleb128 0x2117
+ 3279 0208 19       		.uleb128 0x19
+ 3280 0209 01       		.uleb128 0x1
+ 3281 020a 13       		.uleb128 0x13
+ 3282 020b 00       		.byte	0
+ 3283 020c 00       		.byte	0
+ 3284 020d 28       		.uleb128 0x28
+ 3285 020e 05       		.uleb128 0x5
+ 3286 020f 00       		.byte	0
+ 3287 0210 03       		.uleb128 0x3
+ 3288 0211 08       		.uleb128 0x8
+ 3289 0212 3A       		.uleb128 0x3a
+ 3290 0213 0B       		.uleb128 0xb
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 59
+
+
+ 3291 0214 3B       		.uleb128 0x3b
+ 3292 0215 0B       		.uleb128 0xb
+ 3293 0216 49       		.uleb128 0x49
+ 3294 0217 13       		.uleb128 0x13
+ 3295 0218 02       		.uleb128 0x2
+ 3296 0219 17       		.uleb128 0x17
+ 3297 021a 00       		.byte	0
+ 3298 021b 00       		.byte	0
+ 3299 021c 29       		.uleb128 0x29
+ 3300 021d 1D       		.uleb128 0x1d
+ 3301 021e 01       		.byte	0x1
+ 3302 021f 31       		.uleb128 0x31
+ 3303 0220 13       		.uleb128 0x13
+ 3304 0221 52       		.uleb128 0x52
+ 3305 0222 01       		.uleb128 0x1
+ 3306 0223 55       		.uleb128 0x55
+ 3307 0224 17       		.uleb128 0x17
+ 3308 0225 58       		.uleb128 0x58
+ 3309 0226 0B       		.uleb128 0xb
+ 3310 0227 59       		.uleb128 0x59
+ 3311 0228 0B       		.uleb128 0xb
+ 3312 0229 01       		.uleb128 0x1
+ 3313 022a 13       		.uleb128 0x13
+ 3314 022b 00       		.byte	0
+ 3315 022c 00       		.byte	0
+ 3316 022d 2A       		.uleb128 0x2a
+ 3317 022e 05       		.uleb128 0x5
+ 3318 022f 00       		.byte	0
+ 3319 0230 31       		.uleb128 0x31
+ 3320 0231 13       		.uleb128 0x13
+ 3321 0232 02       		.uleb128 0x2
+ 3322 0233 17       		.uleb128 0x17
+ 3323 0234 00       		.byte	0
+ 3324 0235 00       		.byte	0
+ 3325 0236 2B       		.uleb128 0x2b
+ 3326 0237 898201   		.uleb128 0x4109
+ 3327 023a 01       		.byte	0x1
+ 3328 023b 11       		.uleb128 0x11
+ 3329 023c 01       		.uleb128 0x1
+ 3330 023d 31       		.uleb128 0x31
+ 3331 023e 13       		.uleb128 0x13
+ 3332 023f 01       		.uleb128 0x1
+ 3333 0240 13       		.uleb128 0x13
+ 3334 0241 00       		.byte	0
+ 3335 0242 00       		.byte	0
+ 3336 0243 2C       		.uleb128 0x2c
+ 3337 0244 8A8201   		.uleb128 0x410a
+ 3338 0247 00       		.byte	0
+ 3339 0248 02       		.uleb128 0x2
+ 3340 0249 18       		.uleb128 0x18
+ 3341 024a 9142     		.uleb128 0x2111
+ 3342 024c 18       		.uleb128 0x18
+ 3343 024d 00       		.byte	0
+ 3344 024e 00       		.byte	0
+ 3345 024f 2D       		.uleb128 0x2d
+ 3346 0250 898201   		.uleb128 0x4109
+ 3347 0253 01       		.byte	0x1
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 60
+
+
+ 3348 0254 11       		.uleb128 0x11
+ 3349 0255 01       		.uleb128 0x1
+ 3350 0256 31       		.uleb128 0x31
+ 3351 0257 13       		.uleb128 0x13
+ 3352 0258 00       		.byte	0
+ 3353 0259 00       		.byte	0
+ 3354 025a 2E       		.uleb128 0x2e
+ 3355 025b 05       		.uleb128 0x5
+ 3356 025c 00       		.byte	0
+ 3357 025d 03       		.uleb128 0x3
+ 3358 025e 0E       		.uleb128 0xe
+ 3359 025f 3A       		.uleb128 0x3a
+ 3360 0260 0B       		.uleb128 0xb
+ 3361 0261 3B       		.uleb128 0x3b
+ 3362 0262 0B       		.uleb128 0xb
+ 3363 0263 49       		.uleb128 0x49
+ 3364 0264 13       		.uleb128 0x13
+ 3365 0265 02       		.uleb128 0x2
+ 3366 0266 17       		.uleb128 0x17
+ 3367 0267 00       		.byte	0
+ 3368 0268 00       		.byte	0
+ 3369 0269 2F       		.uleb128 0x2f
+ 3370 026a 1D       		.uleb128 0x1d
+ 3371 026b 01       		.byte	0x1
+ 3372 026c 31       		.uleb128 0x31
+ 3373 026d 13       		.uleb128 0x13
+ 3374 026e 11       		.uleb128 0x11
+ 3375 026f 01       		.uleb128 0x1
+ 3376 0270 12       		.uleb128 0x12
+ 3377 0271 06       		.uleb128 0x6
+ 3378 0272 58       		.uleb128 0x58
+ 3379 0273 0B       		.uleb128 0xb
+ 3380 0274 59       		.uleb128 0x59
+ 3381 0275 0B       		.uleb128 0xb
+ 3382 0276 01       		.uleb128 0x1
+ 3383 0277 13       		.uleb128 0x13
+ 3384 0278 00       		.byte	0
+ 3385 0279 00       		.byte	0
+ 3386 027a 30       		.uleb128 0x30
+ 3387 027b 1D       		.uleb128 0x1d
+ 3388 027c 01       		.byte	0x1
+ 3389 027d 31       		.uleb128 0x31
+ 3390 027e 13       		.uleb128 0x13
+ 3391 027f 11       		.uleb128 0x11
+ 3392 0280 01       		.uleb128 0x1
+ 3393 0281 12       		.uleb128 0x12
+ 3394 0282 06       		.uleb128 0x6
+ 3395 0283 58       		.uleb128 0x58
+ 3396 0284 0B       		.uleb128 0xb
+ 3397 0285 59       		.uleb128 0x59
+ 3398 0286 05       		.uleb128 0x5
+ 3399 0287 00       		.byte	0
+ 3400 0288 00       		.byte	0
+ 3401 0289 31       		.uleb128 0x31
+ 3402 028a 898201   		.uleb128 0x4109
+ 3403 028d 01       		.byte	0x1
+ 3404 028e 11       		.uleb128 0x11
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 61
+
+
+ 3405 028f 01       		.uleb128 0x1
+ 3406 0290 9542     		.uleb128 0x2115
+ 3407 0292 19       		.uleb128 0x19
+ 3408 0293 31       		.uleb128 0x31
+ 3409 0294 13       		.uleb128 0x13
+ 3410 0295 00       		.byte	0
+ 3411 0296 00       		.byte	0
+ 3412 0297 32       		.uleb128 0x32
+ 3413 0298 34       		.uleb128 0x34
+ 3414 0299 00       		.byte	0
+ 3415 029a 03       		.uleb128 0x3
+ 3416 029b 0E       		.uleb128 0xe
+ 3417 029c 3A       		.uleb128 0x3a
+ 3418 029d 0B       		.uleb128 0xb
+ 3419 029e 3B       		.uleb128 0x3b
+ 3420 029f 0B       		.uleb128 0xb
+ 3421 02a0 49       		.uleb128 0x49
+ 3422 02a1 13       		.uleb128 0x13
+ 3423 02a2 02       		.uleb128 0x2
+ 3424 02a3 18       		.uleb128 0x18
+ 3425 02a4 00       		.byte	0
+ 3426 02a5 00       		.byte	0
+ 3427 02a6 33       		.uleb128 0x33
+ 3428 02a7 21       		.uleb128 0x21
+ 3429 02a8 00       		.byte	0
+ 3430 02a9 49       		.uleb128 0x49
+ 3431 02aa 13       		.uleb128 0x13
+ 3432 02ab 2F       		.uleb128 0x2f
+ 3433 02ac 05       		.uleb128 0x5
+ 3434 02ad 00       		.byte	0
+ 3435 02ae 00       		.byte	0
+ 3436 02af 34       		.uleb128 0x34
+ 3437 02b0 2E       		.uleb128 0x2e
+ 3438 02b1 01       		.byte	0x1
+ 3439 02b2 3F       		.uleb128 0x3f
+ 3440 02b3 19       		.uleb128 0x19
+ 3441 02b4 03       		.uleb128 0x3
+ 3442 02b5 0E       		.uleb128 0xe
+ 3443 02b6 3A       		.uleb128 0x3a
+ 3444 02b7 0B       		.uleb128 0xb
+ 3445 02b8 3B       		.uleb128 0x3b
+ 3446 02b9 0B       		.uleb128 0xb
+ 3447 02ba 27       		.uleb128 0x27
+ 3448 02bb 19       		.uleb128 0x19
+ 3449 02bc 11       		.uleb128 0x11
+ 3450 02bd 01       		.uleb128 0x1
+ 3451 02be 12       		.uleb128 0x12
+ 3452 02bf 06       		.uleb128 0x6
+ 3453 02c0 40       		.uleb128 0x40
+ 3454 02c1 18       		.uleb128 0x18
+ 3455 02c2 9742     		.uleb128 0x2117
+ 3456 02c4 19       		.uleb128 0x19
+ 3457 02c5 01       		.uleb128 0x1
+ 3458 02c6 13       		.uleb128 0x13
+ 3459 02c7 00       		.byte	0
+ 3460 02c8 00       		.byte	0
+ 3461 02c9 35       		.uleb128 0x35
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 62
+
+
+ 3462 02ca 898201   		.uleb128 0x4109
+ 3463 02cd 00       		.byte	0
+ 3464 02ce 11       		.uleb128 0x11
+ 3465 02cf 01       		.uleb128 0x1
+ 3466 02d0 9542     		.uleb128 0x2115
+ 3467 02d2 19       		.uleb128 0x19
+ 3468 02d3 31       		.uleb128 0x31
+ 3469 02d4 13       		.uleb128 0x13
+ 3470 02d5 00       		.byte	0
+ 3471 02d6 00       		.byte	0
+ 3472 02d7 36       		.uleb128 0x36
+ 3473 02d8 34       		.uleb128 0x34
+ 3474 02d9 00       		.byte	0
+ 3475 02da 03       		.uleb128 0x3
+ 3476 02db 0E       		.uleb128 0xe
+ 3477 02dc 3A       		.uleb128 0x3a
+ 3478 02dd 0B       		.uleb128 0xb
+ 3479 02de 3B       		.uleb128 0x3b
+ 3480 02df 05       		.uleb128 0x5
+ 3481 02e0 49       		.uleb128 0x49
+ 3482 02e1 13       		.uleb128 0x13
+ 3483 02e2 3F       		.uleb128 0x3f
+ 3484 02e3 19       		.uleb128 0x19
+ 3485 02e4 3C       		.uleb128 0x3c
+ 3486 02e5 19       		.uleb128 0x19
+ 3487 02e6 00       		.byte	0
+ 3488 02e7 00       		.byte	0
+ 3489 02e8 37       		.uleb128 0x37
+ 3490 02e9 34       		.uleb128 0x34
+ 3491 02ea 00       		.byte	0
+ 3492 02eb 03       		.uleb128 0x3
+ 3493 02ec 08       		.uleb128 0x8
+ 3494 02ed 3A       		.uleb128 0x3a
+ 3495 02ee 0B       		.uleb128 0xb
+ 3496 02ef 3B       		.uleb128 0x3b
+ 3497 02f0 05       		.uleb128 0x5
+ 3498 02f1 49       		.uleb128 0x49
+ 3499 02f2 13       		.uleb128 0x13
+ 3500 02f3 3F       		.uleb128 0x3f
+ 3501 02f4 19       		.uleb128 0x19
+ 3502 02f5 3C       		.uleb128 0x3c
+ 3503 02f6 19       		.uleb128 0x19
+ 3504 02f7 00       		.byte	0
+ 3505 02f8 00       		.byte	0
+ 3506 02f9 38       		.uleb128 0x38
+ 3507 02fa 2E       		.uleb128 0x2e
+ 3508 02fb 00       		.byte	0
+ 3509 02fc 3F       		.uleb128 0x3f
+ 3510 02fd 19       		.uleb128 0x19
+ 3511 02fe 3C       		.uleb128 0x3c
+ 3512 02ff 19       		.uleb128 0x19
+ 3513 0300 6E       		.uleb128 0x6e
+ 3514 0301 0E       		.uleb128 0xe
+ 3515 0302 03       		.uleb128 0x3
+ 3516 0303 0E       		.uleb128 0xe
+ 3517 0304 3A       		.uleb128 0x3a
+ 3518 0305 0B       		.uleb128 0xb
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 63
+
+
+ 3519 0306 3B       		.uleb128 0x3b
+ 3520 0307 0B       		.uleb128 0xb
+ 3521 0308 00       		.byte	0
+ 3522 0309 00       		.byte	0
+ 3523 030a 39       		.uleb128 0x39
+ 3524 030b 2E       		.uleb128 0x2e
+ 3525 030c 00       		.byte	0
+ 3526 030d 3F       		.uleb128 0x3f
+ 3527 030e 19       		.uleb128 0x19
+ 3528 030f 3C       		.uleb128 0x3c
+ 3529 0310 19       		.uleb128 0x19
+ 3530 0311 6E       		.uleb128 0x6e
+ 3531 0312 0E       		.uleb128 0xe
+ 3532 0313 03       		.uleb128 0x3
+ 3533 0314 0E       		.uleb128 0xe
+ 3534 0315 00       		.byte	0
+ 3535 0316 00       		.byte	0
+ 3536 0317 3A       		.uleb128 0x3a
+ 3537 0318 2E       		.uleb128 0x2e
+ 3538 0319 00       		.byte	0
+ 3539 031a 3F       		.uleb128 0x3f
+ 3540 031b 19       		.uleb128 0x19
+ 3541 031c 3C       		.uleb128 0x3c
+ 3542 031d 19       		.uleb128 0x19
+ 3543 031e 6E       		.uleb128 0x6e
+ 3544 031f 0E       		.uleb128 0xe
+ 3545 0320 03       		.uleb128 0x3
+ 3546 0321 0E       		.uleb128 0xe
+ 3547 0322 3A       		.uleb128 0x3a
+ 3548 0323 0B       		.uleb128 0xb
+ 3549 0324 3B       		.uleb128 0x3b
+ 3550 0325 05       		.uleb128 0x5
+ 3551 0326 00       		.byte	0
+ 3552 0327 00       		.byte	0
+ 3553 0328 00       		.byte	0
+ 3554              		.section	.debug_loc,"",%progbits
+ 3555              	.Ldebug_loc0:
+ 3556              	.LLST0:
+ 3557 0000 00000000 		.4byte	.LVL2
+ 3558 0004 1A000000 		.4byte	.LVL4
+ 3559 0008 0100     		.2byte	0x1
+ 3560 000a 50       		.byte	0x50
+ 3561 000b 1A000000 		.4byte	.LVL4
+ 3562 000f 60000000 		.4byte	.LFE266
+ 3563 0013 0400     		.2byte	0x4
+ 3564 0015 F3       		.byte	0xf3
+ 3565 0016 01       		.uleb128 0x1
+ 3566 0017 50       		.byte	0x50
+ 3567 0018 9F       		.byte	0x9f
+ 3568 0019 00000000 		.4byte	0
+ 3569 001d 00000000 		.4byte	0
+ 3570              	.LLST1:
+ 3571 0021 00000000 		.4byte	.LVL2
+ 3572 0025 12000000 		.4byte	.LVL3
+ 3573 0029 0600     		.2byte	0x6
+ 3574 002b 03       		.byte	0x3
+ 3575 002c 00000000 		.4byte	.LC0
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 64
+
+
+ 3576 0030 9F       		.byte	0x9f
+ 3577 0031 00000000 		.4byte	0
+ 3578 0035 00000000 		.4byte	0
+ 3579              	.LLST2:
+ 3580 0039 00000000 		.4byte	.LVL7
+ 3581 003d 04000000 		.4byte	.LVL8
+ 3582 0041 0100     		.2byte	0x1
+ 3583 0043 50       		.byte	0x50
+ 3584 0044 04000000 		.4byte	.LVL8
+ 3585 0048 3C000000 		.4byte	.LFE259
+ 3586 004c 0400     		.2byte	0x4
+ 3587 004e F3       		.byte	0xf3
+ 3588 004f 01       		.uleb128 0x1
+ 3589 0050 50       		.byte	0x50
+ 3590 0051 9F       		.byte	0x9f
+ 3591 0052 00000000 		.4byte	0
+ 3592 0056 00000000 		.4byte	0
+ 3593              	.LLST3:
+ 3594 005a 00000000 		.4byte	.LVL7
+ 3595 005e 22000000 		.4byte	.LVL10
+ 3596 0062 0100     		.2byte	0x1
+ 3597 0064 51       		.byte	0x51
+ 3598 0065 22000000 		.4byte	.LVL10
+ 3599 0069 3C000000 		.4byte	.LFE259
+ 3600 006d 0400     		.2byte	0x4
+ 3601 006f F3       		.byte	0xf3
+ 3602 0070 01       		.uleb128 0x1
+ 3603 0071 51       		.byte	0x51
+ 3604 0072 9F       		.byte	0x9f
+ 3605 0073 00000000 		.4byte	0
+ 3606 0077 00000000 		.4byte	0
+ 3607              	.LLST4:
+ 3608 007b 00000000 		.4byte	.LVL7
+ 3609 007f 1E000000 		.4byte	.LVL9
+ 3610 0083 0300     		.2byte	0x3
+ 3611 0085 08       		.byte	0x8
+ 3612 0086 20       		.byte	0x20
+ 3613 0087 9F       		.byte	0x9f
+ 3614 0088 00000000 		.4byte	0
+ 3615 008c 00000000 		.4byte	0
+ 3616              	.LLST5:
+ 3617 0090 28000000 		.4byte	.LVL11
+ 3618 0094 2E000000 		.4byte	.LVL12
+ 3619 0098 0200     		.2byte	0x2
+ 3620 009a 30       		.byte	0x30
+ 3621 009b 9F       		.byte	0x9f
+ 3622 009c 00000000 		.4byte	0
+ 3623 00a0 00000000 		.4byte	0
+ 3624              	.LLST6:
+ 3625 00a4 00000000 		.4byte	.LVL13
+ 3626 00a8 08000000 		.4byte	.LVL14
+ 3627 00ac 0100     		.2byte	0x1
+ 3628 00ae 50       		.byte	0x50
+ 3629 00af 08000000 		.4byte	.LVL14
+ 3630 00b3 14000000 		.4byte	.LVL16
+ 3631 00b7 0100     		.2byte	0x1
+ 3632 00b9 54       		.byte	0x54
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 65
+
+
+ 3633 00ba 14000000 		.4byte	.LVL16
+ 3634 00be 17000000 		.4byte	.LVL17-1
+ 3635 00c2 0100     		.2byte	0x1
+ 3636 00c4 50       		.byte	0x50
+ 3637 00c5 17000000 		.4byte	.LVL17-1
+ 3638 00c9 1C000000 		.4byte	.LFE261
+ 3639 00cd 0400     		.2byte	0x4
+ 3640 00cf F3       		.byte	0xf3
+ 3641 00d0 01       		.uleb128 0x1
+ 3642 00d1 50       		.byte	0x50
+ 3643 00d2 9F       		.byte	0x9f
+ 3644 00d3 00000000 		.4byte	0
+ 3645 00d7 00000000 		.4byte	0
+ 3646              	.LLST7:
+ 3647 00db 00000000 		.4byte	.LVL13
+ 3648 00df 0B000000 		.4byte	.LVL15-1
+ 3649 00e3 0100     		.2byte	0x1
+ 3650 00e5 51       		.byte	0x51
+ 3651 00e6 0B000000 		.4byte	.LVL15-1
+ 3652 00ea 14000000 		.4byte	.LVL16
+ 3653 00ee 0100     		.2byte	0x1
+ 3654 00f0 55       		.byte	0x55
+ 3655 00f1 14000000 		.4byte	.LVL16
+ 3656 00f5 17000000 		.4byte	.LVL17-1
+ 3657 00f9 0100     		.2byte	0x1
+ 3658 00fb 51       		.byte	0x51
+ 3659 00fc 17000000 		.4byte	.LVL17-1
+ 3660 0100 1C000000 		.4byte	.LFE261
+ 3661 0104 0400     		.2byte	0x4
+ 3662 0106 F3       		.byte	0xf3
+ 3663 0107 01       		.uleb128 0x1
+ 3664 0108 51       		.byte	0x51
+ 3665 0109 9F       		.byte	0x9f
+ 3666 010a 00000000 		.4byte	0
+ 3667 010e 00000000 		.4byte	0
+ 3668              	.LLST8:
+ 3669 0112 00000000 		.4byte	.LVL18
+ 3670 0116 05000000 		.4byte	.LVL19-1
+ 3671 011a 0100     		.2byte	0x1
+ 3672 011c 50       		.byte	0x50
+ 3673 011d 05000000 		.4byte	.LVL19-1
+ 3674 0121 06000000 		.4byte	.LFE262
+ 3675 0125 0400     		.2byte	0x4
+ 3676 0127 F3       		.byte	0xf3
+ 3677 0128 01       		.uleb128 0x1
+ 3678 0129 50       		.byte	0x50
+ 3679 012a 9F       		.byte	0x9f
+ 3680 012b 00000000 		.4byte	0
+ 3681 012f 00000000 		.4byte	0
+ 3682              	.LLST9:
+ 3683 0133 00000000 		.4byte	.LVL18
+ 3684 0137 05000000 		.4byte	.LVL19-1
+ 3685 013b 0100     		.2byte	0x1
+ 3686 013d 51       		.byte	0x51
+ 3687 013e 05000000 		.4byte	.LVL19-1
+ 3688 0142 06000000 		.4byte	.LFE262
+ 3689 0146 0400     		.2byte	0x4
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 66
+
+
+ 3690 0148 F3       		.byte	0xf3
+ 3691 0149 01       		.uleb128 0x1
+ 3692 014a 51       		.byte	0x51
+ 3693 014b 9F       		.byte	0x9f
+ 3694 014c 00000000 		.4byte	0
+ 3695 0150 00000000 		.4byte	0
+ 3696              	.LLST10:
+ 3697 0154 00000000 		.4byte	.LVL20
+ 3698 0158 0E000000 		.4byte	.LVL21
+ 3699 015c 0100     		.2byte	0x1
+ 3700 015e 50       		.byte	0x50
+ 3701 015f 0E000000 		.4byte	.LVL21
+ 3702 0163 2E000000 		.4byte	.LVL24
+ 3703 0167 0100     		.2byte	0x1
+ 3704 0169 56       		.byte	0x56
+ 3705 016a 2E000000 		.4byte	.LVL24
+ 3706 016e 3C000000 		.4byte	.LFE263
+ 3707 0172 0400     		.2byte	0x4
+ 3708 0174 F3       		.byte	0xf3
+ 3709 0175 01       		.uleb128 0x1
+ 3710 0176 50       		.byte	0x50
+ 3711 0177 9F       		.byte	0x9f
+ 3712 0178 00000000 		.4byte	0
+ 3713 017c 00000000 		.4byte	0
+ 3714              	.LLST11:
+ 3715 0180 00000000 		.4byte	.LVL20
+ 3716 0184 0E000000 		.4byte	.LVL21
+ 3717 0188 0100     		.2byte	0x1
+ 3718 018a 51       		.byte	0x51
+ 3719 018b 0E000000 		.4byte	.LVL21
+ 3720 018f 2E000000 		.4byte	.LVL24
+ 3721 0193 0100     		.2byte	0x1
+ 3722 0195 55       		.byte	0x55
+ 3723 0196 2E000000 		.4byte	.LVL24
+ 3724 019a 31000000 		.4byte	.LVL25-1
+ 3725 019e 0100     		.2byte	0x1
+ 3726 01a0 51       		.byte	0x51
+ 3727 01a1 31000000 		.4byte	.LVL25-1
+ 3728 01a5 3C000000 		.4byte	.LFE263
+ 3729 01a9 0400     		.2byte	0x4
+ 3730 01ab F3       		.byte	0xf3
+ 3731 01ac 01       		.uleb128 0x1
+ 3732 01ad 51       		.byte	0x51
+ 3733 01ae 9F       		.byte	0x9f
+ 3734 01af 00000000 		.4byte	0
+ 3735 01b3 00000000 		.4byte	0
+ 3736              	.LLST12:
+ 3737 01b7 00000000 		.4byte	.LVL31
+ 3738 01bb 0E000000 		.4byte	.LVL32
+ 3739 01bf 0100     		.2byte	0x1
+ 3740 01c1 50       		.byte	0x50
+ 3741 01c2 0E000000 		.4byte	.LVL32
+ 3742 01c6 11000000 		.4byte	.LVL33-1
+ 3743 01ca 0500     		.2byte	0x5
+ 3744 01cc 03       		.byte	0x3
+ 3745 01cd 14000000 		.4byte	uart_cfg+20
+ 3746 01d1 11000000 		.4byte	.LVL33-1
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 67
+
+
+ 3747 01d5 20000000 		.4byte	.LFE265
+ 3748 01d9 0400     		.2byte	0x4
+ 3749 01db F3       		.byte	0xf3
+ 3750 01dc 01       		.uleb128 0x1
+ 3751 01dd 50       		.byte	0x50
+ 3752 01de 9F       		.byte	0x9f
+ 3753 01df 00000000 		.4byte	0
+ 3754 01e3 00000000 		.4byte	0
+ 3755              		.section	.debug_aranges,"",%progbits
+ 3756 0000 5C000000 		.4byte	0x5c
+ 3757 0004 0200     		.2byte	0x2
+ 3758 0006 00000000 		.4byte	.Ldebug_info0
+ 3759 000a 04       		.byte	0x4
+ 3760 000b 00       		.byte	0
+ 3761 000c 0000     		.2byte	0
+ 3762 000e 0000     		.2byte	0
+ 3763 0010 00000000 		.4byte	.LFB258
+ 3764 0014 02000000 		.4byte	.LFE258-.LFB258
+ 3765 0018 00000000 		.4byte	.LFB260
+ 3766 001c 02000000 		.4byte	.LFE260-.LFB260
+ 3767 0020 00000000 		.4byte	.LFB266
+ 3768 0024 60000000 		.4byte	.LFE266-.LFB266
+ 3769 0028 00000000 		.4byte	.LFB259
+ 3770 002c 3C000000 		.4byte	.LFE259-.LFB259
+ 3771 0030 00000000 		.4byte	.LFB261
+ 3772 0034 1C000000 		.4byte	.LFE261-.LFB261
+ 3773 0038 00000000 		.4byte	.LFB262
+ 3774 003c 06000000 		.4byte	.LFE262-.LFB262
+ 3775 0040 00000000 		.4byte	.LFB263
+ 3776 0044 3C000000 		.4byte	.LFE263-.LFB263
+ 3777 0048 00000000 		.4byte	.LFB264
+ 3778 004c 6C000000 		.4byte	.LFE264-.LFB264
+ 3779 0050 00000000 		.4byte	.LFB265
+ 3780 0054 20000000 		.4byte	.LFE265-.LFB265
+ 3781 0058 00000000 		.4byte	0
+ 3782 005c 00000000 		.4byte	0
+ 3783              		.section	.debug_ranges,"",%progbits
+ 3784              	.Ldebug_ranges0:
+ 3785 0000 00000000 		.4byte	.LBB40
+ 3786 0004 02000000 		.4byte	.LBE40
+ 3787 0008 04000000 		.4byte	.LBB44
+ 3788 000c 0C000000 		.4byte	.LBE44
+ 3789 0010 10000000 		.4byte	.LBB45
+ 3790 0014 12000000 		.4byte	.LBE45
+ 3791 0018 00000000 		.4byte	0
+ 3792 001c 00000000 		.4byte	0
+ 3793 0020 00000000 		.4byte	.LFB258
+ 3794 0024 02000000 		.4byte	.LFE258
+ 3795 0028 00000000 		.4byte	.LFB260
+ 3796 002c 02000000 		.4byte	.LFE260
+ 3797 0030 00000000 		.4byte	.LFB266
+ 3798 0034 60000000 		.4byte	.LFE266
+ 3799 0038 00000000 		.4byte	.LFB259
+ 3800 003c 3C000000 		.4byte	.LFE259
+ 3801 0040 00000000 		.4byte	.LFB261
+ 3802 0044 1C000000 		.4byte	.LFE261
+ 3803 0048 00000000 		.4byte	.LFB262
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 68
+
+
+ 3804 004c 06000000 		.4byte	.LFE262
+ 3805 0050 00000000 		.4byte	.LFB263
+ 3806 0054 3C000000 		.4byte	.LFE263
+ 3807 0058 00000000 		.4byte	.LFB264
+ 3808 005c 6C000000 		.4byte	.LFE264
+ 3809 0060 00000000 		.4byte	.LFB265
+ 3810 0064 20000000 		.4byte	.LFE265
+ 3811 0068 00000000 		.4byte	0
+ 3812 006c 00000000 		.4byte	0
+ 3813              		.section	.debug_line,"",%progbits
+ 3814              	.Ldebug_line0:
+ 3815 0000 CE040000 		.section	.debug_str,"MS",%progbits,1
+ 3815      0200D303 
+ 3815      00000201 
+ 3815      FB0E0D00 
+ 3815      01010101 
+ 3816              	.LASF136:
+ 3817 0000 55415254 		.ascii	"UART_TX_IDLE\000"
+ 3817      5F54585F 
+ 3817      49444C45 
+ 3817      00
+ 3818              	.LASF53:
+ 3819 000d 63685F74 		.ascii	"ch_threads_list\000"
+ 3819      68726561 
+ 3819      64735F6C 
+ 3819      69737400 
+ 3820              	.LASF54:
+ 3821 001d 74687265 		.ascii	"threads_queue_t\000"
+ 3821      6164735F 
+ 3821      71756575 
+ 3821      655F7400 
+ 3822              	.LASF102:
+ 3823 002d 77746D74 		.ascii	"wtmtxp\000"
+ 3823      787000
+ 3824              	.LASF159:
+ 3825 0034 7478656E 		.ascii	"txend2_cb\000"
+ 3825      64325F63 
+ 3825      6200
+ 3826              	.LASF96:
+ 3827 003e 746D5F63 		.ascii	"tm_calibration_t\000"
+ 3827      616C6962 
+ 3827      72617469 
+ 3827      6F6E5F74 
+ 3827      00
+ 3828              	.LASF42:
+ 3829 004f 705F7469 		.ascii	"p_time\000"
+ 3829      6D6500
+ 3830              	.LASF126:
+ 3831 0056 42535252 		.ascii	"BSRR\000"
+ 3831      00
+ 3832              	.LASF111:
+ 3833 005b 63686172 		.ascii	"char\000"
+ 3833      00
+ 3834              	.LASF91:
+ 3835 0060 72656761 		.ascii	"regarm_t\000"
+ 3835      726D5F74 
+ 3835      00
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 69
+
+
+ 3836              	.LASF33:
+ 3837 0069 705F7072 		.ascii	"p_prio\000"
+ 3837      696F00
+ 3838              	.LASF151:
+ 3839 0070 646D616D 		.ascii	"dmamode\000"
+ 3839      6F646500 
+ 3840              	.LASF189:
+ 3841 0078 73657269 		.ascii	"serial_rx_buffer\000"
+ 3841      616C5F72 
+ 3841      785F6275 
+ 3841      66666572 
+ 3841      00
+ 3842              	.LASF152:
+ 3843 0089 646D6172 		.ascii	"dmarx\000"
+ 3843      7800
+ 3844              	.LASF186:
+ 3845 008f 62756666 		.ascii	"buffer\000"
+ 3845      657200
+ 3846              	.LASF185:
+ 3847 0096 62617564 		.ascii	"baudrate\000"
+ 3847      72617465 
+ 3847      00
+ 3848              	.LASF197:
+ 3849 009f 7061636B 		.ascii	"packet_process_byte\000"
+ 3849      65745F70 
+ 3849      726F6365 
+ 3849      73735F62 
+ 3849      79746500 
+ 3850              	.LASF212:
+ 3851 00b3 7061636B 		.ascii	"packet_process_thread\000"
+ 3851      65745F70 
+ 3851      726F6365 
+ 3851      73735F74 
+ 3851      68726561 
+ 3852              	.LASF74:
+ 3853 00c9 76745F73 		.ascii	"vt_systime\000"
+ 3853      79737469 
+ 3853      6D6500
+ 3854              	.LASF44:
+ 3855 00d4 705F6D73 		.ascii	"p_msgqueue\000"
+ 3855      67717565 
+ 3855      756500
+ 3856              	.LASF13:
+ 3857 00df 756E7369 		.ascii	"unsigned int\000"
+ 3857      676E6564 
+ 3857      20696E74 
+ 3857      00
+ 3858              	.LASF160:
+ 3859 00ec 7278656E 		.ascii	"rxend_cb\000"
+ 3859      645F6362 
+ 3859      00
+ 3860              	.LASF51:
+ 3861 00f5 74687265 		.ascii	"threads_list_t\000"
+ 3861      6164735F 
+ 3861      6C697374 
+ 3861      5F7400
+ 3862              	.LASF143:
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 70
+
+
+ 3863 0104 75617274 		.ascii	"uartrxstate_t\000"
+ 3863      72787374 
+ 3863      6174655F 
+ 3863      7400
+ 3864              	.LASF43:
+ 3865 0112 705F7761 		.ascii	"p_waiting\000"
+ 3865      6974696E 
+ 3865      6700
+ 3866              	.LASF6:
+ 3867 011c 5F5F696E 		.ascii	"__int32_t\000"
+ 3867      7433325F 
+ 3867      7400
+ 3868              	.LASF99:
+ 3869 0126 77746F62 		.ascii	"wtobjp\000"
+ 3869      6A7000
+ 3870              	.LASF165:
+ 3871 012d 706F7274 		.ascii	"port_lock\000"
+ 3871      5F6C6F63 
+ 3871      6B00
+ 3872              	.LASF81:
+ 3873 0137 76746C69 		.ascii	"vtlist\000"
+ 3873      737400
+ 3874              	.LASF209:
+ 3875 013e 6170706C 		.ascii	"applications/app_uartcomm.c\000"
+ 3875      69636174 
+ 3875      696F6E73 
+ 3875      2F617070 
+ 3875      5F756172 
+ 3876              	.LASF176:
+ 3877 015a 7278656E 		.ascii	"rxend\000"
+ 3877      6400
+ 3878              	.LASF167:
+ 3879 0160 706F7274 		.ascii	"port_lock_from_isr\000"
+ 3879      5F6C6F63 
+ 3879      6B5F6672 
+ 3879      6F6D5F69 
+ 3879      737200
+ 3880              	.LASF57:
+ 3881 0173 63685F72 		.ascii	"ch_ready_list\000"
+ 3881      65616479 
+ 3881      5F6C6973 
+ 3881      7400
+ 3882              	.LASF83:
+ 3883 0181 69646C65 		.ascii	"idle_thread_wa\000"
+ 3883      5F746872 
+ 3883      6561645F 
+ 3883      776100
+ 3884              	.LASF85:
+ 3885 0190 4E445452 		.ascii	"NDTR\000"
+ 3885      00
+ 3886              	.LASF103:
+ 3887 0195 65776D61 		.ascii	"ewmask\000"
+ 3887      736B00
+ 3888              	.LASF174:
+ 3889 019c 63685379 		.ascii	"chSysLockFromISR\000"
+ 3889      734C6F63 
+ 3889      6B46726F 
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 71
+
+
+ 3889      6D495352 
+ 3889      00
+ 3890              	.LASF138:
+ 3891 01ad 55415254 		.ascii	"UART_TX_COMPLETE\000"
+ 3891      5F54585F 
+ 3891      434F4D50 
+ 3891      4C455445 
+ 3891      00
+ 3892              	.LASF191:
+ 3893 01be 73657269 		.ascii	"serial_rx_write_pos\000"
+ 3893      616C5F72 
+ 3893      785F7772 
+ 3893      6974655F 
+ 3893      706F7300 
+ 3894              	.LASF192:
+ 3895 01d2 69735F72 		.ascii	"is_running\000"
+ 3895      756E6E69 
+ 3895      6E6700
+ 3896              	.LASF163:
+ 3897 01dd 73706565 		.ascii	"speed\000"
+ 3897      6400
+ 3898              	.LASF106:
+ 3899 01e3 735F636E 		.ascii	"s_cnt\000"
+ 3899      7400
+ 3900              	.LASF76:
+ 3901 01e9 63685F73 		.ascii	"ch_system_debug\000"
+ 3901      79737465 
+ 3901      6D5F6465 
+ 3901      62756700 
+ 3902              	.LASF89:
+ 3903 01f9 47545052 		.ascii	"GTPR\000"
+ 3903      00
+ 3904              	.LASF200:
+ 3905 01fe 636F6D6D 		.ascii	"commands_process_packet\000"
+ 3905      616E6473 
+ 3905      5F70726F 
+ 3905      63657373 
+ 3905      5F706163 
+ 3906              	.LASF153:
+ 3907 0216 646D6174 		.ascii	"dmatx\000"
+ 3907      7800
+ 3908              	.LASF17:
+ 3909 021c 75696E74 		.ascii	"uint32_t\000"
+ 3909      33325F74 
+ 3909      00
+ 3910              	.LASF27:
+ 3911 0225 6576656E 		.ascii	"eventmask_t\000"
+ 3911      746D6173 
+ 3911      6B5F7400 
+ 3912              	.LASF59:
+ 3913 0231 725F7072 		.ascii	"r_prio\000"
+ 3913      696F00
+ 3914              	.LASF116:
+ 3915 0238 69666372 		.ascii	"ifcr\000"
+ 3915      00
+ 3916              	.LASF71:
+ 3917 023d 76745F70 		.ascii	"vt_par\000"
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 72
+
+
+ 3917      617200
+ 3918              	.LASF113:
+ 3919 0244 666C6F61 		.ascii	"float\000"
+ 3919      7400
+ 3920              	.LASF104:
+ 3921 024a 63685F73 		.ascii	"ch_semaphore\000"
+ 3921      656D6170 
+ 3921      686F7265 
+ 3921      00
+ 3922              	.LASF25:
+ 3923 0257 74707269 		.ascii	"tprio_t\000"
+ 3923      6F5F7400 
+ 3924              	.LASF66:
+ 3925 025f 63685F76 		.ascii	"ch_virtual_timer\000"
+ 3925      69727475 
+ 3925      616C5F74 
+ 3925      696D6572 
+ 3925      00
+ 3926              	.LASF144:
+ 3927 0270 75617274 		.ascii	"uartflags_t\000"
+ 3927      666C6167 
+ 3927      735F7400 
+ 3928              	.LASF187:
+ 3929 027c 7061636B 		.ascii	"packet_process_thread_wa\000"
+ 3929      65745F70 
+ 3929      726F6365 
+ 3929      73735F74 
+ 3929      68726561 
+ 3930              	.LASF12:
+ 3931 0295 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3931      206C6F6E 
+ 3931      6720756E 
+ 3931      7369676E 
+ 3931      65642069 
+ 3932              	.LASF142:
+ 3933 02ac 55415254 		.ascii	"UART_RX_COMPLETE\000"
+ 3933      5F52585F 
+ 3933      434F4D50 
+ 3933      4C455445 
+ 3933      00
+ 3934              	.LASF119:
+ 3935 02bd 76656374 		.ascii	"vector\000"
+ 3935      6F7200
+ 3936              	.LASF4:
+ 3937 02c4 5F5F7569 		.ascii	"__uint16_t\000"
+ 3937      6E743136 
+ 3937      5F7400
+ 3938              	.LASF28:
+ 3939 02cf 636E745F 		.ascii	"cnt_t\000"
+ 3939      7400
+ 3940              	.LASF145:
+ 3941 02d5 55415254 		.ascii	"UARTDriver\000"
+ 3941      44726976 
+ 3941      657200
+ 3942              	.LASF122:
+ 3943 02e0 4D4F4445 		.ascii	"MODER\000"
+ 3943      5200
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 73
+
+
+ 3944              	.LASF129:
+ 3945 02e6 41465248 		.ascii	"AFRH\000"
+ 3945      00
+ 3946              	.LASF130:
+ 3947 02eb 73746D33 		.ascii	"stm32_gpio_t\000"
+ 3947      325F6770 
+ 3947      696F5F74 
+ 3947      00
+ 3948              	.LASF128:
+ 3949 02f8 4146524C 		.ascii	"AFRL\000"
+ 3949      00
+ 3950              	.LASF35:
+ 3951 02fd 705F6E65 		.ascii	"p_newer\000"
+ 3951      77657200 
+ 3952              	.LASF171:
+ 3953 0305 76616C75 		.ascii	"value\000"
+ 3953      6500
+ 3954              	.LASF73:
+ 3955 030b 63685F76 		.ascii	"ch_virtual_timers_list\000"
+ 3955      69727475 
+ 3955      616C5F74 
+ 3955      696D6572 
+ 3955      735F6C69 
+ 3956              	.LASF30:
+ 3957 0322 74687265 		.ascii	"thread_t\000"
+ 3957      61645F74 
+ 3957      00
+ 3958              	.LASF173:
+ 3959 032b 63685379 		.ascii	"chSysUnlockFromISR\000"
+ 3959      73556E6C 
+ 3959      6F636B46 
+ 3959      726F6D49 
+ 3959      535200
+ 3960              	.LASF135:
+ 3961 033e 75617274 		.ascii	"uartstate_t\000"
+ 3961      73746174 
+ 3961      655F7400 
+ 3962              	.LASF175:
+ 3963 034a 75617274 		.ascii	"uartp\000"
+ 3963      7000
+ 3964              	.LASF19:
+ 3965 0350 73697A65 		.ascii	"size_t\000"
+ 3965      5F7400
+ 3966              	.LASF97:
+ 3967 0357 7264796D 		.ascii	"rdymsg\000"
+ 3967      736700
+ 3968              	.LASF64:
+ 3969 035e 76746675 		.ascii	"vtfunc_t\000"
+ 3969      6E635F74 
+ 3969      00
+ 3970              	.LASF95:
+ 3971 0367 6F666673 		.ascii	"offset\000"
+ 3971      657400
+ 3972              	.LASF141:
+ 3973 036e 55415254 		.ascii	"UART_RX_ACTIVE\000"
+ 3973      5F52585F 
+ 3973      41435449 
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 74
+
+
+ 3973      564500
+ 3974              	.LASF114:
+ 3975 037d 5F426F6F 		.ascii	"_Bool\000"
+ 3975      6C00
+ 3976              	.LASF208:
+ 3977 0383 474E5520 		.ascii	"GNU C99 5.4.1 20160919 (release) [ARM/embedded-5-br"
+ 3977      43393920 
+ 3977      352E342E 
+ 3977      31203230 
+ 3977      31363039 
+ 3978 03b6 616E6368 		.ascii	"anch revision 240496] -mcpu=cortex-m4 -mfloat-abi=h"
+ 3978      20726576 
+ 3978      6973696F 
+ 3978      6E203234 
+ 3978      30343936 
+ 3979 03e9 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 3979      2D6D6670 
+ 3979      753D6670 
+ 3979      76342D73 
+ 3979      702D6431 
+ 3980 041c 2D676764 		.ascii	"-ggdb -O2 -std=gnu99 -fomit-frame-pointer -falign-f"
+ 3980      62202D4F 
+ 3980      32202D73 
+ 3980      74643D67 
+ 3980      6E753939 
+ 3981 044f 756E6374 		.ascii	"unctions=16 -ffunction-sections -fdata-sections -fn"
+ 3981      696F6E73 
+ 3981      3D313620 
+ 3981      2D666675 
+ 3981      6E637469 
+ 3982 0482 6F2D636F 		.ascii	"o-common -fsingle-precision-constant\000"
+ 3982      6D6D6F6E 
+ 3982      202D6673 
+ 3982      696E676C 
+ 3982      652D7072 
+ 3983              	.LASF125:
+ 3984 04a7 50555044 		.ascii	"PUPDR\000"
+ 3984      5200
+ 3985              	.LASF109:
+ 3986 04ad 6D5F6F77 		.ascii	"m_owner\000"
+ 3986      6E657200 
+ 3987              	.LASF107:
+ 3988 04b5 63685F6D 		.ascii	"ch_mutex\000"
+ 3988      75746578 
+ 3988      00
+ 3989              	.LASF11:
+ 3990 04be 5F5F7569 		.ascii	"__uint64_t\000"
+ 3990      6E743634 
+ 3990      5F7400
+ 3991              	.LASF90:
+ 3992 04c9 55534152 		.ascii	"USART_TypeDef\000"
+ 3992      545F5479 
+ 3992      70654465 
+ 3992      6600
+ 3993              	.LASF86:
+ 3994 04d7 4D304152 		.ascii	"M0AR\000"
+ 3994      00
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 75
+
+
+ 3995              	.LASF29:
+ 3996 04dc 73797374 		.ascii	"systime_t\000"
+ 3996      696D655F 
+ 3996      7400
+ 3997              	.LASF37:
+ 3998 04e6 705F6E61 		.ascii	"p_name\000"
+ 3998      6D6500
+ 3999              	.LASF156:
+ 4000 04ed 75617274 		.ascii	"uartccb_t\000"
+ 4000      6363625F 
+ 4000      7400
+ 4001              	.LASF69:
+ 4002 04f7 76745F64 		.ascii	"vt_delta\000"
+ 4002      656C7461 
+ 4002      00
+ 4003              	.LASF61:
+ 4004 0500 725F6E65 		.ascii	"r_newer\000"
+ 4004      77657200 
+ 4005              	.LASF117:
+ 4006 0508 69736869 		.ascii	"ishift\000"
+ 4006      667400
+ 4007              	.LASF22:
+ 4008 050f 74737461 		.ascii	"tstate_t\000"
+ 4008      74655F74 
+ 4008      00
+ 4009              	.LASF180:
+ 4010 0518 64617461 		.ascii	"data\000"
+ 4010      00
+ 4011              	.LASF120:
+ 4012 051d 73746D33 		.ascii	"stm32_dma_stream_t\000"
+ 4012      325F646D 
+ 4012      615F7374 
+ 4012      7265616D 
+ 4012      5F7400
+ 4013              	.LASF10:
+ 4014 0530 6C6F6E67 		.ascii	"long long int\000"
+ 4014      206C6F6E 
+ 4014      6720696E 
+ 4014      7400
+ 4015              	.LASF158:
+ 4016 053e 7478656E 		.ascii	"txend1_cb\000"
+ 4016      64315F63 
+ 4016      6200
+ 4017              	.LASF38:
+ 4018 0548 705F7374 		.ascii	"p_state\000"
+ 4018      61746500 
+ 4019              	.LASF179:
+ 4020 0550 70726F63 		.ascii	"process_packet\000"
+ 4020      6573735F 
+ 4020      7061636B 
+ 4020      657400
+ 4021              	.LASF14:
+ 4022 055f 75696E74 		.ascii	"uint8_t\000"
+ 4022      385F7400 
+ 4023              	.LASF49:
+ 4024 0567 705F6D70 		.ascii	"p_mpool\000"
+ 4024      6F6F6C00 
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 76
+
+
+ 4025              	.LASF47:
+ 4026 056f 705F6D74 		.ascii	"p_mtxlist\000"
+ 4026      786C6973 
+ 4026      7400
+ 4027              	.LASF199:
+ 4028 0579 636F6D6D 		.ascii	"commands_set_send_func\000"
+ 4028      616E6473 
+ 4028      5F736574 
+ 4028      5F73656E 
+ 4028      645F6675 
+ 4029              	.LASF52:
+ 4030 0590 63685F74 		.ascii	"ch_thread\000"
+ 4030      68726561 
+ 4030      6400
+ 4031              	.LASF201:
+ 4032 059a 7061636B 		.ascii	"packet_send_packet\000"
+ 4032      65745F73 
+ 4032      656E645F 
+ 4032      7061636B 
+ 4032      657400
+ 4033              	.LASF150:
+ 4034 05ad 75736172 		.ascii	"usart\000"
+ 4034      7400
+ 4035              	.LASF162:
+ 4036 05b3 72786572 		.ascii	"rxerr_cb\000"
+ 4036      725F6362 
+ 4036      00
+ 4037              	.LASF75:
+ 4038 05bc 73797374 		.ascii	"system_debug_t\000"
+ 4038      656D5F64 
+ 4038      65627567 
+ 4038      5F7400
+ 4039              	.LASF55:
+ 4040 05cb 63685F74 		.ascii	"ch_threads_queue\000"
+ 4040      68726561 
+ 4040      64735F71 
+ 4040      75657565 
+ 4040      00
+ 4041              	.LASF178:
+ 4042 05dc 72786368 		.ascii	"rxchar\000"
+ 4042      617200
+ 4043              	.LASF193:
+ 4044 05e3 75617274 		.ascii	"uart_cfg\000"
+ 4044      5F636667 
+ 4044      00
+ 4045              	.LASF26:
+ 4046 05ec 6D73675F 		.ascii	"msg_t\000"
+ 4046      7400
+ 4047              	.LASF93:
+ 4048 05f2 636F6E74 		.ascii	"context\000"
+ 4048      65787400 
+ 4049              	.LASF195:
+ 4050 05fa 55415254 		.ascii	"UARTD6\000"
+ 4050      443600
+ 4051              	.LASF131:
+ 4052 0601 696F706F 		.ascii	"ioportmask_t\000"
+ 4052      72746D61 
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 77
+
+
+ 4052      736B5F74 
+ 4052      00
+ 4053              	.LASF39:
+ 4054 060e 705F666C 		.ascii	"p_flags\000"
+ 4054      61677300 
+ 4055              	.LASF65:
+ 4056 0616 76697274 		.ascii	"virtual_timer_t\000"
+ 4056      75616C5F 
+ 4056      74696D65 
+ 4056      725F7400 
+ 4057              	.LASF88:
+ 4058 0626 444D415F 		.ascii	"DMA_Stream_TypeDef\000"
+ 4058      53747265 
+ 4058      616D5F54 
+ 4058      79706544 
+ 4058      656600
+ 4059              	.LASF24:
+ 4060 0639 74736C69 		.ascii	"tslices_t\000"
+ 4060      6365735F 
+ 4060      7400
+ 4061              	.LASF62:
+ 4062 0643 725F6F6C 		.ascii	"r_older\000"
+ 4062      64657200 
+ 4063              	.LASF9:
+ 4064 064b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4064      20756E73 
+ 4064      69676E65 
+ 4064      6420696E 
+ 4064      7400
+ 4065              	.LASF207:
+ 4066 065d 63685468 		.ascii	"chThdCreateStatic\000"
+ 4066      64437265 
+ 4066      61746553 
+ 4066      74617469 
+ 4066      6300
+ 4067              	.LASF45:
+ 4068 066f 705F6D73 		.ascii	"p_msg\000"
+ 4068      6700
+ 4069              	.LASF21:
+ 4070 0675 746D6F64 		.ascii	"tmode_t\000"
+ 4070      655F7400 
+ 4071              	.LASF82:
+ 4072 067d 6D61696E 		.ascii	"mainthread\000"
+ 4072      74687265 
+ 4072      616400
+ 4073              	.LASF124:
+ 4074 0688 4F535045 		.ascii	"OSPEEDR\000"
+ 4074      45445200 
+ 4075              	.LASF210:
+ 4076 0690 643A5C47 		.ascii	"d:\\Git\\A450S\\bldc-firmware\000"
+ 4076      69745C41 
+ 4076      34353053 
+ 4076      5C626C64 
+ 4076      632D6669 
+ 4077              	.LASF15:
+ 4078 06ab 75696E74 		.ascii	"uint16_t\000"
+ 4078      31365F74 
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 78
+
+
+ 4078      00
+ 4079              	.LASF50:
+ 4080 06b4 74687265 		.ascii	"thread_reference_t\000"
+ 4080      61645F72 
+ 4080      65666572 
+ 4080      656E6365 
+ 4080      5F7400
+ 4081              	.LASF182:
+ 4082 06c7 73656E64 		.ascii	"send_packet\000"
+ 4082      5F706163 
+ 4082      6B657400 
+ 4083              	.LASF170:
+ 4084 06d3 63685265 		.ascii	"chRegSetThreadName\000"
+ 4084      67536574 
+ 4084      54687265 
+ 4084      61644E61 
+ 4084      6D6500
+ 4085              	.LASF20:
+ 4086 06e6 7274636E 		.ascii	"rtcnt_t\000"
+ 4086      745F7400 
+ 4087              	.LASF121:
+ 4088 06ee 636C6561 		.ascii	"clear\000"
+ 4088      7200
+ 4089              	.LASF149:
+ 4090 06f4 636F6E66 		.ascii	"config\000"
+ 4090      696700
+ 4091              	.LASF48:
+ 4092 06fb 705F7265 		.ascii	"p_realprio\000"
+ 4092      616C7072 
+ 4092      696F00
+ 4093              	.LASF161:
+ 4094 0706 72786368 		.ascii	"rxchar_cb\000"
+ 4094      61725F63 
+ 4094      6200
+ 4095              	.LASF2:
+ 4096 0710 73686F72 		.ascii	"short int\000"
+ 4096      7420696E 
+ 4096      7400
+ 4097              	.LASF63:
+ 4098 071a 725F6375 		.ascii	"r_current\000"
+ 4098      7272656E 
+ 4098      7400
+ 4099              	.LASF46:
+ 4100 0724 705F6570 		.ascii	"p_epending\000"
+ 4100      656E6469 
+ 4100      6E6700
+ 4101              	.LASF108:
+ 4102 072f 6D5F7175 		.ascii	"m_queue\000"
+ 4102      65756500 
+ 4103              	.LASF7:
+ 4104 0737 6C6F6E67 		.ascii	"long int\000"
+ 4104      20696E74 
+ 4104      00
+ 4105              	.LASF94:
+ 4106 0740 706F7274 		.ascii	"port_intctx\000"
+ 4106      5F696E74 
+ 4106      63747800 
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 79
+
+
+ 4107              	.LASF194:
+ 4108 074c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 4108      52784275 
+ 4108      66666572 
+ 4108      00
+ 4109              	.LASF148:
+ 4110 0759 72787374 		.ascii	"rxstate\000"
+ 4110      61746500 
+ 4111              	.LASF79:
+ 4112 0761 63685F73 		.ascii	"ch_system\000"
+ 4112      79737465 
+ 4112      6D00
+ 4113              	.LASF123:
+ 4114 076b 4F545950 		.ascii	"OTYPER\000"
+ 4114      455200
+ 4115              	.LASF157:
+ 4116 0772 75617274 		.ascii	"uartecb_t\000"
+ 4116      6563625F 
+ 4116      7400
+ 4117              	.LASF169:
+ 4118 077c 5F5F7365 		.ascii	"__set_BASEPRI\000"
+ 4118      745F4241 
+ 4118      53455052 
+ 4118      4900
+ 4119              	.LASF31:
+ 4120 078a 705F6E65 		.ascii	"p_next\000"
+ 4120      787400
+ 4121              	.LASF18:
+ 4122 0791 75696E74 		.ascii	"uint64_t\000"
+ 4122      36345F74 
+ 4122      00
+ 4123              	.LASF34:
+ 4124 079a 705F6374 		.ascii	"p_ctx\000"
+ 4124      7800
+ 4125              	.LASF80:
+ 4126 07a0 726C6973 		.ascii	"rlist\000"
+ 4126      7400
+ 4127              	.LASF164:
+ 4128 07a6 55415254 		.ascii	"UARTConfig\000"
+ 4128      436F6E66 
+ 4128      696700
+ 4129              	.LASF105:
+ 4130 07b1 735F7175 		.ascii	"s_queue\000"
+ 4130      65756500 
+ 4131              	.LASF134:
+ 4132 07b9 55415254 		.ascii	"UART_READY\000"
+ 4132      5F524541 
+ 4132      445900
+ 4133              	.LASF3:
+ 4134 07c4 5F5F7569 		.ascii	"__uint8_t\000"
+ 4134      6E74385F 
+ 4134      7400
+ 4135              	.LASF205:
+ 4136 07ce 75617274 		.ascii	"uartStart\000"
+ 4136      53746172 
+ 4136      7400
+ 4137              	.LASF172:
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 80
+
+
+ 4138 07d8 6E616D65 		.ascii	"name\000"
+ 4138      00
+ 4139              	.LASF139:
+ 4140 07dd 75617274 		.ascii	"uarttxstate_t\000"
+ 4140      74787374 
+ 4140      6174655F 
+ 4140      7400
+ 4141              	.LASF181:
+ 4142 07eb 73656E64 		.ascii	"send_packet_wrapper\000"
+ 4142      5F706163 
+ 4142      6B65745F 
+ 4142      77726170 
+ 4142      70657200 
+ 4143              	.LASF87:
+ 4144 07ff 4D314152 		.ascii	"M1AR\000"
+ 4144      00
+ 4145              	.LASF203:
+ 4146 0804 75617274 		.ascii	"uartStartSend\000"
+ 4146      53746172 
+ 4146      7453656E 
+ 4146      6400
+ 4147              	.LASF32:
+ 4148 0812 705F7072 		.ascii	"p_prev\000"
+ 4148      657600
+ 4149              	.LASF84:
+ 4150 0819 73697A65 		.ascii	"sizetype\000"
+ 4150      74797065 
+ 4150      00
+ 4151              	.LASF23:
+ 4152 0822 74726566 		.ascii	"trefs_t\000"
+ 4152      735F7400 
+ 4153              	.LASF198:
+ 4154 082a 63684576 		.ascii	"chEvtSignalI\000"
+ 4154      74536967 
+ 4154      6E616C49 
+ 4154      00
+ 4155              	.LASF188:
+ 4156 0837 70726F63 		.ascii	"process_tp\000"
+ 4156      6573735F 
+ 4156      747000
+ 4157              	.LASF56:
+ 4158 0842 72656164 		.ascii	"ready_list_t\000"
+ 4158      795F6C69 
+ 4158      73745F74 
+ 4158      00
+ 4159              	.LASF190:
+ 4160 084f 73657269 		.ascii	"serial_rx_read_pos\000"
+ 4160      616C5F72 
+ 4160      785F7265 
+ 4160      61645F70 
+ 4160      6F7300
+ 4161              	.LASF16:
+ 4162 0862 696E7433 		.ascii	"int32_t\000"
+ 4162      325F7400 
+ 4163              	.LASF101:
+ 4164 086a 77747365 		.ascii	"wtsemp\000"
+ 4164      6D7000
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 81
+
+
+ 4165              	.LASF112:
+ 4166 0871 6D757465 		.ascii	"mutex_t\000"
+ 4166      785F7400 
+ 4167              	.LASF147:
+ 4168 0879 74787374 		.ascii	"txstate\000"
+ 4168      61746500 
+ 4169              	.LASF168:
+ 4170 0881 706F7274 		.ascii	"port_unlock_from_isr\000"
+ 4170      5F756E6C 
+ 4170      6F636B5F 
+ 4170      66726F6D 
+ 4170      5F697372 
+ 4171              	.LASF1:
+ 4172 0896 756E7369 		.ascii	"unsigned char\000"
+ 4172      676E6564 
+ 4172      20636861 
+ 4172      7200
+ 4173              	.LASF132:
+ 4174 08a4 55415254 		.ascii	"UART_UNINIT\000"
+ 4174      5F554E49 
+ 4174      4E495400 
+ 4175              	.LASF8:
+ 4176 08b0 5F5F7569 		.ascii	"__uint32_t\000"
+ 4176      6E743332 
+ 4176      5F7400
+ 4177              	.LASF72:
+ 4178 08bb 76697274 		.ascii	"virtual_timers_list_t\000"
+ 4178      75616C5F 
+ 4178      74696D65 
+ 4178      72735F6C 
+ 4178      6973745F 
+ 4179              	.LASF40:
+ 4180 08d1 705F7265 		.ascii	"p_refs\000"
+ 4180      667300
+ 4181              	.LASF77:
+ 4182 08d8 70616E69 		.ascii	"panic_msg\000"
+ 4182      635F6D73 
+ 4182      6700
+ 4183              	.LASF202:
+ 4184 08e2 63685468 		.ascii	"chThdSleep\000"
+ 4184      64536C65 
+ 4184      657000
+ 4185              	.LASF41:
+ 4186 08ed 705F7072 		.ascii	"p_preempt\000"
+ 4186      65656D70 
+ 4186      7400
+ 4187              	.LASF183:
+ 4188 08f7 6170705F 		.ascii	"app_uartcomm_start\000"
+ 4188      75617274 
+ 4188      636F6D6D 
+ 4188      5F737461 
+ 4188      727400
+ 4189              	.LASF146:
+ 4190 090a 73746174 		.ascii	"state\000"
+ 4190      6500
+ 4191              	.LASF140:
+ 4192 0910 55415254 		.ascii	"UART_RX_IDLE\000"
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 82
+
+
+ 4192      5F52585F 
+ 4192      49444C45 
+ 4192      00
+ 4193              	.LASF67:
+ 4194 091d 76745F6E 		.ascii	"vt_next\000"
+ 4194      65787400 
+ 4195              	.LASF184:
+ 4196 0925 6170705F 		.ascii	"app_uartcomm_configure\000"
+ 4196      75617274 
+ 4196      636F6D6D 
+ 4196      5F636F6E 
+ 4196      66696775 
+ 4197              	.LASF206:
+ 4198 093c 5F70616C 		.ascii	"_pal_lld_setgroupmode\000"
+ 4198      5F6C6C64 
+ 4198      5F736574 
+ 4198      67726F75 
+ 4198      706D6F64 
+ 4199              	.LASF78:
+ 4200 0952 63685F73 		.ascii	"ch_system_t\000"
+ 4200      79737465 
+ 4200      6D5F7400 
+ 4201              	.LASF100:
+ 4202 095e 77747472 		.ascii	"wttrp\000"
+ 4202      7000
+ 4203              	.LASF204:
+ 4204 0964 7061636B 		.ascii	"packet_init\000"
+ 4204      65745F69 
+ 4204      6E697400 
+ 4205              	.LASF110:
+ 4206 0970 6D5F6E65 		.ascii	"m_next\000"
+ 4206      787400
+ 4207              	.LASF0:
+ 4208 0977 7369676E 		.ascii	"signed char\000"
+ 4208      65642063 
+ 4208      68617200 
+ 4209              	.LASF137:
+ 4210 0983 55415254 		.ascii	"UART_TX_ACTIVE\000"
+ 4210      5F54585F 
+ 4210      41435449 
+ 4210      564500
+ 4211              	.LASF36:
+ 4212 0992 705F6F6C 		.ascii	"p_older\000"
+ 4212      64657200 
+ 4213              	.LASF5:
+ 4214 099a 73686F72 		.ascii	"short unsigned int\000"
+ 4214      7420756E 
+ 4214      7369676E 
+ 4214      65642069 
+ 4214      6E7400
+ 4215              	.LASF60:
+ 4216 09ad 725F6374 		.ascii	"r_ctx\000"
+ 4216      7800
+ 4217              	.LASF92:
+ 4218 09b3 73746B61 		.ascii	"stkalign_t\000"
+ 4218      6C69676E 
+ 4218      5F7400
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 83
+
+
+ 4219              	.LASF213:
+ 4220 09be 6D656D63 		.ascii	"memcpy\000"
+ 4220      707900
+ 4221              	.LASF211:
+ 4222 09c5 63685468 		.ascii	"chThdGetSelfX\000"
+ 4222      64476574 
+ 4222      53656C66 
+ 4222      5800
+ 4223              	.LASF70:
+ 4224 09d3 76745F66 		.ascii	"vt_func\000"
+ 4224      756E6300 
+ 4225              	.LASF166:
+ 4226 09db 706F7274 		.ascii	"port_unlock\000"
+ 4226      5F756E6C 
+ 4226      6F636B00 
+ 4227              	.LASF68:
+ 4228 09e7 76745F70 		.ascii	"vt_prev\000"
+ 4228      72657600 
+ 4229              	.LASF196:
+ 4230 09ef 63684576 		.ascii	"chEvtWaitAny\000"
+ 4230      74576169 
+ 4230      74416E79 
+ 4230      00
+ 4231              	.LASF133:
+ 4232 09fc 55415254 		.ascii	"UART_STOP\000"
+ 4232      5F53544F 
+ 4232      5000
+ 4233              	.LASF155:
+ 4234 0a06 75617274 		.ascii	"uartcb_t\000"
+ 4234      63625F74 
+ 4234      00
+ 4235              	.LASF58:
+ 4236 0a0f 725F7175 		.ascii	"r_queue\000"
+ 4236      65756500 
+ 4237              	.LASF98:
+ 4238 0a17 65786974 		.ascii	"exitcode\000"
+ 4238      636F6465 
+ 4238      00
+ 4239              	.LASF118:
+ 4240 0a20 73656C66 		.ascii	"selfindex\000"
+ 4240      696E6465 
+ 4240      7800
+ 4241              	.LASF127:
+ 4242 0a2a 4C434B52 		.ascii	"LCKR\000"
+ 4242      00
+ 4243              	.LASF154:
+ 4244 0a2f 72786275 		.ascii	"rxbuf\000"
+ 4244      6600
+ 4245              	.LASF115:
+ 4246 0a35 73747265 		.ascii	"stream\000"
+ 4246      616D00
+ 4247              	.LASF177:
+ 4248 0a3c 72786572 		.ascii	"rxerr\000"
+ 4248      7200
+ 4249              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160919 (release) [ARM/embedded-5-bran
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 84
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 app_uartcomm.c
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:22     .text.rxerr:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:27     .text.rxerr:00000000 rxerr
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:41     .text.rxend:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:46     .text.rxend:00000000 rxend
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:59     .text.packet_process_thread:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:64     .text.packet_process_thread:00000000 packet_process_thread
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:141    .text.packet_process_thread:00000048 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:151    .text.rxchar:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:156    .text.rxchar:00000000 rxchar
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:229    .text.rxchar:00000030 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:241    .text.process_packet:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:246    .text.process_packet:00000000 process_packet
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:284    .text.process_packet:00000018 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:294    .text.send_packet_wrapper:00000000 send_packet_wrapper
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:289    .text.send_packet_wrapper:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:310    .text.send_packet:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:315    .text.send_packet:00000000 send_packet
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:372    .text.send_packet:00000034 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:378    .text.txend2:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:383    .text.txend2:00000000 txend2
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:394    .text.txend1:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:399    .text.txend1:00000000 txend1
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:410    .text.app_uartcomm_start:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:416    .text.app_uartcomm_start:00000000 app_uartcomm_start
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:482    .text.app_uartcomm_start:0000004c $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:494    .text.app_uartcomm_configure:00000000 $t
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:500    .text.app_uartcomm_configure:00000000 app_uartcomm_configure
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:528    .text.app_uartcomm_configure:00000014 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:535    .bss.serial_rx_write_pos:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:539    .bss.serial_rx_write_pos:00000000 serial_rx_write_pos
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:542    .bss.is_running:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:546    .bss.is_running:00000000 is_running
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:549    .data.uart_cfg:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:553    .data.uart_cfg:00000000 uart_cfg
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:565    .bss.buffer.9683:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:569    .bss.buffer.9683:00000000 buffer.9683
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:572    .bss.packet_process_thread_wa:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:576    .bss.packet_process_thread_wa:00000000 packet_process_thread_wa
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:579    .bss.serial_rx_buffer:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:583    .bss.serial_rx_buffer:00000000 serial_rx_buffer
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:586    .rodata.str1.4:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:590    .bss.serial_rx_read_pos:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:594    .bss.serial_rx_read_pos:00000000 serial_rx_read_pos
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:597    .bss.process_tp:00000000 $d
+C:\Users\euanm\AppData\Local\Temp\ccIomInV.s:601    .bss.process_tp:00000000 process_tp
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+chEvtWaitAny
+packet_process_byte
+ch
+chEvtSignalI
+commands_set_send_func
+commands_process_packet
+packet_send_packet
+ARM GAS  C:\Users\euanm\AppData\Local\Temp\ccIomInV.s 			page 85
+
+
+chThdSleep
+memcpy
+uartStartSend
+UARTD6
+packet_init
+uartStart
+_pal_lld_setgroupmode
+chThdCreateStatic

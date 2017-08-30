@@ -31,7 +31,7 @@
 #include "comm_usb.h"
 #include "ledpwm.h"
 #include "terminal.h"
-#include "hw.h"fault
+#include "hw.h"
 #include "app.h"
 #include "packet.h"
 #include "commands.h"

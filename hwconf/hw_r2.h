@@ -26,7 +26,11 @@
 #define HW_R2_H_
 
 // Macros
-
+#define ENABLE_GATE()			palSetPad(GPIOC, 9)
+#define DISABLE_GATE()			palClearPad(GPIOC, 9)
+#define DCCAL_ON()				palSetPad(GPIOB, 12)
+#define DCCAL_OFF()				palClearPad(GPIOB, 12)
+#define IS_DRV_FAULT()			(!palReadPad(GPIOC, 12))
 
 #define LED_GREEN_ON()			palSetPad(GPIOB, 6)
 #define LED_GREEN_OFF()			palClearPad(GPIOB, 6)
