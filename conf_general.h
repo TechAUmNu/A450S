@@ -38,10 +38,10 @@
 
 // Settings and parameters to override
 //#define VIN_R1				33000.0
-#define VIN_R1				39000.0
+#define VIN_R1				68000.0
 //#define VIN_R2				2200.0
 //#define CURRENT_AMP_GAIN	10.0
-//#define CURRENT_SHUNT_RES	0.0005
+#define CURRENT_SHUNT_RES	0.0001
 //#define WS2811_ENABLE			1
 //#define CURR1_DOUBLE_SAMPLE		0
 //#define CURR2_DOUBLE_SAMPLE		0
