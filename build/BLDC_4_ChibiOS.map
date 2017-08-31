@@ -847,7 +847,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/servo.o
  .debug_line    0x00000000      0x1ea build/obj/servo.o
- .debug_str     0x00000000      0x585 build/obj/servo.o
+ .debug_str     0x00000000      0x589 build/obj/servo.o
  .comment       0x00000000       0x6f build/obj/servo.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/servo.o
@@ -859,7 +859,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/servo_simple.o
  .debug_line    0x00000000      0x1ea build/obj/servo_simple.o
- .debug_str     0x00000000      0x58c build/obj/servo_simple.o
+ .debug_str     0x00000000      0x590 build/obj/servo_simple.o
  .comment       0x00000000       0x6f build/obj/servo_simple.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/servo_simple.o
@@ -919,7 +919,7 @@ Discarded input sections
                 0x00000000       0x40 build/obj/ws2811.o
  .debug_ranges  0x00000000       0x60 build/obj/ws2811.o
  .debug_line    0x00000000      0x4ee build/obj/ws2811.o
- .debug_str     0x00000000      0x9fa build/obj/ws2811.o
+ .debug_str     0x00000000      0x9fe build/obj/ws2811.o
  .comment       0x00000000       0x6f build/obj/ws2811.o
  .debug_frame   0x00000000       0xb4 build/obj/ws2811.o
  .ARM.attributes
@@ -983,7 +983,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_40.o
  .debug_line    0x00000000      0x1ea build/obj/hw_40.o
- .debug_str     0x00000000      0x58c build/obj/hw_40.o
+ .debug_str     0x00000000      0x590 build/obj/hw_40.o
  .comment       0x00000000       0x6f build/obj/hw_40.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_40.o
@@ -995,7 +995,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_45.o
  .debug_line    0x00000000      0x1ea build/obj/hw_45.o
- .debug_str     0x00000000      0x58c build/obj/hw_45.o
+ .debug_str     0x00000000      0x590 build/obj/hw_45.o
  .comment       0x00000000       0x6f build/obj/hw_45.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_45.o
@@ -1007,7 +1007,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_r2.o
  .debug_line    0x00000000      0x1ea build/obj/hw_r2.o
- .debug_str     0x00000000      0x58c build/obj/hw_r2.o
+ .debug_str     0x00000000      0x590 build/obj/hw_r2.o
  .comment       0x00000000       0x6f build/obj/hw_r2.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_r2.o
@@ -1019,7 +1019,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_46.o
  .debug_line    0x00000000      0x1ea build/obj/hw_46.o
- .debug_str     0x00000000      0x58c build/obj/hw_46.o
+ .debug_str     0x00000000      0x590 build/obj/hw_46.o
  .comment       0x00000000       0x6f build/obj/hw_46.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_46.o
@@ -1031,7 +1031,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_48.o
  .debug_line    0x00000000      0x1ea build/obj/hw_48.o
- .debug_str     0x00000000      0x58c build/obj/hw_48.o
+ .debug_str     0x00000000      0x590 build/obj/hw_48.o
  .comment       0x00000000       0x6f build/obj/hw_48.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_48.o
@@ -1043,7 +1043,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_49.o
  .debug_line    0x00000000      0x1ea build/obj/hw_49.o
- .debug_str     0x00000000      0x58c build/obj/hw_49.o
+ .debug_str     0x00000000      0x590 build/obj/hw_49.o
  .comment       0x00000000       0x6f build/obj/hw_49.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_49.o
@@ -1060,7 +1060,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/hw_victor_r1a.o
  .debug_line    0x00000000      0x1ea build/obj/hw_victor_r1a.o
- .debug_str     0x00000000      0x594 build/obj/hw_victor_r1a.o
+ .debug_str     0x00000000      0x598 build/obj/hw_victor_r1a.o
  .comment       0x00000000       0x6f build/obj/hw_victor_r1a.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_victor_r1a.o
@@ -1081,7 +1081,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 build/obj/app_sten.o
  .debug_line    0x00000000      0x1ea build/obj/app_sten.o
- .debug_str     0x00000000      0x595 build/obj/app_sten.o
+ .debug_str     0x00000000      0x599 build/obj/app_sten.o
  .comment       0x00000000       0x6f build/obj/app_sten.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/app_sten.o
@@ -6937,7 +6937,7 @@ OUTPUT(build/BLDC_4_ChibiOS.elf elf32-littlearm)
  .debug_line    0x00018be8      0xbd9 build/obj/stm32f4xx_tim.o
  .debug_line    0x000197c1      0x265 build/obj/stm32f4xx_wwdg.o
 
-.debug_str      0x00000000     0xc777
+.debug_str      0x00000000     0xc796
  .debug_str     0x00000000      0x204 build/obj/crt1.o
                                 0x240 (size before relaxing)
  .debug_str     0x00000204      0x16a build/obj/vectors.o
@@ -7014,87 +7014,87 @@ OUTPUT(build/BLDC_4_ChibiOS.elf elf32-littlearm)
                                 0x673 (size before relaxing)
  .debug_str     0x00004260      0x4bd build/obj/syscalls.o
                                 0xafb (size before relaxing)
- .debug_str     0x0000471d     0x143a build/obj/main.o
-                               0x1b8b (size before relaxing)
- .debug_str     0x00005b57      0x166 build/obj/comm_usb_serial.o
+ .debug_str     0x0000471d     0x1459 build/obj/main.o
+                               0x1b8f (size before relaxing)
+ .debug_str     0x00005b76      0x166 build/obj/comm_usb_serial.o
                                 0xfc3 (size before relaxing)
- .debug_str     0x00005cbd      0x145 build/obj/irq_handlers.o
-                                0x714 (size before relaxing)
- .debug_str     0x00005e02       0xfd build/obj/buffer.o
+ .debug_str     0x00005cdc      0x145 build/obj/irq_handlers.o
+                                0x718 (size before relaxing)
+ .debug_str     0x00005e21       0xfd build/obj/buffer.o
                                 0x334 (size before relaxing)
- .debug_str     0x00005eff      0x130 build/obj/comm_usb.o
-                                0xf88 (size before relaxing)
- .debug_str     0x0000602f      0x166 build/obj/crc.o
+ .debug_str     0x00005f1e      0x130 build/obj/comm_usb.o
+                                0xf8c (size before relaxing)
+ .debug_str     0x0000604e      0x166 build/obj/crc.o
                                 0x19d (size before relaxing)
- .debug_str     0x00006195       0xf9 build/obj/digital_filter.o
+ .debug_str     0x000061b4       0xf9 build/obj/digital_filter.o
                                 0x33a (size before relaxing)
- .debug_str     0x0000628e       0x5b build/obj/ledpwm.o
-                                0x680 (size before relaxing)
- .debug_str     0x000062e9     0x13f6 build/obj/mcpwm.o
-                               0x2b28 (size before relaxing)
- .debug_str     0x000076df      0x13a build/obj/servo_dec.o
-                                0x985 (size before relaxing)
- .debug_str     0x00007819      0x1be build/obj/utils.o
+ .debug_str     0x000062ad       0x5b build/obj/ledpwm.o
+                                0x684 (size before relaxing)
+ .debug_str     0x00006308     0x13f6 build/obj/mcpwm.o
+                               0x2b2c (size before relaxing)
+ .debug_str     0x000076fe      0x13a build/obj/servo_dec.o
+                                0x989 (size before relaxing)
+ .debug_str     0x00007838      0x1be build/obj/utils.o
                                 0x87a (size before relaxing)
- .debug_str     0x000079d7       0x9e build/obj/packet.o
+ .debug_str     0x000079f6       0x9e build/obj/packet.o
                                 0x2f3 (size before relaxing)
- .debug_str     0x00007a75      0x3ee build/obj/terminal.o
-                               0x150d (size before relaxing)
- .debug_str     0x00007e63      0x2ac build/obj/conf_general.o
-                               0x1c10 (size before relaxing)
- .debug_str     0x0000810f      0x178 build/obj/eeprom.o
-                                0x819 (size before relaxing)
- .debug_str     0x00008287      0xa27 build/obj/commands.o
-                               0x2852 (size before relaxing)
- .debug_str     0x00008cae       0x3f build/obj/timeout.o
-                                0x773 (size before relaxing)
- .debug_str     0x00008ced      0x40e build/obj/comm_can.o
-                               0x10ff (size before relaxing)
- .debug_str     0x000090fb      0x19a build/obj/led_external.o
-                                0x8e4 (size before relaxing)
- .debug_str     0x00009295      0x25a build/obj/encoder.o
-                                0xf11 (size before relaxing)
- .debug_str     0x000094ef       0x9e build/obj/flash_helper.o
-                               0x11d4 (size before relaxing)
- .debug_str     0x0000958d      0x823 build/obj/mc_interface.o
-                               0x2228 (size before relaxing)
- .debug_str     0x00009db0      0x6ed build/obj/mcpwm_foc.o
-                               0x2b02 (size before relaxing)
- .debug_str     0x0000a49d       0x9f build/obj/hw_410.o
-                                0x960 (size before relaxing)
- .debug_str     0x0000a53c       0xd7 build/obj/app.o
-                               0x108f (size before relaxing)
- .debug_str     0x0000a613      0x1c5 build/obj/app_ppm.o
-                               0x17b8 (size before relaxing)
- .debug_str     0x0000a7d8       0xb3 build/obj/app_adc.o
-                               0x1490 (size before relaxing)
- .debug_str     0x0000a88b       0x67 build/obj/app_uartcomm.o
-                                0xa42 (size before relaxing)
- .debug_str     0x0000a8f2      0x155 build/obj/app_nunchuk.o
-                               0x17fc (size before relaxing)
- .debug_str     0x0000aa47       0x58 build/obj/spi_sw.o
-                                0x67e (size before relaxing)
- .debug_str     0x0000aa9f      0x2c9 build/obj/rf.o
-                                0xae4 (size before relaxing)
- .debug_str     0x0000ad68      0x107 build/obj/rfhelp.o
+ .debug_str     0x00007a94      0x3ee build/obj/terminal.o
+                               0x1511 (size before relaxing)
+ .debug_str     0x00007e82      0x2ac build/obj/conf_general.o
+                               0x1c14 (size before relaxing)
+ .debug_str     0x0000812e      0x178 build/obj/eeprom.o
+                                0x81d (size before relaxing)
+ .debug_str     0x000082a6      0xa27 build/obj/commands.o
+                               0x2856 (size before relaxing)
+ .debug_str     0x00008ccd       0x3f build/obj/timeout.o
+                                0x777 (size before relaxing)
+ .debug_str     0x00008d0c      0x40e build/obj/comm_can.o
+                               0x1103 (size before relaxing)
+ .debug_str     0x0000911a      0x19a build/obj/led_external.o
+                                0x8e8 (size before relaxing)
+ .debug_str     0x000092b4      0x25a build/obj/encoder.o
+                                0xf15 (size before relaxing)
+ .debug_str     0x0000950e       0x9e build/obj/flash_helper.o
+                               0x11d8 (size before relaxing)
+ .debug_str     0x000095ac      0x823 build/obj/mc_interface.o
+                               0x222c (size before relaxing)
+ .debug_str     0x00009dcf      0x6ed build/obj/mcpwm_foc.o
+                               0x2b06 (size before relaxing)
+ .debug_str     0x0000a4bc       0x9f build/obj/hw_410.o
+                                0x964 (size before relaxing)
+ .debug_str     0x0000a55b       0xd7 build/obj/app.o
+                               0x1093 (size before relaxing)
+ .debug_str     0x0000a632      0x1c5 build/obj/app_ppm.o
+                               0x17bc (size before relaxing)
+ .debug_str     0x0000a7f7       0xb3 build/obj/app_adc.o
+                               0x1494 (size before relaxing)
+ .debug_str     0x0000a8aa       0x67 build/obj/app_uartcomm.o
+                                0xa46 (size before relaxing)
+ .debug_str     0x0000a911      0x155 build/obj/app_nunchuk.o
+                               0x1800 (size before relaxing)
+ .debug_str     0x0000aa66       0x58 build/obj/spi_sw.o
+                                0x682 (size before relaxing)
+ .debug_str     0x0000aabe      0x2c9 build/obj/rf.o
+                                0xae8 (size before relaxing)
+ .debug_str     0x0000ad87      0x107 build/obj/rfhelp.o
                                 0xba2 (size before relaxing)
- .debug_str     0x0000ae6f      0x184 build/obj/nrf_driver.o
-                                0x8a6 (size before relaxing)
- .debug_str     0x0000aff3      0x3ba build/obj/stm32f4xx_adc.o
+ .debug_str     0x0000ae8e      0x184 build/obj/nrf_driver.o
+                                0x8aa (size before relaxing)
+ .debug_str     0x0000b012      0x3ba build/obj/stm32f4xx_adc.o
                                 0x8cd (size before relaxing)
- .debug_str     0x0000b3ad      0x1f7 build/obj/stm32f4xx_dma.o
+ .debug_str     0x0000b3cc      0x1f7 build/obj/stm32f4xx_dma.o
                                 0x5e6 (size before relaxing)
- .debug_str     0x0000b5a4       0x9b build/obj/stm32f4xx_exti.o
+ .debug_str     0x0000b5c3       0x9b build/obj/stm32f4xx_exti.o
                                 0x3dc (size before relaxing)
- .debug_str     0x0000b63f      0x351 build/obj/stm32f4xx_flash.o
+ .debug_str     0x0000b65e      0x351 build/obj/stm32f4xx_flash.o
                                 0x71a (size before relaxing)
- .debug_str     0x0000b990      0x496 build/obj/stm32f4xx_rcc.o
+ .debug_str     0x0000b9af      0x496 build/obj/stm32f4xx_rcc.o
                                 0x887 (size before relaxing)
- .debug_str     0x0000be26      0x156 build/obj/stm32f4xx_syscfg.o
+ .debug_str     0x0000be45      0x156 build/obj/stm32f4xx_syscfg.o
                                 0x3d7 (size before relaxing)
- .debug_str     0x0000bf7c      0x776 build/obj/stm32f4xx_tim.o
+ .debug_str     0x0000bf9b      0x776 build/obj/stm32f4xx_tim.o
                                 0xdfa (size before relaxing)
- .debug_str     0x0000c6f2       0x85 build/obj/stm32f4xx_wwdg.o
+ .debug_str     0x0000c711       0x85 build/obj/stm32f4xx_wwdg.o
                                 0x340 (size before relaxing)
 
 .debug_frame    0x00000000     0x92cc
