@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
-#ifndef HW_410_H_
-#define HW_410_H_
+#ifndef HW_A200S_H_
+#define HW_A200S_H_
 
 
 // Macros

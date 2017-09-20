@@ -1064,26 +1064,6 @@ Discarded input sections
  .comment       0x00000000       0x6f build/obj/hw_victor_r1a.o
  .ARM.attributes
                 0x00000000       0x39 build/obj/hw_victor_r1a.o
- .text          0x00000000        0x0 build/obj/hw_a450s.o
- .data          0x00000000        0x0 build/obj/hw_a450s.o
- .bss           0x00000000        0x0 build/obj/hw_a450s.o
- .debug_info    0x00000000      0x727 build/obj/hw_a450s.o
- .debug_abbrev  0x00000000      0x125 build/obj/hw_a450s.o
- .debug_aranges
-                0x00000000       0x18 build/obj/hw_a450s.o
- .debug_line    0x00000000      0x1ea build/obj/hw_a450s.o
- .debug_str     0x00000000      0x581 build/obj/hw_a450s.o
- .comment       0x00000000       0x6f build/obj/hw_a450s.o
- .ARM.attributes
-                0x00000000       0x39 build/obj/hw_a450s.o
- .text          0x00000000        0x0 build/obj/hw_a200s.o
- .data          0x00000000        0x0 build/obj/hw_a200s.o
- .bss           0x00000000        0x0 build/obj/hw_a200s.o
- .debug_line    0x00000000        0x0 build/obj/hw_a200s.o
- .debug_str     0x00000000      0x143 build/obj/hw_a200s.o
- .comment       0x00000000       0x6f build/obj/hw_a200s.o
- .ARM.attributes
-                0x00000000       0x39 build/obj/hw_a200s.o
  .text          0x00000000        0x0 build/obj/app.o
  .data          0x00000000        0x0 build/obj/app.o
  .bss           0x00000000        0x0 build/obj/app.o
@@ -2041,8 +2021,6 @@ LOAD build/obj/hw_48.o
 LOAD build/obj/hw_49.o
 LOAD build/obj/hw_410.o
 LOAD build/obj/hw_victor_r1a.o
-LOAD build/obj/hw_a450s.o
-LOAD build/obj/hw_a200s.o
 LOAD build/obj/app.o
 LOAD build/obj/app_ppm.o
 LOAD build/obj/app_adc.o
