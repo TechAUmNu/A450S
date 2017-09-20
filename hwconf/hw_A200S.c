@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+/*
 #include "hw.h"
 #ifdef HW_VERSION_A200S
 
@@ -183,10 +183,11 @@ void hw_stop_i2c(void) {
 
 	i2cReleaseBus(&HW_I2C_DEV);
 }
-
+*/
 /**
  * Try to restore the i2c bus
  */
+ /*
 void hw_try_restore_i2c(void) {
 	if (i2c_running) {
 		i2cAcquireBus(&HW_I2C_DEV);
@@ -242,3 +243,4 @@ void hw_try_restore_i2c(void) {
 }
 
 #endif
+*/

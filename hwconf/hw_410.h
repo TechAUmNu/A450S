@@ -18,6 +18,7 @@
 #ifndef HW_410_H_
 #define HW_410_H_
 
+
 // Macros
 #define ENABLE_GATE()			palSetPad(GPIOC, 10)
 #define DISABLE_GATE()			palClearPad(GPIOC, 10)
@@ -75,16 +76,16 @@
 //#define V_REG				3.3
 #endif
 #ifndef VIN_R1
-#define VIN_R1				39000.0
+#define VIN_R1				68000.0
 #endif
 #ifndef VIN_R2
 #define VIN_R2				2200.0
 #endif
 #ifndef CURRENT_AMP_GAIN
-#define CURRENT_AMP_GAIN	10.0
+#define CURRENT_AMP_GAIN	20.0
 #endif
 #ifndef CURRENT_SHUNT_RES
-#define CURRENT_SHUNT_RES	0.001
+#define CURRENT_SHUNT_RES	0.0001
 #endif
 
 // Input voltage
@@ -183,5 +184,12 @@
 #define READ_HALL1()			palReadPad(HW_HALL_ENC_GPIO1, HW_HALL_ENC_PIN1)
 #define READ_HALL2()			palReadPad(HW_HALL_ENC_GPIO2, HW_HALL_ENC_PIN2)
 #define READ_HALL3()			palReadPad(HW_HALL_ENC_GPIO3, HW_HALL_ENC_PIN3)
+
+// Limits
+//#define MCCONF_L_CURRENT_MAX			200.0	// Current limit in Amperes (Upper)
+//#define MCCONF_L_CURRENT_MIN			-200.0	// Current limit in Amperes (Lower)
+//#define MCCONF_L_IN_CURRENT_MAX			150.0	// Input current limit in Amperes (Upper)
+//#define MCCONF_L_IN_CURRENT_MIN			0.0	// Input current limit in Amperes (Lower)
+//#define MCCONF_L_MAX_ABS_CURRENT		300.0	// The maximum absolute current above which a fault is generated
 
 #endif /* HW_410_H_ */

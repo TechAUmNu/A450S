@@ -118,7 +118,7 @@ build/obj/main.o: main.c ChibiOS_3.0.2/os/rt/include/ch.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\alloca.h \
  mc_interface.h conf_general.h datatypes.h mcpwm.h mcpwm_foc.h ledpwm.h \
  comm_usb.h terminal.h hwconf/hw.h conf_general.h stm32f4xx_conf.h \
- hwconf/hw_A200S.h applications/app.h packet.h commands.h timeout.h \
+ hwconf/hw_a200s.h applications/app.h packet.h commands.h timeout.h \
  ChibiOS_3.0.2/os/rt/include/chsystypes.h comm_can.h ws2811.h \
  led_external.h encoder.h servo.h \
  ChibiOS_3.0.2/os/ext/CMSIS/ST/stm32f407xx.h servo_simple.h utils.h
@@ -415,7 +415,7 @@ conf_general.h:
 
 stm32f4xx_conf.h:
 
-hwconf/hw_A200S.h:
+hwconf/hw_a200s.h:
 
 applications/app.h:
 

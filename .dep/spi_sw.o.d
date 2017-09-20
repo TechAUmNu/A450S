@@ -51,7 +51,7 @@ build/obj/spi_sw.o: nrf/spi_sw.c nrf/spi_sw.h hwconf/hw.h conf_general.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
- hwconf/hw_A200S.h ChibiOS_3.0.2/os/hal/include/hal.h \
+ hwconf/hw_a200s.h ChibiOS_3.0.2/os/hal/include/hal.h \
  ChibiOS_3.0.2/os/hal/osal/rt/osal.h halconf.h mcuconf.h \
  ChibiOS_3.0.2/os/hal/ports/STM32/STM32F4xx/hal_lld.h \
  ChibiOS_3.0.2/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
@@ -213,7 +213,7 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_A200S.h:
+hwconf/hw_a200s.h:
 
 ChibiOS_3.0.2/os/hal/include/hal.h:
 

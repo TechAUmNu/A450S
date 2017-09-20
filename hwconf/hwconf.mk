@@ -6,7 +6,7 @@ HWSRC =	hwconf/hw_40.c \
 	hwconf/hw_49.c \
 	hwconf/hw_410.c \
 	hwconf/hw_victor_r1a.c \
-	hwconf/hw_A450S.c \
-	hwconf/hw_A200S.c
+	hwconf/hw_a450s.c \
+	hwconf/hw_a200s.c
 
 HWINC = hwconf

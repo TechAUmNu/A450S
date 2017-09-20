@@ -88,7 +88,7 @@ build/obj/encoder.o: encoder.c encoder.h conf_general.h datatypes.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw.h \
- conf_general.h stm32f4xx_conf.h hwconf/hw_A200S.h utils.h
+ conf_general.h stm32f4xx_conf.h hwconf/hw_a200s.h utils.h
 
 encoder.h:
 
@@ -314,6 +314,6 @@ conf_general.h:
 
 stm32f4xx_conf.h:
 
-hwconf/hw_A200S.h:
+hwconf/hw_a200s.h:
 
 utils.h:

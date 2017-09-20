@@ -89,7 +89,7 @@ build/obj/terminal.o: terminal.c ChibiOS_3.0.2/os/rt/include/ch.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
- hwconf/hw_A200S.h comm_can.h utils.h timeout.h \
+ hwconf/hw_a200s.h comm_can.h utils.h timeout.h \
  ChibiOS_3.0.2/os/rt/include/chsystypes.h encoder.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\_ansi.h \
@@ -350,7 +350,7 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_A200S.h:
+hwconf/hw_a200s.h:
 
 comm_can.h:
 

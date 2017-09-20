@@ -89,7 +89,7 @@ build/obj/servo_dec.o: servo_dec.c servo_dec.h \
  ChibiOS_3.0.2/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
  ChibiOS_3.0.2/os/hal/include/mmc_spi.h \
  ChibiOS_3.0.2/os/hal/include/serial_usb.h hwconf/hw.h stm32f4xx_conf.h \
- hwconf/hw_A200S.h utils.h
+ hwconf/hw_a200s.h utils.h
 
 servo_dec.h:
 
@@ -313,6 +313,6 @@ hwconf/hw.h:
 
 stm32f4xx_conf.h:
 
-hwconf/hw_A200S.h:
+hwconf/hw_a200s.h:
 
 utils.h:

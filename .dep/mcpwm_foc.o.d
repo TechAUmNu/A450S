@@ -89,7 +89,7 @@ build/obj/mcpwm_foc.o: mcpwm_foc.c mcpwm_foc.h conf_general.h datatypes.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
  digital_filter.h utils.h ledpwm.h hwconf/hw.h conf_general.h \
- stm32f4xx_conf.h hwconf/hw_A200S.h terminal.h encoder.h commands.h \
+ stm32f4xx_conf.h hwconf/hw_a200s.h terminal.h encoder.h commands.h \
  timeout.h ChibiOS_3.0.2/os/rt/include/chsystypes.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\math.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\reent.h \
@@ -341,7 +341,7 @@ conf_general.h:
 
 stm32f4xx_conf.h:
 
-hwconf/hw_A200S.h:
+hwconf/hw_a200s.h:
 
 terminal.h:
 
