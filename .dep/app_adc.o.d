@@ -90,7 +90,7 @@ build/obj/app_adc.o: applications/app_adc.c applications/app.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h mc_interface.h \
  conf_general.h timeout.h ChibiOS_3.0.2/os/rt/include/chsystypes.h \
- utils.h comm_can.h hwconf/hw.h hwconf/hw_410.h \
+ utils.h comm_can.h hwconf/hw.h hwconf/hw_A200S.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\math.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\reent.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\_ansi.h \
@@ -335,7 +335,7 @@ comm_can.h:
 
 hwconf/hw.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
 
 c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\math.h:
 

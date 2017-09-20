@@ -88,9 +88,9 @@ build/obj/app_nunchuk.o: applications/app_nunchuk.c applications/app.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_rcc.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
- ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw_410.h \
- mc_interface.h conf_general.h commands.h utils.h timeout.h \
- ChibiOS_3.0.2/os/rt/include/chsystypes.h \
+ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
+ hwconf/hw_A200S.h mc_interface.h conf_general.h commands.h utils.h \
+ timeout.h ChibiOS_3.0.2/os/rt/include/chsystypes.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\newlib.h \
@@ -327,7 +327,7 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
 
 mc_interface.h:
 

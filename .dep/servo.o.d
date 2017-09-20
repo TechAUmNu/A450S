@@ -87,8 +87,9 @@ build/obj/servo.o: servo.c servo.h ChibiOS_3.0.2/os/rt/include/ch.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_rcc.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
- ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw_410.h \
- conf_general.h ChibiOS_3.0.2/os/ext/CMSIS/ST/stm32f407xx.h \
+ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
+ hwconf/hw_A200S.h conf_general.h \
+ ChibiOS_3.0.2/os/ext/CMSIS/ST/stm32f407xx.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\lib\gcc\arm-none-eabi\5.4.1\include\stdarg.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\stdlib.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\machine\ieeefp.h \
@@ -324,7 +325,7 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
 
 conf_general.h:
 

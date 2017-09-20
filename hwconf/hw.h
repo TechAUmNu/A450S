@@ -44,6 +44,10 @@
 #include "hw_r2.h"
 #elif defined HW_VERSION_VICTOR_R1A
 #include "hw_victor_r1a.h"
+#elif defined HW_VERSION_A450S
+#include "hw_A450S.h"
+#elif defined HW_VERSION_A200S
+#include "hw_A200S.h"
 #else
 #error "No hardware version defined"
 #endif

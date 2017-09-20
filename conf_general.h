@@ -38,10 +38,10 @@
 
 // Settings and parameters to override
 //#define VIN_R1				33000.0
-#define VIN_R1				68000.0
+//#define VIN_R1				68000.0
 //#define VIN_R2				2200.0
 //#define CURRENT_AMP_GAIN	10.0
-#define CURRENT_SHUNT_RES	0.0001
+//#define CURRENT_SHUNT_RES	0.0001
 //#define WS2811_ENABLE			1
 //#define CURR1_DOUBLE_SAMPLE		0
 //#define CURR2_DOUBLE_SAMPLE		0
@@ -51,15 +51,18 @@
  */
 #if !defined(HW_VERSION_40) && !defined(HW_VERSION_45) && !defined(HW_VERSION_46) && \
 	!defined(HW_VERSION_48) && !defined(HW_VERSION_49) && !defined(HW_VERSION_410) && \
-	!defined(HW_VERSION_R2) && !defined(HW_VERSION_VICTOR_R1A)
+	!defined(HW_VERSION_R2) && !defined(HW_VERSION_VICTOR_R1A) && !defined(HW_VERSION_A450S) && \
+	!defined(HW_VERSION_A200S)
 //#define HW_VERSION_40
 //#define HW_VERSION_45
 //#define HW_VERSION_46 // Also for 4.7
 //#define HW_VERSION_48
 //#define HW_VERSION_49
-#define HW_VERSION_410 // Also for 4.11 and 4.12
+//#define HW_VERSION_410 // Also for 4.11 and 4.12
 //#define HW_VERSION_R2
 //#define HW_VERSION_VICTOR_R1A
+//#define HW_VERSION_A450S
+#define HW_VERSION_A200S
 #endif
 
 /*

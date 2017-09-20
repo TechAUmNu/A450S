@@ -109,7 +109,7 @@ static volatile float last_inj_adc_isr_duration;
 static volatile float m_pos_pid_now;
 
 // Private functions
-static void do_dc_cal(void);
+//static void do_dc_cal(void);
 void observer_update(float v_alpha, float v_beta, float i_alpha, float i_beta,
 		float dt, volatile float *x1, volatile float *x2, volatile float *phase);
 static void pll_run(float phase, float dt, volatile float *phase_var,
@@ -411,9 +411,9 @@ void mcpwm_foc_init(volatile mc_configuration *configuration) {
 	utils_sys_unlock_cnt();
 
 	// Calibrate current offset
-	ENABLE_GATE();
-	DCCAL_OFF();
-	do_dc_cal();
+	//ENABLE_GATE();
+	//DCCAL_OFF();
+	//do_dc_cal();
 
 	// Various time measurements
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM12, ENABLE);
@@ -1043,7 +1043,7 @@ void mcpwm_foc_encoder_detect(float current, bool print, float *offset, float *r
 }
 
 /**
- * Lock the motor with a current and sample the voiltage and current to
+ * Lock the motor with a current and sample the voltage and current to
  * calculate the motor resistance.
  *
  * @param current
@@ -1784,8 +1784,9 @@ static THD_FUNCTION(timer_thread, arg) {
 
 }
 
-static void do_dc_cal(void) {
-	DCCAL_ON();
+// No DRV8302 on A200S and A450S so this is pointless
+/*static void do_dc_cal(void) {
+	//DCCAL_ON();
 	while(IS_DRV_FAULT()){};
 	chThdSleepMilliseconds(1000);
 	m_curr0_sum = 0;
@@ -1796,7 +1797,7 @@ static void do_dc_cal(void) {
 	m_curr1_offset = m_curr1_sum / m_curr_samples;
 	DCCAL_OFF();
 	m_dccal_done = true;
-}
+}*/
 
 // See http://cas.ensmp.fr/~praly/Telechargement/Journaux/2010-IEEE_TPEL-Lee-Hong-Nam-Ortega-Praly-Astolfi.pdf
 void observer_update(float v_alpha, float v_beta, float i_alpha, float i_beta,

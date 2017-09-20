@@ -51,7 +51,7 @@ build/obj/mc_interface.o: mc_interface.c mc_interface.h conf_general.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw.h \
- conf_general.h stm32f4xx_conf.h hwconf/hw_410.h terminal.h utils.h \
+ conf_general.h stm32f4xx_conf.h hwconf/hw_A200S.h terminal.h utils.h \
  ChibiOS_3.0.2/os/hal/include/hal.h ChibiOS_3.0.2/os/hal/osal/rt/osal.h \
  halconf.h mcuconf.h ChibiOS_3.0.2/os/hal/ports/STM32/STM32F4xx/hal_lld.h \
  ChibiOS_3.0.2/os/hal/ports/STM32/STM32F4xx/stm32_registry.h \
@@ -234,7 +234,7 @@ conf_general.h:
 
 stm32f4xx_conf.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
 
 terminal.h:
 

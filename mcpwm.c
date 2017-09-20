@@ -147,7 +147,7 @@ static void commutate(int steps);
 static void set_next_timer_settings(mc_timer_struct *settings);
 static void update_timer_attempt(void);
 static void set_switching_frequency(float frequency);
-static void do_dc_cal(void);
+//static void do_dc_cal(void);
 
 // Defines
 #define IS_DETECTING()			(state == MC_STATE_DETECTING)
@@ -425,9 +425,9 @@ void mcpwm_init(volatile mc_configuration *configuration) {
 	utils_sys_unlock_cnt();
 
 	// Calibrate current offset
-	ENABLE_GATE();
-	DCCAL_OFF();
-	do_dc_cal();
+	//ENABLE_GATE();
+	//DCCAL_OFF();
+	//do_dc_cal();
 
 	// Various time measurements
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM12, ENABLE);
@@ -521,7 +521,9 @@ void mcpwm_init_hall_table(int8_t *table) {
 	sensor_hyst_max = conf->hall_sl_erpm + sensor_hyst;
 }
 
-static void do_dc_cal(void) {
+
+// No DRV8302 on A200S and A450S so this is pointless
+/*static void do_dc_cal(void) {
 	DCCAL_ON();
 	while(IS_DRV_FAULT()){};
 	chThdSleepMilliseconds(1000);
@@ -533,7 +535,7 @@ static void do_dc_cal(void) {
 	curr1_offset = curr1_sum / curr_start_samples;
 	DCCAL_OFF();
 	dccal_done = true;
-}
+}*/
 
 /**
  * Use duty cycle control. Absolute values less than MCPWM_MIN_DUTY_CYCLE will

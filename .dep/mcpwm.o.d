@@ -118,7 +118,7 @@ build/obj/mcpwm.o: mcpwm.c ChibiOS_3.0.2/os/rt/include/ch.h \
  c:\program\ files\ (x86)\gnu\ tools\ arm\ embedded\5.4\ 2016q3\arm-none-eabi\include\sys\string.h \
  mcpwm.h conf_general.h datatypes.h mc_interface.h digital_filter.h \
  utils.h ledpwm.h hwconf/hw.h conf_general.h stm32f4xx_conf.h \
- hwconf/hw_410.h terminal.h encoder.h
+ hwconf/hw_A200S.h terminal.h encoder.h
 
 ChibiOS_3.0.2/os/rt/include/ch.h:
 
@@ -410,7 +410,7 @@ conf_general.h:
 
 stm32f4xx_conf.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
 
 terminal.h:
 

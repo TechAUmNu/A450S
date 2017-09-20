@@ -1229,19 +1229,21 @@ static THD_FUNCTION(timer_thread, arg) {
 	chRegSetThreadName("mcif timer");
 
 	for(;;) {
+		
+		// A200S and A450S do not have a DRV8302 so this is pointless.
 		// Check if the DRV8302 indicates any fault
-		if (IS_DRV_FAULT()) {
-			mc_interface_fault_stop(FAULT_CODE_DRV8302);
-		}
+		//if (IS_DRV_FAULT()) {
+		//	mc_interface_fault_stop(FAULT_CODE_DRV8302);
+		//}
 
 		// Decrease fault iterations
-		if (m_ignore_iterations > 0) {
-			m_ignore_iterations--;
-		} else {
-			if (!IS_DRV_FAULT()) {
-				m_fault_now = FAULT_CODE_NONE;
-			}
-		}
+		//if (m_ignore_iterations > 0) {
+		//	m_ignore_iterations--;
+		//} else {
+		//	if (!IS_DRV_FAULT()) {
+		//		m_fault_now = FAULT_CODE_NONE;
+		//	}
+		//}
 
 		update_override_limits(&m_conf);
 

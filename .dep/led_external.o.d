@@ -88,7 +88,8 @@ build/obj/led_external.o: led_external.c led_external.h datatypes.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_rcc.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
- ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw_410.h
+ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
+ hwconf/hw_A200S.h
 
 led_external.h:
 
@@ -318,4 +319,4 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:

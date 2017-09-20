@@ -88,8 +88,8 @@ build/obj/servo_simple.o: servo_simple.c servo_simple.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_rcc.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
- ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw_410.h \
- conf_general.h stm32f4xx_conf.h utils.h
+ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
+ hwconf/hw_A200S.h conf_general.h stm32f4xx_conf.h utils.h
 
 servo_simple.h:
 
@@ -311,7 +311,7 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
 
 conf_general.h:
 

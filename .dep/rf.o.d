@@ -51,7 +51,8 @@ build/obj/rf.o: nrf/rf.c nrf/rf.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_rcc.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_syscfg.h \
  ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h \
- ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h hwconf/hw_410.h
+ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h \
+ hwconf/hw_A200S.h
 
 nrf/rf.h:
 
@@ -179,4 +180,4 @@ ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h:
 
 ChibiOS_3.0.2/ext/stdperiph_stm32f4/inc/stm32f4xx_wwdg.h:
 
-hwconf/hw_410.h:
+hwconf/hw_A200S.h:
