@@ -1382,8 +1382,8 @@ void mcpwm_foc_adc_inj_int_handler(void) {
 	ADC_curr_norm_value[1] = curr1;
 	ADC_curr_norm_value[2] = -(ADC_curr_norm_value[0] + ADC_curr_norm_value[1]);
 
-	float ia = ADC_curr_norm_value[0] * (V_REG / 4095.0) / (CURRENT_SHUNT_RES * CURRENT_AMP_GAIN);
-	float ib = ADC_curr_norm_value[1] * (V_REG / 4095.0) / (CURRENT_SHUNT_RES * CURRENT_AMP_GAIN);
+	float ia = ADC_curr_norm_value[0] * (V_REG / 4095.0) / (0.002);
+	float ib = ADC_curr_norm_value[1] * (V_REG / 4095.0) / (0.002);
 //	float ic = -(ia + ib);
 
 	if (m_samples.measure_inductance_now) {

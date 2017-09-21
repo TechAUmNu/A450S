@@ -16,7 +16,7 @@
  */
 
 #include "hw.h"
-#ifdef HW_VERSION_A200S
+#ifdef HW_VERSION_410
 
 #include "ch.h"
 #include "hal.h"

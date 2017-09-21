@@ -38,7 +38,7 @@
 #include "hw_48.h"
 #elif defined HW_VERSION_49
 #include "hw_49.h"
-#elif defined HW_VERSION_A200S
+#elif defined HW_VERSION_410
 #include "hw_410.h"
 #elif defined HW_VERSION_R2
 #include "hw_r2.h"
